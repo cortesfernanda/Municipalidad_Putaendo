@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initHeroSlider();
     initSiteSearch();
     initMobileNav();
+    initNewsMonthFilter();
 });
 
 /* ==========================================================================
@@ -352,3 +353,62 @@ function initMobileNav() {
         });
     });
 }
+
+/* ==========================================================================
+   5. FILTRO DE MESES EN EL PORTAL DE NOTICIAS (noticias.html)
+   ========================================================================== */
+function initNewsMonthFilter() {
+    const dropdownBtn = document.getElementById('month-dropdown-btn');
+    const selectedText = document.getElementById('selected-month-text');
+    const options = document.querySelectorAll('.month-option');
+    const cards = document.querySelectorAll('.news-portal-card');
+
+    if (!dropdownBtn || !selectedText) return;
+
+    // Abrir/cerrar dropdown al hacer clic
+    dropdownBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = dropdownBtn.classList.contains('is-open');
+        dropdownBtn.classList.toggle('is-open', !isOpen);
+        dropdownBtn.setAttribute('aria-expanded', (!isOpen).toString());
+    });
+
+    // Cerrar al hacer clic fuera
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('#month-dropdown-btn')) {
+            dropdownBtn.classList.remove('is-open');
+            dropdownBtn.setAttribute('aria-expanded', 'false');
+        }
+    });
+
+    // Selección de mes
+    options.forEach((opt) => {
+        opt.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const monthVal = opt.getAttribute('data-month');
+            const monthLabel = opt.textContent.trim();
+
+            // Actualizar texto
+            selectedText.textContent = monthLabel;
+
+            // Actualizar clase activa en opciones
+            options.forEach((o) => o.classList.remove('active'));
+            opt.classList.add('active');
+
+            // Cerrar menú
+            dropdownBtn.classList.remove('is-open');
+            dropdownBtn.setAttribute('aria-expanded', 'false');
+
+            // Filtrar tarjetas
+            cards.forEach((card) => {
+                const cardMonth = card.getAttribute('data-month');
+                if (monthVal === 'todos' || cardMonth === monthVal) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+}
+

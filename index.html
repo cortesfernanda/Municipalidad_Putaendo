@@ -6,7 +6,8 @@
     <title>Ilustre Municipalidad de Putaendo | Sitio Oficial</title>
     <meta name="description" content="Sitio web oficial de la Ilustre Municipalidad de Putaendo. Información comunal, trámites en línea, noticias, portal de transparencia y servicios comunitarios.">
     
-    <!-- Google Fonts -->
+    <!-- Tipografía Proxima Nova -->
+    <link href="https://fonts.cdnfonts.com/css/proxima-nova" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -133,7 +134,7 @@
                             <i class="fa-solid fa-caret-down dropdown-arrow" aria-hidden="true"></i>
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a href="#noticias" class="dropdown-item">NOTICIAS COMUNALES</a></li>
+                            <li><a href="noticias.html" class="dropdown-item">NOTICIAS COMUNALES</a></li>
                             <li><a href="#avisos" class="dropdown-item">AVISOS Y EDICTOS</a></li>
                             <li><a href="#fondos" class="dropdown-item">FONDOS CONCURSABLES</a></li>
                         </ul>
@@ -280,83 +281,43 @@
         <section class="services-section" id="tramites" aria-labelledby="services-title">
             <div class="container">
                 <div class="section-header-centered">
-                    <h2 class="section-title" id="services-title">Trámites y Servicios</h2>
-                    <p class="section-subtitle">Realiza tus gestiones municipales de forma rápida, transparente y segura</p>
+                    <h2 class="section-title services-main-title" id="services-title">TRÁMITES Y SERVICIOS</h2>
                 </div>
 
                 <!-- Cuadrícula de 3 Tarjetas Blancas Destacadas -->
                 <div class="services-grid">
-                    <!-- Tarjeta 1: Permiso de Circulación -->
-                    <article class="service-card" id="tramite-permiso">
-                        <div class="service-card-header">
-                            <div class="service-icon-box">
-                                <i class="fa-solid fa-car-side" aria-hidden="true"></i>
-                            </div>
-                            <span class="service-badge">Pago en Línea</span>
+                    <!-- Tarjeta 1: Pagos online -->
+                    <div class="service-card" id="tramite-pagos">
+                        <div class="service-card-info">
+                            <h3 class="service-card-title">Pagos online</h3>
+                            <p class="service-card-desc">Transporte, propiedades,<br>lorem ipsum</p>
                         </div>
-                        <h3 class="service-card-title">Permiso de Circulación 2026</h3>
-                        <p class="service-card-text">
-                            Paga la segunda cuota de tu permiso, revisa el estado de multas impagas del Registro Civil y descarga tu certificado válido digitalmente.
-                        </p>
-                        <ul class="service-features-list">
-                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Pago con WebPay y tarjetas</li>
-                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Consulta de multas no pagadas</li>
-                        </ul>
-                        <div class="service-card-footer">
-                            <a href="https://muniputaendo.cl" target="_blank" rel="noopener noreferrer" class="btn-card-action">
-                                <span>Pagar en Línea</span>
-                                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-                            </a>
+                        <div class="service-card-icon-container">
+                            <img src="assets/icon-pagos.svg" alt="Pagos online" class="service-card-icon-img">
                         </div>
-                    </article>
+                    </div>
 
-                    <!-- Tarjeta 2: Solicitud de Audiencias / Ley de Lobby -->
-                    <article class="service-card" id="tramite-audiencias">
-                        <div class="service-card-header">
-                            <div class="service-icon-box">
-                                <i class="fa-solid fa-people-arrows" aria-hidden="true"></i>
-                            </div>
-                            <span class="service-badge">Atención Ciudadana</span>
+                    <!-- Tarjeta 2: Solicitudes y reclamos -->
+                    <div class="service-card" id="tramite-solicitudes">
+                        <div class="service-card-info">
+                            <h3 class="service-card-title">Solicitudes<br>y reclamos</h3>
+                            <p class="service-card-desc">Transporte, propiedades,<br>lorem ipsum</p>
                         </div>
-                        <h3 class="service-card-title">Solicitud de Audiencias</h3>
-                        <p class="service-card-text">
-                            Agenda reuniones con el Alcalde o Directores de departamentos bajo el marco de la Ley del Lobby (Ley N° 20.730) y audiencias públicas.
-                        </p>
-                        <ul class="service-features-list">
-                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Registro formal de audiencias</li>
-                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Seguimiento de respuestas</li>
-                        </ul>
-                        <div class="service-card-footer">
-                            <a href="https://www.leylobby.gob.cl" target="_blank" rel="noopener noreferrer" class="btn-card-action">
-                                <span>Solicitar Audiencia</span>
-                                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-                            </a>
+                        <div class="service-card-icon-container">
+                            <img src="assets/icon-solicitudes.svg" alt="Solicitudes y reclamos" class="service-card-icon-img">
                         </div>
-                    </article>
+                    </div>
 
-                    <!-- Tarjeta 3: Portal de Servicios Municipales -->
-                    <article class="service-card" id="tramite-servicios">
-                        <div class="service-card-header">
-                            <div class="service-icon-box">
-                                <i class="fa-solid fa-folder-open" aria-hidden="true"></i>
-                            </div>
-                            <span class="service-badge">Ventanilla Única</span>
+                    <!-- Tarjeta 3: Becas y beneficios -->
+                    <div class="service-card" id="tramite-becas">
+                        <div class="service-card-info">
+                            <h3 class="service-card-title">Becas y beneficios</h3>
+                            <p class="service-card-desc">Transporte, propiedades,<br>lorem ipsum</p>
                         </div>
-                        <h3 class="service-card-title">Portal de Servicios &amp; Certificados</h3>
-                        <p class="service-card-text">
-                            Accede a patentes comerciales, certificados de residencia, solicitudes de aseo y ornato, trámites de obras y asistencia social comunal.
-                        </p>
-                        <ul class="service-features-list">
-                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Certificados digitales inmediatos</li>
-                            <li><i class="fa-solid fa-check" aria-hidden="true"></i> Trámites de patentes y obras</li>
-                        </ul>
-                        <div class="service-card-footer">
-                            <a href="#portal-servicios" class="btn-card-action">
-                                <span>Ingresar al Portal</span>
-                                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-                            </a>
+                        <div class="service-card-icon-container">
+                            <img src="assets/icon-becas.svg" alt="Becas y beneficios" class="service-card-icon-img">
                         </div>
-                    </article>
+                    </div>
                 </div>
             </div>
         </section>
@@ -368,7 +329,6 @@
             <div class="container">
                 <div class="news-section-top">
                     <h2 class="section-title news-heading" id="news-title">Últimas Noticias</h2>
-                    <p class="news-intro">Actualidad, proyectos y actividades comunitarias en Putaendo</p>
                 </div>
 
                 <!-- Cuadrícula de 3 Noticias de la Maqueta -->
@@ -439,7 +399,7 @@
 
                 <!-- Enlace inferior "Más noticias >" como en la maqueta -->
                 <div class="news-footer-action">
-                    <a href="#todas-las-noticias" class="btn-more-news">
+                    <a href="noticias.html" class="btn-more-news">
                         <span>Más noticias</span>
                         <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
                     </a>
