@@ -12,10 +12,19 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ==========================================================================
-   1. MENÚS DESPLEGABLES (DROPDOWNS) ACCESIBLES
+   1. MENÚS DESPLEGABLES (DROPDOWNS) FLUIDOS Y ACCESIBLES
    ========================================================================== */
 function initNavigationDropdowns() {
     const dropdownItems = document.querySelectorAll('.nav-item.has-dropdown');
+    const mainNav = document.getElementById('main-nav');
+
+    function closeAllDropdowns() {
+        dropdownItems.forEach((item) => {
+            item.classList.remove('is-open');
+            const btn = item.querySelector('.nav-btn-link');
+            if (btn) btn.setAttribute('aria-expanded', 'false');
+        });
+    }
 
     dropdownItems.forEach((item) => {
         const btn = item.querySelector('.nav-btn-link');
@@ -23,9 +32,10 @@ function initNavigationDropdowns() {
 
         if (!btn || !menu) return;
 
-        // Toggle al hacer click en el botón
+        // Toggle al hacer click en el botón (móvil o desktop)
         btn.addEventListener('click', (e) => {
             e.preventDefault();
+            e.stopPropagation();
             const isOpen = item.classList.contains('is-open');
 
             // Cerrar cualquier otro dropdown abierto
@@ -46,33 +56,55 @@ function initNavigationDropdowns() {
                 btn.setAttribute('aria-expanded', 'true');
             }
         });
+
+        // En pantallas grandes (>= 768px): al entrar a un ítem, cerrar inmediatamente cualquier otro dropdown para evitar solapamientos
+        item.addEventListener('mouseenter', () => {
+            if (window.innerWidth >= 768) {
+                dropdownItems.forEach((other) => {
+                    if (other !== item) {
+                        other.classList.remove('is-open');
+                        const otherBtn = other.querySelector('.nav-btn-link');
+                        if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            }
+        });
+
+        // Al salir con el mouse del ítem o submenú en pantallas de escritorio, cerrar de inmediato
+        item.addEventListener('mouseleave', () => {
+            if (window.innerWidth >= 768) {
+                item.classList.remove('is-open');
+                btn.setAttribute('aria-expanded', 'false');
+            }
+        });
     });
+
+    // Al salir con el puntero de toda la barra de navegación en escritorio
+    if (mainNav) {
+        mainNav.addEventListener('mouseleave', () => {
+            if (window.innerWidth >= 768) {
+                closeAllDropdowns();
+            }
+        });
+    }
 
     // Cerrar dropdowns al hacer clic fuera
     document.addEventListener('click', (e) => {
         if (!e.target.closest('.nav-item.has-dropdown')) {
-            dropdownItems.forEach((item) => {
-                item.classList.remove('is-open');
-                const btn = item.querySelector('.nav-btn-link');
-                if (btn) btn.setAttribute('aria-expanded', 'false');
-            });
+            closeAllDropdowns();
         }
     });
 
     // Accesibilidad por teclado: cerrar con tecla Escape
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
-            dropdownItems.forEach((item) => {
-                item.classList.remove('is-open');
-                const btn = item.querySelector('.nav-btn-link');
-                if (btn) btn.setAttribute('aria-expanded', 'false');
-            });
+            closeAllDropdowns();
         }
     });
 }
 
 /* ==========================================================================
-   2. CARRUSEL HERO DIVIDIDO (Visual Izquierda + Tarjeta Derecha)
+   2. CARRUSEL HERO DE PANTALLA COMPLETA (FULL-WIDTH)
    ========================================================================== */
 function initHeroSlider() {
     const slider = document.getElementById('hero-slider');
@@ -221,6 +253,12 @@ function initSiteSearch() {
     // Catálogo de búsqueda indexado del sitio de Putaendo
     const searchCatalog = [
         {
+            title: 'Autoridades Comunales (Alcalde y Concejo Municipal)',
+            type: 'Municipio',
+            link: 'autoridades.html',
+            keywords: 'autoridades alcalde mauricio quiroz concejo concejales municipio concejala francisco casas marta silva sebastian caldera miguel ortiz carlos gallardo mariana bravo'
+        },
+        {
             title: 'Permiso de Circulación 2026',
             type: 'Trámite en Línea',
             link: '#tramite-permiso',
@@ -355,60 +393,55 @@ function initMobileNav() {
 }
 
 /* ==========================================================================
-   5. FILTRO DE MESES EN EL PORTAL DE NOTICIAS (noticias.html)
+   5. NAVEGADOR DE MESES EN EL PORTAL DE NOTICIAS (noticias.html)
    ========================================================================== */
 function initNewsMonthFilter() {
-    const dropdownBtn = document.getElementById('month-dropdown-btn');
-    const selectedText = document.getElementById('selected-month-text');
-    const options = document.querySelectorAll('.month-option');
+    const prevBtn = document.getElementById('month-prev-btn');
+    const nextBtn = document.getElementById('month-next-btn');
+    const label = document.getElementById('current-month-label');
     const cards = document.querySelectorAll('.news-portal-card');
 
-    if (!dropdownBtn || !selectedText) return;
+    if (!prevBtn || !nextBtn || !label) return;
 
-    // Abrir/cerrar dropdown al hacer clic
-    dropdownBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const isOpen = dropdownBtn.classList.contains('is-open');
-        dropdownBtn.classList.toggle('is-open', !isOpen);
-        dropdownBtn.setAttribute('aria-expanded', (!isOpen).toString());
-    });
+    // Listado de meses disponibles según maqueta
+    const months = [
+        { label: 'SEPTIEMBRE 2026', code: '09-2026' },
+        { label: 'JULIO 2026', code: '07-2026' },
+        { label: 'MAYO 2026', code: '05-2026' },
+        { label: 'TODAS LAS NOTICIAS', code: 'todos' }
+    ];
 
-    // Cerrar al hacer clic fuera
-    document.addEventListener('click', (e) => {
-        if (!e.target.closest('#month-dropdown-btn')) {
-            dropdownBtn.classList.remove('is-open');
-            dropdownBtn.setAttribute('aria-expanded', 'false');
-        }
-    });
+    let currentIndex = 0; // Inicia en SEPTIEMBRE 2026 como en la foto
 
-    // Selección de mes
-    options.forEach((opt) => {
-        opt.addEventListener('click', (e) => {
-            e.stopPropagation();
-            const monthVal = opt.getAttribute('data-month');
-            const monthLabel = opt.textContent.trim();
+    function updateMonthDisplay() {
+        const current = months[currentIndex];
+        label.textContent = current.label;
 
-            // Actualizar texto
-            selectedText.textContent = monthLabel;
-
-            // Actualizar clase activa en opciones
-            options.forEach((o) => o.classList.remove('active'));
-            opt.classList.add('active');
-
-            // Cerrar menú
-            dropdownBtn.classList.remove('is-open');
-            dropdownBtn.setAttribute('aria-expanded', 'false');
-
-            // Filtrar tarjetas
-            cards.forEach((card) => {
-                const cardMonth = card.getAttribute('data-month');
-                if (monthVal === 'todos' || cardMonth === monthVal) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
+        // Filtrar tarjetas según el mes seleccionado
+        cards.forEach((card) => {
+            const cardMonth = card.getAttribute('data-month');
+            if (current.code === 'todos' || cardMonth === current.code) {
+                card.style.display = 'flex';
+                card.style.animation = 'fadeIn 0.3s ease-out';
+            } else {
+                card.style.display = 'none';
+            }
         });
+    }
+
+    // Botón mes anterior
+    prevBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + months.length) % months.length;
+        updateMonthDisplay();
     });
+
+    // Botón mes siguiente
+    nextBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % months.length;
+        updateMonthDisplay();
+    });
+
+    // Inicializar visualización de septiembre
+    updateMonthDisplay();
 }
 

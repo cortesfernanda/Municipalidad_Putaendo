@@ -419,17 +419,31 @@ ul, ol {
     opacity: 0;
     visibility: hidden;
     transform: translateY(8px);
-    transition: all var(--transition-fast);
+    transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.2s;
     z-index: 1020;
     border-top: 2px solid rgba(255, 255, 255, 0.2);
+    pointer-events: none;
+}
+
+/* Puente invisible entre el botón del navbar y el menú para evitar caídas de hover */
+.dropdown-menu::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 0;
+    right: 0;
+    height: 10px;
+    background: transparent;
 }
 
 /* Apertura mediante hover o clase .is-open */
 .nav-item:hover > .dropdown-menu,
-.nav-item.is-open > .dropdown-menu {
+.nav-item.is-open > .dropdown-menu,
+.nav-item:focus-within > .dropdown-menu {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
+    pointer-events: auto;
 }
 
 .dropdown-item {
@@ -451,133 +465,202 @@ ul, ol {
 }
 
 /* --------------------------------------------------------------------------
-   5. SECCIÓN HERO: CARRUSEL DIVIDIDO
+   5. SECCIÓN HERO: CARRUSEL PRINCIPAL DE PANTALLA COMPLETA (FULL-WIDTH)
    -------------------------------------------------------------------------- */
 .hero-slider-section {
-    padding: 36px 0 28px;
-    background-color: var(--color-bg);
-}
-
-.hero-slider-container {
     position: relative;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #17383c;
+    overflow: hidden;
 }
 
 .slider-viewport {
     position: relative;
-    border-radius: var(--radius-lg);
+    width: 100%;
+    min-height: 520px;
+    height: 560px;
     overflow: hidden;
-    background-color: var(--color-surface);
-    box-shadow: var(--shadow-lg);
-    min-height: 380px;
+    background-color: #1a3e42;
+    border-radius: 0;
+    box-shadow: none;
 }
 
 /* Cada Diapositiva */
 .slide-item {
-    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     opacity: 0;
-    transition: opacity var(--transition-smooth);
+    visibility: hidden;
+    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
 }
 
 .slide-item.active {
-    display: block;
     opacity: 1;
-    animation: fadeInSlide 0.5s ease-out;
+    visibility: visible;
+    z-index: 2;
 }
 
-/* Diseño Dividido: Foto izquierda + Tarjeta blanca derecha */
-.slide-split-card {
-    display: grid;
-    grid-template-columns: 1.15fr 0.85fr;
-    min-height: 380px;
-}
-
-/* Columna Izquierda (Media) */
-.slide-media {
-    position: relative;
-    background-color: #2b494c;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.slide-img {
+/* Capa de fondo con imagen y gradiente institucional */
+.slide-bg-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    min-height: 380px;
-    object-fit: cover;
-    object-position: center;
-    transition: transform 0.6s ease;
+    overflow: hidden;
+    z-index: 1;
 }
 
-.slide-item:hover .slide-img {
-    transform: scale(1.03);
+.slide-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(0.92);
+    transform: scale(1);
+    transition: transform 7s ease-out;
+}
+
+.slide-item.active .slide-bg-img {
+    transform: scale(1.05);
+}
+
+.slide-overlay-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        rgba(19, 45, 48, 0.94) 0%,
+        rgba(19, 45, 48, 0.84) 45%,
+        rgba(19, 45, 48, 0.40) 75%,
+        rgba(19, 45, 48, 0.15) 100%
+    );
+}
+
+/* Contenedor centralizado para la tarjeta de contenido */
+.slide-content-container {
+    position: relative;
+    z-index: 3;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-top: 30px;
+    padding-bottom: 50px;
+}
+
+/* Tarjeta Flotante / Vidrio Blanca sobre el fondo */
+.slide-floating-card {
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 36px 42px;
+    border-radius: var(--radius-md);
+    max-width: 640px;
+    box-shadow: 0 16px 38px rgba(0, 0, 0, 0.28);
+    border-left: 6px solid var(--color-primary);
+    border-top: 1px solid rgba(255, 255, 255, 0.8);
+    animation: slideCardIn 0.55s ease-out;
+}
+
+@keyframes slideCardIn {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.slide-card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
 }
 
 .slide-badge {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    background-color: rgba(38, 78, 82, 0.88);
-    backdrop-filter: blur(4px);
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background-color: var(--color-primary);
     color: var(--color-white);
-    font-size: 0.75rem;
+    font-size: 0.76rem;
     font-weight: 700;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.6px;
     text-transform: uppercase;
     padding: 6px 14px;
     border-radius: var(--radius-full);
-    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-/* Columna Derecha (Texto) */
-.slide-body {
-    background-color: var(--color-surface);
-    padding: 40px 48px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.slide-badge i {
+    font-size: 0.78rem;
+}
+
+.slide-date {
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
 }
 
 .slide-title {
     font-family: var(--font-heading);
     font-size: 1.65rem;
     font-weight: 800;
-    color: var(--color-text-main);
+    color: #111827;
     line-height: 1.25;
-    margin-bottom: 16px;
-    letter-spacing: -0.3px;
+    margin-bottom: 14px;
+    letter-spacing: -0.2px;
 }
 
 .slide-summary {
-    color: var(--color-text-muted);
-    font-size: 0.98rem;
+    color: #374151;
+    font-size: 0.96rem;
     line-height: 1.55;
     margin-bottom: 24px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .slide-action-box {
-    margin-top: auto;
     display: flex;
-    justify-content: flex-end;
+    align-items: center;
+    justify-content: flex-start;
 }
 
-.slide-more-link {
+.slide-cta-btn {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
+    gap: 10px;
+    background-color: var(--color-primary);
+    color: var(--color-white);
     font-family: var(--font-heading);
-    font-size: 1.05rem;
+    font-size: 0.94rem;
     font-weight: 700;
-    color: var(--color-primary);
-    padding: 8px 12px;
+    padding: 11px 24px;
     border-radius: var(--radius-sm);
     transition: all var(--transition-fast);
+    box-shadow: 0 4px 14px rgba(30, 87, 89, 0.28);
 }
 
-.slide-more-link:hover {
-    color: var(--color-primary-dark);
+.slide-cta-btn:hover {
+    background-color: var(--color-primary-dark);
     transform: translateX(4px);
+    box-shadow: 0 6px 18px rgba(30, 87, 89, 0.38);
+    color: var(--color-white);
 }
 
 /* Flechas de Navegación del Slider */
@@ -585,62 +668,72 @@ ul, ol {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 44px;
-    height: 44px;
-    background-color: rgba(38, 78, 82, 0.8);
-    color: var(--color-white);
+    width: 48px;
+    height: 48px;
+    background-color: rgba(255, 255, 255, 0.88);
+    color: var(--color-primary-dark);
     border-radius: var(--radius-full);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     z-index: 20;
     transition: all var(--transition-fast);
-    backdrop-filter: blur(4px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
+    border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 .slider-arrow:hover {
-    background-color: var(--color-primary-dark);
+    background-color: var(--color-white);
+    color: var(--color-primary);
     transform: translateY(-50%) scale(1.08);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
 .slider-arrow-prev {
-    left: 18px;
+    left: 24px;
 }
 
 .slider-arrow-next {
-    right: 18px;
+    right: 24px;
 }
 
-/* Paginador de 3 Dots */
+/* Paginador de Dots */
 .slider-dots {
+    position: absolute;
+    bottom: 22px;
+    left: 0;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
-    margin-top: 18px;
+    gap: 10px;
+    z-index: 20;
+    margin-top: 0;
 }
 
 .dot-btn {
     width: 12px;
     height: 12px;
     border-radius: var(--radius-full);
-    background-color: #cbd5e1;
+    background-color: rgba(255, 255, 255, 0.5);
     border: none;
     padding: 0;
     cursor: pointer;
     transition: all var(--transition-fast);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .dot-btn:hover {
-    background-color: #94a3b8;
+    background-color: rgba(255, 255, 255, 0.85);
 }
 
 .dot-btn.active {
-    background-color: var(--color-primary);
-    width: 28px;
+    background-color: var(--color-white);
+    width: 34px;
     border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 /* --------------------------------------------------------------------------
@@ -783,11 +876,11 @@ ul, ol {
     font-size: 1.05rem;
 }
 
-/* Cuadrícula de 3 Noticias */
+/* Cuadrícula de 4 Noticias */
 .news-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
     margin-bottom: 36px;
 }
 
@@ -809,7 +902,7 @@ ul, ol {
 
 .news-img-box {
     position: relative;
-    height: 195px;
+    height: 180px;
     background-color: var(--color-primary-dark);
     overflow: hidden;
 }
@@ -829,7 +922,8 @@ ul, ol {
     position: absolute;
     bottom: 12px;
     left: 12px;
-    background-color: rgba(30, 62, 66, 0.9);
+    background-color: rgba(30, 62, 66, 0.92);
+    backdrop-filter: blur(4px);
     color: var(--color-white);
     font-size: 0.72rem;
     font-weight: 700;
@@ -840,7 +934,7 @@ ul, ol {
 }
 
 .news-content {
-    padding: 22px 20px;
+    padding: 20px 18px;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
@@ -850,26 +944,35 @@ ul, ol {
     display: flex;
     align-items: center;
     gap: 6px;
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     color: var(--color-text-light);
     margin-bottom: 10px;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .news-title {
     font-family: var(--font-heading);
-    font-size: 1.12rem;
+    font-size: 1.05rem;
     font-weight: 700;
     color: var(--color-text-main);
     line-height: 1.35;
     margin-bottom: 12px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: 4.05em;
 }
 
 .news-text {
     color: var(--color-text-muted);
-    font-size: 0.88rem;
+    font-size: 0.86rem;
     line-height: 1.5;
     margin-bottom: 18px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .news-read-more {
@@ -1081,20 +1184,22 @@ ul, ol {
 
 /* Tablets y Pantallas Medianas (<= 992px) */
 @media (max-width: 992px) {
-    .slide-split-card {
-        grid-template-columns: 1fr;
+    .slider-viewport {
+        height: auto;
+        min-height: 520px;
     }
 
-    .slide-media {
-        min-height: 240px;
+    .slide-content-container {
+        padding: 40px 20px 60px;
     }
 
-    .slide-img {
-        min-height: 240px;
+    .slide-floating-card {
+        padding: 30px 32px;
+        max-width: 580px;
     }
 
-    .slide-body {
-        padding: 28px 24px;
+    .slide-title {
+        font-size: 1.45rem;
     }
 
     .services-grid {
@@ -1112,6 +1217,55 @@ ul, ol {
 
 /* Móviles (<= 768px) */
 @media (max-width: 768px) {
+    .slider-viewport {
+        min-height: 480px;
+        height: auto;
+    }
+
+    .slide-overlay-gradient {
+        background: linear-gradient(
+            180deg,
+            rgba(19, 45, 48, 0.70) 0%,
+            rgba(19, 45, 48, 0.94) 85%
+        );
+    }
+
+    .slide-content-container {
+        padding: 24px 16px 54px;
+        align-items: flex-end;
+    }
+
+    .slide-floating-card {
+        padding: 24px 20px;
+        max-width: 100%;
+        background: rgba(255, 255, 255, 0.98);
+    }
+
+    .slide-title {
+        font-size: 1.25rem;
+        margin: 10px 0;
+    }
+
+    .slide-summary {
+        font-size: 0.88rem;
+        -webkit-line-clamp: 2;
+        margin-bottom: 16px;
+    }
+
+    .slider-arrow {
+        width: 38px;
+        height: 38px;
+        font-size: 0.95rem;
+    }
+
+    .slider-arrow-prev {
+        left: 10px;
+    }
+
+    .slider-arrow-next {
+        right: 10px;
+    }
+
     .mobile-toggle {
         display: flex;
     }
@@ -1159,6 +1313,7 @@ ul, ol {
         background-color: #1a383b;
         padding-left: 12px;
         border-radius: 0;
+        pointer-events: auto;
     }
 
     .nav-item.is-open .dropdown-menu {
@@ -1228,18 +1383,73 @@ ul, ol {
 
 .news-page-banner-full {
     width: 100%;
+    position: relative;
     overflow: hidden;
     line-height: 0;
 }
 
 .news-page-banner-img {
     width: 100%;
-    height: auto;
-    min-height: 180px;
-    max-height: 380px;
+    height: 320px;
     object-fit: cover;
     object-position: center;
     display: block;
+}
+
+/* Capa de texto y badge titular sobre el banner */
+.news-banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    pointer-events: none;
+    line-height: normal;
+}
+
+.news-banner-badge {
+    background-color: rgba(26, 62, 66, 0.58);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    min-width: 380px;
+    padding: 28px 80px 28px 54px;
+    border-radius: 0 90px 90px 0;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.22);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-left: none;
+    display: inline-flex;
+    align-items: center;
+}
+
+.news-banner-title {
+    color: #ffffff;
+    font-family: 'Proxima Nova', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 2.6rem;
+    font-weight: 800;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin: 0;
+    line-height: 1;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+}
+
+@media (max-width: 768px) {
+    .news-page-banner-img {
+        height: 200px;
+    }
+
+    .news-banner-badge {
+        min-width: auto;
+        padding: 16px 36px 16px 22px;
+        border-radius: 0 50px 50px 0;
+    }
+
+    .news-banner-title {
+        font-size: 1.6rem;
+        letter-spacing: 1.2px;
+    }
 }
 
 .news-list-section {
@@ -1247,83 +1457,47 @@ ul, ol {
     background-color: var(--color-bg);
 }
 
-/* Selector de Mes según Maqueta (MES / OCTUBRE 2026 ▾) */
-.news-filter-bar {
-    margin-bottom: 28px;
-    display: inline-flex;
-    flex-direction: column;
-    align-items: flex-start;
+/* ==========================================================================
+   Navegador de Mes según Maqueta (◀ SEPTIEMBRE 2026 ▶)
+   ========================================================================== */
+.news-month-nav-wrapper {
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
 }
 
-.news-filter-label {
-    font-size: 0.76rem;
-    font-weight: 800;
-    color: #1e5759;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin-bottom: 2px;
-}
-
-.news-month-dropdown {
-    position: relative;
+.news-month-navigator {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    cursor: pointer;
+    gap: 12px;
     user-select: none;
-    padding: 2px 0;
 }
 
-.news-selected-month {
+.month-nav-btn {
+    background: none;
+    border: none;
+    padding: 4px 6px;
+    cursor: pointer;
+    color: #1e5759;
+    font-size: 1.15rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform var(--transition-fast), color var(--transition-fast);
+}
+
+.month-nav-btn:hover {
+    color: var(--color-primary-dark);
+    transform: scale(1.22);
+}
+
+.month-nav-label {
     font-family: var(--font-heading);
-    font-size: 1.35rem;
+    font-size: 1.25rem;
     font-weight: 800;
     color: #1e5759;
-    letter-spacing: 0.4px;
+    letter-spacing: 0.5px;
     text-transform: uppercase;
-}
-
-.news-filter-arrow {
-    color: #1e5759;
-    font-size: 0.95rem;
-    transition: transform var(--transition-fast);
-}
-
-.news-month-dropdown.is-open .news-filter-arrow {
-    transform: rotate(180deg);
-}
-
-.news-months-menu {
-    position: absolute;
-    top: calc(100% + 6px);
-    left: 0;
-    min-width: 200px;
-    background-color: #ffffff;
-    border-radius: var(--radius-sm);
-    box-shadow: var(--shadow-lg);
-    border: 1px solid var(--color-border);
-    padding: 6px 0;
-    z-index: 100;
-    display: none;
-}
-
-.news-month-dropdown.is-open .news-months-menu {
-    display: block;
-    animation: fadeInDown 0.2s ease-out;
-}
-
-.month-option {
-    padding: 10px 16px;
-    font-size: 0.88rem;
-    font-weight: 700;
-    color: var(--color-text-main);
-    transition: background-color var(--transition-fast);
-}
-
-.month-option:hover,
-.month-option.active {
-    background-color: var(--color-primary-soft);
-    color: var(--color-primary-dark);
 }
 
 /* Grilla de Noticias (2 Columnas según Maqueta) */
@@ -1703,4 +1877,271 @@ ul, ol {
         justify-content: center;
     }
 }
+
+/* --------------------------------------------------------------------------
+   13. PÁGINA DE AUTORIDADES COMUNALES (autoridades.html)
+   -------------------------------------------------------------------------- */
+.authorities-banner-img {
+    height: 320px;
+    object-position: center 35%;
+}
+
+/* Sección: ¿Quiénes Somos? (Bloque Teal) */
+.about-authorities-section {
+    background-color: #59858a;
+    padding: 52px 0;
+    text-align: center;
+}
+
+.about-authorities-card {
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+.about-authorities-title {
+    font-family: var(--font-heading);
+    font-size: 1.85rem;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+}
+
+.about-authorities-text {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: rgba(255, 255, 255, 0.95);
+    margin: 0;
+}
+
+/* Sección: Alcalde */
+.mayor-section {
+    padding: 64px 0 44px;
+    background-color: var(--color-bg);
+}
+
+.mayor-card {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    max-width: 860px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 28px;
+    padding: 36px 44px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--color-border);
+}
+
+.mayor-photo-slot {
+    width: 220px;
+    height: 220px;
+    border-radius: 24px;
+    overflow: hidden;
+    flex-shrink: 0;
+    background-color: #e2e8f0;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.mayor-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+}
+
+.mayor-info {
+    flex-grow: 1;
+}
+
+.mayor-role-badge {
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: #1e5759;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.mayor-name {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #111827;
+    margin-bottom: 12px;
+    line-height: 1.2;
+}
+
+.mayor-period {
+    font-size: 0.98rem;
+    line-height: 1.55;
+    color: #374151;
+    margin-bottom: 20px;
+}
+
+.mayor-contact-block {
+    border-top: 1px solid var(--color-border);
+    padding-top: 16px;
+}
+
+.mayor-contact-title {
+    font-size: 0.76rem;
+    font-weight: 800;
+    color: #1e5759;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.mayor-contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 0.92rem;
+    color: #4b5563;
+}
+
+.mayor-contact-list a {
+    color: #1e5759;
+    font-weight: 600;
+    transition: color var(--transition-fast);
+}
+
+.mayor-contact-list a:hover {
+    color: var(--color-primary-dark);
+    text-decoration: underline;
+}
+
+/* Sección: Concejo Municipal */
+.council-section {
+    padding: 44px 0 84px;
+    background-color: var(--color-bg);
+}
+
+.council-header-centered {
+    text-align: center;
+    margin-bottom: 44px;
+}
+
+.council-section-title {
+    font-family: var(--font-heading);
+    font-size: 1.85rem;
+    font-weight: 800;
+    color: #111827;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.council-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 36px 32px;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.council-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.council-photo-slot {
+    width: 100%;
+    max-width: 220px;
+    aspect-ratio: 1 / 1;
+    border-radius: 24px;
+    overflow: hidden;
+    background-color: #e6eff1;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    margin-bottom: 14px;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.council-photo-slot-lilac {
+    background-color: #e3e3f5;
+}
+
+.council-card:hover .council-photo-slot {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.council-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+}
+
+.council-card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.council-name {
+    font-family: var(--font-heading);
+    font-size: 1.08rem;
+    font-weight: 800;
+    color: #111827;
+    margin-bottom: 4px;
+}
+
+.council-email {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85rem;
+    color: #4b5563;
+    transition: color var(--transition-fast);
+}
+
+.council-email:hover {
+    color: #1e5759;
+    text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+    .mayor-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 24px;
+        padding: 28px 24px;
+    }
+
+    .mayor-contact-list {
+        align-items: center;
+    }
+
+    .council-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 28px 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .council-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-authorities-section {
+        padding: 36px 0;
+    }
+
+    .about-authorities-title {
+        font-size: 1.45rem;
+    }
+
+    .about-authorities-text {
+        font-size: 0.95rem;
+    }
+}
+
 

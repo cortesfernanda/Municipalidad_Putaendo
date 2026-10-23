@@ -95,7 +95,7 @@
                             <i class="fa-solid fa-caret-down dropdown-arrow" aria-hidden="true"></i>
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a href="#alcalde" class="dropdown-item">AUTORIDADES</a></li>
+                            <li><a href="autoridades.html" class="dropdown-item">AUTORIDADES</a></li>
                             <li><a href="#organigrama" class="dropdown-item">ORGANIGRAMA</a></li>
                             <li><a href="#planificamos" class="dropdown-item">PLANIFICAMOS</a></li>
                         </ul>
@@ -171,106 +171,151 @@
     <main id="contenido-principal" class="main-content">
 
         <!-- =====================================================================
-             1. SECCIÓN HERO: CARRUSEL DIVIDIDO (Visual + Tarjeta Blanca)
+             1. SECCIÓN HERO: CARRUSEL PRINCIPAL DE PANTALLA COMPLETA
              ===================================================================== -->
-        <section class="hero-slider-section" aria-label="Noticias y avisos destacados">
-            <div class="container hero-slider-container">
-                <!-- Marco del Slider Dividido -->
-                <div class="slider-viewport" id="hero-slider">
-                    <!-- Flecha Diapositiva Anterior -->
-                    <button class="slider-arrow slider-arrow-prev" id="slider-prev" aria-label="Ver diapositiva anterior">
-                        <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
-                    </button>
+        <section class="hero-slider-section full-width-hero" aria-label="Noticias y avisos destacados">
+            <!-- Marco del Slider de Ancho Completo -->
+            <div class="slider-viewport" id="hero-slider">
+                <!-- Flecha Diapositiva Anterior -->
+                <button class="slider-arrow slider-arrow-prev" id="slider-prev" aria-label="Ver diapositiva anterior">
+                    <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+                </button>
 
-                    <!-- Diapositiva 1: Biodiversidad Cordillerana -->
-                    <article class="slide-item active" data-slide="0" aria-current="true">
-                        <div class="slide-split-card">
-                            <!-- Columna Izquierda: Fotografía Comunitaria / Paisaje -->
-                            <div class="slide-media">
-                                <img src="assets/slide1-gastronomia.png" alt="Comunidad de Putaendo con posters de biodiversidad y gastronomía local" class="slide-img">
-                                <div class="slide-badge">Medio Ambiente &amp; Educación</div>
+                <!-- Diapositiva 1: Concejo Municipal y Gobierno Abierto -->
+                <article class="slide-item active" data-slide="0" aria-current="true">
+                    <div class="slide-bg-wrapper">
+                        <img src="assets/banner-autoridades.png" alt="Concejo Municipal y Autoridades de Putaendo" class="slide-bg-img">
+                        <div class="slide-overlay-gradient"></div>
+                    </div>
+                    <div class="container slide-content-container">
+                        <div class="slide-floating-card">
+                            <div class="slide-card-header">
+                                <span class="slide-badge">
+                                    <i class="fa-solid fa-landmark" aria-hidden="true"></i>
+                                    <span>Concejo &amp; Participación</span>
+                                </span>
+                                <time class="slide-date">Sesiones en Vivo</time>
                             </div>
-                            <!-- Columna Derecha: Tarjeta Blanca con Titular -->
-                            <div class="slide-body">
-                                <h2 class="slide-title">
-                                    Comunidad de Putaendo recibe 400 ejemplares de posters que muestran la biodiversidad del ecosistema cordillerano
-                                </h2>
-                                <p class="slide-summary">
-                                    Iniciativa pedagógica que busca poner en valor las especies nativas de flora y fauna de nuestra cordillera para los establecimientos educativos y vecinos de Putaendo.
-                                </p>
-                                <div class="slide-action-box">
-                                    <a href="#noticia-1" class="slide-more-link">
-                                        <span>Más</span>
-                                        <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
-                                    </a>
-                                </div>
+                            <h2 class="slide-title">
+                                Sesiones en Vivo del Concejo Municipal: Gobierno Abierto y Participación Ciudadana
+                            </h2>
+                            <p class="slide-summary">
+                                Conoce las decisiones y proyectos que transforman Putaendo. Sigue en directo las transmisiones del Honorable Concejo Municipal encabezado por el alcalde Mauricio Quiroz Chamorro.
+                            </p>
+                            <div class="slide-action-box">
+                                <a href="autoridades.html" class="slide-cta-btn">
+                                    <span>Conoce a tus Autoridades</span>
+                                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                                </a>
                             </div>
                         </div>
-                    </article>
+                    </div>
+                </article>
 
-                    <!-- Diapositiva 2: Red Local de Solidario -->
-                    <article class="slide-item" data-slide="1" aria-hidden="true">
-                        <div class="slide-split-card">
-                            <!-- Columna Izquierda: Fotografía de Localidad y Río -->
-                            <div class="slide-media">
-                                <img src="assets/slide2-solidario.png" alt="Pueblo tradicional de Putaendo junto a la cuenca fluvial" class="slide-img">
-                                <div class="slide-badge">Acción Social</div>
+                <!-- Diapositiva 2: Plan Comunal de Seguridad Pública -->
+                <article class="slide-item" data-slide="1" aria-hidden="true">
+                    <div class="slide-bg-wrapper">
+                        <img src="assets/slide2-solidario.png" alt="Plan Comunal de Seguridad Pública en Putaendo" class="slide-bg-img">
+                        <div class="slide-overlay-gradient"></div>
+                    </div>
+                    <div class="container slide-content-container">
+                        <div class="slide-floating-card">
+                            <div class="slide-card-header">
+                                <span class="slide-badge">
+                                    <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+                                    <span>Seguridad Pública 2023 - 2027</span>
+                                </span>
+                                <time class="slide-date">Fono Alcaldía: 34 243 1552</time>
                             </div>
-                            <!-- Columna Derecha: Tarjeta Blanca con Titular -->
-                            <div class="slide-body">
-                                <h2 class="slide-title">
-                                    Red local de Solidaridad: Programa de acompañamiento y voluntariado comunitario
-                                </h2>
-                                <p class="slide-summary">
-                                    Fortaleciendo la ayuda solidaria, talleres vecinales y el cuidado integral para las familias y adultos mayores de todos los sectores rurales de Putaendo.
-                                </p>
-                                <div class="slide-action-box">
-                                    <a href="#noticia-2" class="slide-more-link">
-                                        <span>Más</span>
-                                        <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Diapositiva 3: Patrimonio e Historia -->
-                    <article class="slide-item" data-slide="2" aria-hidden="true">
-                        <div class="slide-split-card">
-                            <!-- Columna Izquierda: Arquitectura Colonial y Cordillera -->
-                            <div class="slide-media">
-                                <img src="assets/slide3-patrimonio.png" alt="Calle patrimonial y torre de iglesia en Putaendo" class="slide-img">
-                                <div class="slide-badge">Patrimonio Histórico</div>
-                            </div>
-                            <!-- Columna Derecha: Tarjeta Blanca con Titular -->
-                            <div class="slide-body">
-                                <h2 class="slide-title">
-                                    Putaendo, Primer Pueblo Libre de Chile: Rutas culturales y senderos cordilleranos
-                                </h2>
-                                <p class="slide-summary">
-                                    Invitamos a recorrer los monumentos coloniales, la Calle Comercio y los circuitos de cabalgata que forman la identidad viva de nuestra histórica comuna.
-                                </p>
-                                <div class="slide-action-box">
-                                    <a href="#noticia-3" class="slide-more-link">
-                                        <span>Más</span>
-                                        <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
-                                    </a>
-                                </div>
+                            <h2 class="slide-title">
+                                Plan Comunal de Seguridad Pública: Cuidando nuestros barrios y sectores rurales
+                            </h2>
+                            <p class="slide-summary">
+                                Estrategia municipal integral con patrullaje preventivo permanente, central de cámaras de televigilancia y alarmas comunitarias activas para la protección y tranquilidad de los vecinos.
+                            </p>
+                            <div class="slide-action-box">
+                                <a href="#contacto" class="slide-cta-btn">
+                                    <span>Información y Contacto</span>
+                                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                                </a>
                             </div>
                         </div>
-                    </article>
+                    </div>
+                </article>
 
-                    <!-- Flecha Diapositiva Siguiente -->
-                    <button class="slider-arrow slider-arrow-next" id="slider-next" aria-label="Ver diapositiva siguiente">
-                        <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
-                    </button>
-                </div>
+                <!-- Diapositiva 3: Patrimonio e Identidad -->
+                <article class="slide-item" data-slide="2" aria-hidden="true">
+                    <div class="slide-bg-wrapper">
+                        <img src="assets/slide3-patrimonio.png" alt="Calle patrimonial y paisaje cordillerano en Putaendo" class="slide-bg-img">
+                        <div class="slide-overlay-gradient"></div>
+                    </div>
+                    <div class="container slide-content-container">
+                        <div class="slide-floating-card">
+                            <div class="slide-card-header">
+                                <span class="slide-badge">
+                                    <i class="fa-solid fa-mountain-sun" aria-hidden="true"></i>
+                                    <span>Patrimonio &amp; Turismo</span>
+                                </span>
+                                <time class="slide-date">Monumento Histórico</time>
+                            </div>
+                            <h2 class="slide-title">
+                                Putaendo, Primer Pueblo Libre de Chile: Rutas culturales y senderos cordilleranos
+                            </h2>
+                            <p class="slide-summary">
+                                Descubre la arquitectura colonial de Calle Comercio, el Cristo de Madera y los circuitos cordilleranos que preservan la historia viva y tradiciones del Valle de Aconcagua.
+                            </p>
+                            <div class="slide-action-box">
+                                <a href="#comuna" class="slide-cta-btn">
+                                    <span>Descubre Nuestra Comuna</span>
+                                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
 
-                <!-- Indicadores de Paginación (3 Dots de la maqueta) -->
+                <!-- Diapositiva 4: Transparencia Activa -->
+                <article class="slide-item" data-slide="3" aria-hidden="true">
+                    <div class="slide-bg-wrapper">
+                        <img src="assets/banner-noticias.png" alt="Portal de Transparencia Activa de Putaendo" class="slide-bg-img">
+                        <div class="slide-overlay-gradient"></div>
+                    </div>
+                    <div class="container slide-content-container">
+                        <div class="slide-floating-card">
+                            <div class="slide-card-header">
+                                <span class="slide-badge">
+                                    <i class="fa-solid fa-scale-balanced" aria-hidden="true"></i>
+                                    <span>Transparencia &amp; Probidad</span>
+                                </span>
+                                <time class="slide-date">Ley 20.285</time>
+                            </div>
+                            <h2 class="slide-title">
+                                Portal de Transparencia Municipal: Información pública, clara y al alcance de todos
+                            </h2>
+                            <p class="slide-summary">
+                                Consulta actos, decretos, resoluciones, estados financieros y compras de la Ilustre Municipalidad de Putaendo con los más altos estándares de probidad pública.
+                            </p>
+                            <div class="slide-action-box">
+                                <a href="https://www.portaltransparencia.cl/PortalPdT/pdtta?codOrganismo=MU243" target="_blank" rel="noopener noreferrer" class="slide-cta-btn">
+                                    <span>Ir a Portal Transparencia</span>
+                                    <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Flecha Diapositiva Siguiente -->
+                <button class="slider-arrow slider-arrow-next" id="slider-next" aria-label="Ver diapositiva siguiente">
+                    <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                </button>
+
+                <!-- Indicadores de Paginación (4 Dots) -->
                 <div class="slider-dots" id="slider-dots" role="tablist" aria-label="Seleccionar diapositiva">
                     <button class="dot-btn active" role="tab" aria-selected="true" aria-label="Ir a diapositiva 1" data-slide-target="0"></button>
                     <button class="dot-btn" role="tab" aria-selected="false" aria-label="Ir a diapositiva 2" data-slide-target="1"></button>
                     <button class="dot-btn" role="tab" aria-selected="false" aria-label="Ir a diapositiva 3" data-slide-target="2"></button>
+                    <button class="dot-btn" role="tab" aria-selected="false" aria-label="Ir a diapositiva 4" data-slide-target="3"></button>
                 </div>
             </div>
         </section>
@@ -323,73 +368,95 @@
         </section>
 
         <!-- =====================================================================
-             3. SECCIÓN: ÚLTIMAS NOTICIAS (Bloque Blanco con 3 Columnas)
+             3. SECCIÓN: ÚLTIMAS NOTICIAS (Noticias Reales de Putaendo)
              ===================================================================== -->
         <section class="news-section" id="noticias" aria-labelledby="news-title">
             <div class="container">
                 <div class="news-section-top">
                     <h2 class="section-title news-heading" id="news-title">Últimas Noticias</h2>
+                    <p class="news-intro">Actualidad, avisos oficiales y proyectos de la comuna de Putaendo</p>
                 </div>
 
-                <!-- Cuadrícula de 3 Noticias de la Maqueta -->
+                <!-- Cuadrícula de 4 Noticias Reales de Putaendo -->
                 <div class="news-grid">
-                    <!-- Noticia 1 -->
-                    <article class="news-card" id="noticia-1">
+                    <!-- Noticia 1: Modificación Ordenanza -->
+                    <article class="news-card" id="noticia-ordenanza">
                         <div class="news-img-box">
-                            <img src="assets/slide1-gastronomia.png" alt="Entrega de pósters educativos de biodiversidad" class="news-thumb">
-                            <span class="news-category">Educación y Medio Ambiente</span>
+                            <img src="assets/slide2-solidario.png" alt="Modificación Ordenanza Derechos Municipales Putaendo" class="news-thumb">
+                            <span class="news-category">Rentas y Decretos</span>
                         </div>
                         <div class="news-content">
-                            <span class="news-date"><i class="fa-regular fa-calendar" aria-hidden="true"></i> 14 de Octubre, 2026</span>
+                            <span class="news-date"><i class="fa-regular fa-calendar" aria-hidden="true"></i> 17 de septiembre, 2026</span>
                             <h3 class="news-title">
-                                Comunidad de Putaendo recibe 400 ejemplares de posters que muestran la biodiversidad del ecosistema cordillerano
+                                MODIFICACIÓN ORDENANZA: SOBRE DERECHOS MUNICIPALES POR CONCESIONES, PERMISOS Y DERECHOS
                             </h3>
                             <p class="news-text">
-                                Un valioso material pedagógico distribuido a colegios y juntas de vecinos para difundir la riqueza de especies nativas de la precordillera.
+                                Promulgación del Decreto Alcaldicio N° 2944 que introduce importantes modificaciones a la normativa comunal sobre rentas y derechos municipales.
                             </p>
-                            <a href="#leer-noticia-1" class="news-read-more" aria-label="Leer más sobre la biodiversidad en Putaendo">
+                            <a href="noticia-ordenanza.html" class="news-read-more" aria-label="Leer más sobre la Modificación de Ordenanza">
                                 <span>Leer artículo</span>
                                 <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
                             </a>
                         </div>
                     </article>
 
-                    <!-- Noticia 2 -->
-                    <article class="news-card" id="noticia-2">
+                    <!-- Noticia 2: Fondo Concursable Cultura -->
+                    <article class="news-card" id="noticia-cultura">
                         <div class="news-img-box">
-                            <img src="assets/slide2-solidario.png" alt="Jornada de la red local de voluntariado y solidaridad" class="news-thumb">
-                            <span class="news-category">Desarrollo Social</span>
+                            <img src="assets/slide1-gastronomia.png" alt="Fondo Concursable Municipal de Cultura 2026" class="news-thumb">
+                            <span class="news-category">Cultura &amp; Fondos</span>
                         </div>
                         <div class="news-content">
-                            <span class="news-date"><i class="fa-regular fa-calendar" aria-hidden="true"></i> 11 de Octubre, 2026</span>
+                            <span class="news-date"><i class="fa-regular fa-calendar" aria-hidden="true"></i> 16 de septiembre, 2026</span>
                             <h3 class="news-title">
-                                Red local de Solidaridad amplía programa de voluntariado para apoyo a personas mayores
+                                [DESCARGAR BASES Y FORMULARIO] Fondo Concursable Municipal de Cultura 2026
                             </h3>
                             <p class="news-text">
-                                Nuevos equipos multidisciplinarios brindarán atención domiciliaria, talleres recreativos y acompañamiento en zonas rurales de la comuna.
+                                Convocatoria DIDECO dirigida a organizaciones comunitarias de Putaendo para financiar proyectos de desarrollo artístico y patrimonial.
                             </p>
-                            <a href="#leer-noticia-2" class="news-read-more" aria-label="Leer más sobre la Red Local de Solidaridad">
+                            <a href="noticia-fondo-cultura.html" class="news-read-more" aria-label="Descargar bases del Fondo de Cultura">
                                 <span>Leer artículo</span>
                                 <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
                             </a>
                         </div>
                     </article>
 
-                    <!-- Noticia 3 -->
-                    <article class="news-card" id="noticia-3">
+                    <!-- Noticia 3: Obras y Deportes -->
+                    <article class="news-card" id="noticia-obras">
                         <div class="news-img-box">
-                            <img src="assets/slide3-patrimonio.png" alt="Ruta patrimonial en Putaendo con arquitectura tradicional" class="news-thumb">
-                            <span class="news-category">Cultura y Patrimonio</span>
+                            <img src="assets/slide3-patrimonio.png" alt="Obras de infraestructura vial y deportes en Putaendo" class="news-thumb">
+                            <span class="news-category">Obras Comunales</span>
                         </div>
                         <div class="news-content">
-                            <span class="news-date"><i class="fa-regular fa-calendar" aria-hidden="true"></i> 08 de Octubre, 2026</span>
+                            <span class="news-date"><i class="fa-regular fa-calendar" aria-hidden="true"></i> 19 de mayo, 2026</span>
                             <h3 class="news-title">
-                                Nuevas rutas patrimoniales y circuitos históricos abren recorridos para vecinos y visitantes
+                                Putaendo logra aprobación de $1.490 millones para obras viales y deportes
                             </h3>
                             <p class="news-text">
-                                Circuitos guiados que celebran la historia de Putaendo como Primer Pueblo Libre de Chile, visitando casonas patrimoniales y senderos coloniales.
+                                Histórica inversión que permitirá repavimentar Rinconada de Silva y modernizar el complejo deportivo Club Intersporting.
                             </p>
-                            <a href="#leer-noticia-3" class="news-read-more" aria-label="Leer más sobre rutas patrimoniales">
+                            <a href="noticia-obras.html" class="news-read-more" aria-label="Leer más sobre las obras de infraestructura">
+                                <span>Leer artículo</span>
+                                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Noticia 4: Concursos Públicos -->
+                    <article class="news-card" id="noticia-concursos">
+                        <div class="news-img-box">
+                            <img src="assets/banner-autoridades.png" alt="Concursos Públicos en la Municipalidad de Putaendo" class="news-thumb">
+                            <span class="news-category">Concursos Públicos</span>
+                        </div>
+                        <div class="news-content">
+                            <span class="news-date"><i class="fa-regular fa-calendar" aria-hidden="true"></i> 27 de julio, 2026</span>
+                            <h3 class="news-title">
+                                Concursos Públicos: Encargado de Cultura, Turismo, Jefe de Personal – Auxiliar
+                            </h3>
+                            <p class="news-text">
+                                Convocatoria pública de antecedentes para proveer cargos vacantes titulares en la planta municipal de la I. Municipalidad de Putaendo.
+                            </p>
+                            <a href="noticia-concursos.html" class="news-read-more" aria-label="Leer más sobre los concursos públicos">
                                 <span>Leer artículo</span>
                                 <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
                             </a>
@@ -400,7 +467,7 @@
                 <!-- Enlace inferior "Más noticias >" como en la maqueta -->
                 <div class="news-footer-action">
                     <a href="noticias.html" class="btn-more-news">
-                        <span>Más noticias</span>
+                        <span>Ver todas las noticias</span>
                         <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
                     </a>
                 </div>

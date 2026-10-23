@@ -88,7 +88,7 @@
                             <i class="fa-solid fa-caret-down dropdown-arrow" aria-hidden="true"></i>
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a href="index.html#alcalde" class="dropdown-item">AUTORIDADES</a></li>
+                            <li><a href="autoridades.html" class="dropdown-item">AUTORIDADES</a></li>
                             <li><a href="index.html#organigrama" class="dropdown-item">ORGANIGRAMA</a></li>
                             <li><a href="index.html#planificamos" class="dropdown-item">PLANIFICAMOS</a></li>
                         </ul>
@@ -169,6 +169,11 @@
         <section class="news-page-banner-section" aria-label="Cabecera de la sección Noticias">
             <div class="news-page-banner-full">
                 <img src="assets/banner-noticias.png" alt="Noticias de la Ilustre Municipalidad de Putaendo" class="news-page-banner-img">
+                <div class="news-banner-overlay">
+                    <div class="news-banner-badge">
+                        <h1 class="news-banner-title">NOTICIAS</h1>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -178,19 +183,16 @@
         <section class="news-list-section" aria-label="Listado de Noticias Comunales">
             <div class="container">
                 
-                <!-- Selector de Mes según Maqueta (MES / OCTUBRE 2026 ▾) -->
-                <div class="news-filter-bar">
-                    <span class="news-filter-label">MES</span>
-                    <div class="news-month-dropdown" id="month-dropdown-btn" role="button" tabindex="0" aria-haspopup="true" aria-expanded="false">
-                        <span class="news-selected-month" id="selected-month-text">TODOS LOS MESES</span>
-                        <i class="fa-solid fa-caret-down news-filter-arrow" aria-hidden="true"></i>
-                        <!-- Menú desplegable de meses -->
-                        <ul class="news-months-menu" id="months-menu" role="menu">
-                            <li role="menuitem" class="month-option active" data-month="todos">TODOS LOS MESES</li>
-                            <li role="menuitem" class="month-option" data-month="08-2026">AGOSTO 2026</li>
-                            <li role="menuitem" class="month-option" data-month="07-2026">JULIO 2026</li>
-                            <li role="menuitem" class="month-option" data-month="05-2026">MAYO 2026</li>
-                        </ul>
+                <!-- Navegador de Mes según Maqueta (◀ SEPTIEMBRE 2026 ▶) -->
+                <div class="news-month-nav-wrapper">
+                    <div class="news-month-navigator" id="news-month-nav" role="toolbar" aria-label="Navegador por mes de noticias">
+                        <button type="button" class="month-nav-btn" id="month-prev-btn" aria-label="Mes anterior">
+                            <i class="fa-solid fa-caret-left" aria-hidden="true"></i>
+                        </button>
+                        <span class="month-nav-label" id="current-month-label">SEPTIEMBRE 2026</span>
+                        <button type="button" class="month-nav-btn" id="month-next-btn" aria-label="Mes siguiente">
+                            <i class="fa-solid fa-caret-right" aria-hidden="true"></i>
+                        </button>
                     </div>
                 </div>
 
@@ -198,12 +200,12 @@
                 <div class="news-two-col-grid" id="news-grid-container">
 
                     <!-- Noticia 1 Real: Modificación Ordenanza -->
-                    <article class="news-portal-card" data-month="08-2026">
+                    <article class="news-portal-card" data-month="09-2026">
                         <div class="news-portal-media">
                             <img src="assets/slide2-solidario.png" alt="Modificación de Ordenanza Municipal Putaendo" class="news-portal-img">
                         </div>
                         <div class="news-portal-body">
-                            <time class="news-portal-date" datetime="2026-08-28">28 de agosto 2026</time>
+                            <time class="news-portal-date" datetime="2026-09-17">17 de septiembre 2026</time>
                             <h2 class="news-portal-title">
                                 MODIFICACIÓN ORDENANZA: SOBRE DERECHOS MUNICIPALES POR CONCESIONES, PERMISOS Y DERECHOS MUNICIPALES
                             </h2>
@@ -220,12 +222,12 @@
                     </article>
 
                     <!-- Noticia 2 Real: Fondo Cultura -->
-                    <article class="news-portal-card" data-month="08-2026">
+                    <article class="news-portal-card" data-month="09-2026">
                         <div class="news-portal-media">
                             <img src="assets/slide1-gastronomia.png" alt="Fondo Concursable Municipal de Cultura" class="news-portal-img">
                         </div>
                         <div class="news-portal-body">
-                            <time class="news-portal-date" datetime="2026-08-19">19 de agosto 2026</time>
+                            <time class="news-portal-date" datetime="2026-09-16">16 de septiembre 2026</time>
                             <h2 class="news-portal-title">
                                 [DESCARGAR BASES Y FORMULARIO] Fondo Concursable Municipal de Cultura 2026
                             </h2>
@@ -287,13 +289,10 @@
 
                 </div>
 
-                <!-- Paginación de Noticias -->
+                <!-- Paginación de Noticias (Ejemplo: Solo página 1) -->
                 <nav class="news-pagination-nav" aria-label="Paginación de noticias">
                     <ul class="news-pagination">
                         <li><span class="pagination-item current" aria-current="page">1</span></li>
-                        <li><a href="#pagina-2" class="pagination-item">2</a></li>
-                        <li><a href="#pagina-3" class="pagination-item">3</a></li>
-                        <li><a href="#pagina-siguiente" class="pagination-item next-page">Siguiente <i class="fa-solid fa-chevron-right"></i></a></li>
                     </ul>
                 </nav>
 
