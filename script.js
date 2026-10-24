@@ -9,20 +9,22 @@ document.addEventListener('DOMContentLoaded', () => {
     initSiteSearch();
     initMobileNav();
     initNewsMonthFilter();
+    initScrollToTopButton();
 });
 
 /* ==========================================================================
-   1. MENÚS DESPLEGABLES (DROPDOWNS) FLUIDOS Y ACCESIBLES
+   1. MENÚS DESPLEGABLES (DROPDOWNS) FLUIDOS Y SIN SOLAPAMIENTOS
    ========================================================================== */
 function initNavigationDropdowns() {
     const dropdownItems = document.querySelectorAll('.nav-item.has-dropdown');
-    const mainNav = document.getElementById('main-nav');
 
     function closeAllDropdowns() {
         dropdownItems.forEach((item) => {
             item.classList.remove('is-open');
             const btn = item.querySelector('.nav-btn-link');
-            if (btn) btn.setAttribute('aria-expanded', 'false');
+            if (btn) {
+                btn.setAttribute('aria-expanded', 'false');
+            }
         });
     }
 
@@ -32,70 +34,51 @@ function initNavigationDropdowns() {
 
         if (!btn || !menu) return;
 
-        // Toggle al hacer click en el botón (móvil o desktop)
+        // Click en el boton de navegacion: abre y cierra fluidamente al presionar tanto en movil como en escritorio
         btn.addEventListener('click', (e) => {
             e.preventDefault();
             e.stopPropagation();
+
             const isOpen = item.classList.contains('is-open');
-
-            // Cerrar cualquier otro dropdown abierto
-            dropdownItems.forEach((other) => {
-                if (other !== item) {
-                    other.classList.remove('is-open');
-                    const otherBtn = other.querySelector('.nav-btn-link');
-                    if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
-                }
-            });
-
-            // Alternar estado actual
-            if (isOpen) {
-                item.classList.remove('is-open');
-                btn.setAttribute('aria-expanded', 'false');
-            } else {
+            closeAllDropdowns();
+            if (!isOpen) {
                 item.classList.add('is-open');
                 btn.setAttribute('aria-expanded', 'true');
             }
         });
 
-        // En pantallas grandes (>= 768px): al entrar a un ítem, cerrar inmediatamente cualquier otro dropdown para evitar solapamientos
+        // En escritorio: al entrar a otro elemento, cerrar los demas para evitar solapamientos
         item.addEventListener('mouseenter', () => {
-            if (window.innerWidth >= 768) {
+            if (window.innerWidth > 768) {
                 dropdownItems.forEach((other) => {
-                    if (other !== item) {
+                    if (other !== item && other.classList.contains('is-open')) {
                         other.classList.remove('is-open');
                         const otherBtn = other.querySelector('.nav-btn-link');
-                        if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+                        if (otherBtn) {
+                            otherBtn.setAttribute('aria-expanded', 'false');
+                        }
                     }
                 });
             }
         });
 
-        // Al salir con el mouse del ítem o submenú en pantallas de escritorio, cerrar de inmediato
+        // En escritorio: al salir el mouse del boton y del menu desplegable, cerrar
         item.addEventListener('mouseleave', () => {
-            if (window.innerWidth >= 768) {
+            if (window.innerWidth > 768) {
                 item.classList.remove('is-open');
                 btn.setAttribute('aria-expanded', 'false');
             }
         });
     });
 
-    // Al salir con el puntero de toda la barra de navegación en escritorio
-    if (mainNav) {
-        mainNav.addEventListener('mouseleave', () => {
-            if (window.innerWidth >= 768) {
-                closeAllDropdowns();
-            }
-        });
-    }
-
-    // Cerrar dropdowns al hacer clic fuera
+    // Cerrar menus al hacer click fuera
     document.addEventListener('click', (e) => {
         if (!e.target.closest('.nav-item.has-dropdown')) {
             closeAllDropdowns();
         }
     });
 
-    // Accesibilidad por teclado: cerrar con tecla Escape
+    // Cerrar con Escape
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
             closeAllDropdowns();
@@ -445,3 +428,222 @@ function initNewsMonthFilter() {
     updateMonthDisplay();
 }
 
+
+/* ==========================================================================
+   6. PORTAL DE TURISMO (turismo.html) - MODALES DE RUTAS Y MAPA
+   ========================================================================== */
+
+const tourismRoutesData = {
+    'cruce-andes': {
+        title: "Ruta Cruce del Ejército Los Andes",
+        tag: "Circuito Histórico e Hitos de la Independencia",
+        image: "assets/turismo/ruta-cruce-andes.png",
+        desc: "Sigue la épica huella del Ejército Libertador del General José de San Martín y el Capitán General Bernardo O'Higgins, que en febrero de 1817 ingresó a territorio nacional por los pasos cordilleranos de Putaendo, proclamando a la comuna como el Primer Pueblo Libre de Chile.",
+        hitos: [
+            "<strong>Monumento al Combate de Las Coimas:</strong> Escenario del histórico combate donde la vanguardia patriota liderada por Mariano Necochea derrotó a las fuerzas realistas.",
+            "<strong>Hito Histórico Achupallas:</strong> Sitio del primer choque de armas del Ejército Libertador en suelo chileno.",
+            "<strong>Monolito Paso de Los Patos:</strong> Hito conmemorativo en honor a la División de vanguardia comandada por el General Estanislao Soler.",
+            "<strong>Miradores Cordilleranos:</strong> Panorámica sobre el Valle de Los Patos y la majestuosa cordillera de Los Andes."
+        ],
+        tips: "Se recomienda iniciar el recorrido temprano, vestir ropa cómoda por capas adecuada para el clima cordillerano, usar bloqueador solar y llevar hidratación. Para visitas a sectores de alta cordillera se sugiere transporte 4x4 o guías turísticos locales."
+    },
+    'patrimonio-arquitectura': {
+        title: "Ruta Patrimonio Arquitectónico",
+        tag: "Zona Típica y Casco Colonial",
+        image: "assets/turismo/ruta-arquitectura.png",
+        desc: "Putaendo conserva uno de los conjuntos coloniales de mayor valor patrimonial de Chile central, con su trazado colonial y edificaciones continuas de adobe declaradas Monumento Nacional en la categoría de Zona Típica.",
+        hitos: [
+            "<strong>Calle Comercio:</strong> Arteria principal con su pavimento original de piedras de río (cantos rodados), veredas altas y casas coloniales del siglo XVIII y XIX.",
+            "<strong>Parroquia San Antonio de Padua:</strong> Monumental templo frente a la Plaza Prat, fundado originalmente en la época colonial y reconstruido a fines del siglo XIX.",
+            "<strong>Plaza de Armas Prat:</strong> Espacio cívico tradicional con frondosos árboles centenarios y quiosco de música de época.",
+            "<strong>Zaguanes y Patios Interiores:</strong> Arquitectura tradicional con galerías de pilares de roble y techumbres de teja de arcilla cocida."
+        ],
+        tips: "Ideal para realizar a pie en un recorrido peatonal pausado de 2 a 3 horas. No olvides tu cámara fotográfica. Durante la mañana y al atardecer las fachadas coloniales adquieren una tonalidad cálida ideal para la fotografía."
+    },
+    'cultural': {
+        title: "Ruta Cultural",
+        tag: "Tradiciones, Artesanía y Expresiones Vivas",
+        image: "assets/turismo/ruta-cultural.png",
+        desc: "Descubre las profundas raíces de la identidad campesina y artística de Putaendo, cuna de cantores a lo humano y lo divino, artesanos del barro y la madera, y cultores del patrimonio inmaterial.",
+        hitos: [
+            "<strong>Centro Cultural Bernardo Parra:</strong> Epicentro del arte y la memoria local con salas de exhibición, pinacoteca y biblioteca comunal.",
+            "<strong>Ruta de los Artesanos en Rinconada de Silva:</strong> Talleres familiares donde se elaboran tradicionales vasijas de greda y tallados en madera nativa.",
+            "<strong>Museo Histórico Comunal:</strong> Colección de objetos históricos, aperos huasos antiguos y testimonios de la minería histórica.",
+            "<strong>Eventos y Fiestas Campesinas:</strong> Encuentros de payadores, la Fiesta de la Chilenidad y ferias de gastronomía típica."
+        ],
+        tips: "Puedes adquirir artesanías auténticas directamente con las familias alfareras. Consulta en la Oficina de Turismo sobre las fechas del Festival del Verano y ferias costumbristas."
+    },
+    'religiosa': {
+        title: "Ruta Religiosa",
+        tag: "Devoción, Santuarios y Fe Popular",
+        image: "assets/turismo/ruta-religiosa.png",
+        desc: "Un circuito espiritual que fusiona la devoción popular andina, la tradición de los Bailes Chinos (Patrimonio Cultural Inmaterial de la Humanidad por la UNESCO) y la arquitectura sacra del valle.",
+        hitos: [
+            "<strong>Santuario del Cristo de Madera (Rinconada de Silva):</strong> Majestuosa escultura de Cristo de más de 4 metros de altura tallada en madera de canelo por el artista Peter Horn, ubicada en un mirador natural del cerro.",
+            "<strong>Capilla de Guzmanes:</strong> Histórico oratorio colonial de adobe rodeado de campos agrícolas y antiguas haciendas.",
+            "<strong>Parroquia San Antonio de Padua:</strong> Sede de la devoción al patrono comunal.",
+            "<strong>Gruta y Vía Crucis del Cerro de Rinconada:</strong> Sendero de recogimiento y oración con vistas panorámicas hacia todo el valle de Putaendo."
+        ],
+        tips: "El ascenso al Santuario del Cristo de Madera cuenta con escalinatas y estación de descanso. Se recomienda calzado con buen agarre. En Semana Santa y durante la Fiesta Patronal el santuario congrega a miles de peregrinos."
+    }
+};
+
+window.abrirModalRuta = function(routeKey) {
+    const data = tourismRoutesData[routeKey];
+    if (!data) return;
+
+    const modal = document.getElementById('modal-ruta');
+    const titleEl = document.getElementById('modal-ruta-title');
+    const descEl = document.getElementById('modal-ruta-desc');
+    const imgEl = document.getElementById('modal-ruta-img');
+    const tagEl = document.getElementById('modal-ruta-tag');
+    const hitosEl = document.getElementById('modal-ruta-hitos');
+    const tipsEl = document.getElementById('modal-ruta-tips');
+
+    if (!modal) return;
+
+    if (titleEl) titleEl.textContent = data.title;
+    if (descEl) descEl.textContent = data.desc;
+    if (imgEl) {
+        imgEl.src = data.image;
+        imgEl.alt = data.title;
+    }
+    if (tagEl) tagEl.textContent = data.tag;
+    if (tipsEl) tipsEl.textContent = data.tips;
+
+    if (hitosEl) {
+        hitosEl.innerHTML = '';
+        data.hitos.forEach(hito => {
+            const li = document.createElement('li');
+            li.innerHTML = hito;
+            hitosEl.appendChild(li);
+        });
+    }
+
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+};
+
+window.cerrarModalRuta = function() {
+    const modal = document.getElementById('modal-ruta');
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+    }
+};
+
+window.abrirModalMapa = function() {
+    const modal = document.getElementById('modal-mapa');
+    if (modal) {
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+};
+
+window.cerrarModalMapa = function() {
+    const modal = document.getElementById('modal-mapa');
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+    }
+};
+
+// Cerrar modales con tecla Escape y click en el backdrop oscuro
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        window.cerrarModalRuta();
+        window.cerrarModalMapa();
+        if (window.cerrarModalPagoTramite) window.cerrarModalPagoTramite();
+    }
+});
+
+document.addEventListener('click', (e) => {
+    const modalRuta = document.getElementById('modal-ruta');
+    const modalMapa = document.getElementById('modal-mapa');
+
+    if (modalRuta && e.target === modalRuta) {
+        window.cerrarModalRuta();
+    }
+    if (modalMapa && e.target === modalMapa) {
+        window.cerrarModalMapa();
+    }
+    const modalTramite = document.getElementById('modal-pago-tramite');
+    if (modalTramite && e.target === modalTramite) {
+        window.cerrarModalPagoTramite();
+    }
+});
+
+/* ==========================================================================
+   7. BOTON FLOTANTE "SUBIR DEL TODO" (LADO IZQUIERDO)
+   ========================================================================== */
+function initScrollToTopButton() {
+    let btn = document.getElementById('scroll-to-top-btn');
+    if (!btn) {
+        btn = document.createElement('button');
+        btn.type = 'button';
+        btn.id = 'scroll-to-top-btn';
+        btn.className = 'scroll-to-top-btn';
+        btn.setAttribute('aria-label', 'Subir del todo');
+        btn.setAttribute('title', 'Subir del todo');
+        btn.innerHTML = '<i class="fa-solid fa-arrow-up" aria-hidden="true"></i>';
+        document.body.appendChild(btn);
+    }
+
+    function checkScroll() {
+        if (window.scrollY > 160) {
+            btn.classList.add('is-visible');
+        } else {
+            btn.classList.remove('is-visible');
+        }
+    }
+
+    window.addEventListener('scroll', checkScroll, { passive: true });
+    checkScroll();
+
+    btn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
+
+
+/* ==========================================================================
+   8. MODAL INTERACTIVO DE TRAMITES Y PAGOS EN LINEA
+   ========================================================================== */
+window.abrirModalPagoTramite = function(nombreTramite) {
+    const modal = document.getElementById('modal-pago-tramite');
+    if (!modal) return;
+    const title = document.getElementById('modal-tramite-title');
+    if (title && nombreTramite) {
+        title.textContent = 'Pago en L\u00ednea: ' + nombreTramite;
+    }
+    modal.classList.add('is-active');
+    document.body.style.overflow = 'hidden';
+};
+
+window.cerrarModalPagoTramite = function() {
+    const modal = document.getElementById('modal-pago-tramite');
+    if (!modal) return;
+    modal.classList.remove('is-active');
+    document.body.style.overflow = '';
+};
+
+window.simularConsultaTramite = function(e) {
+    e.preventDefault();
+    const inputPatente = document.getElementById('tramite-input-patente');
+    const valor = inputPatente ? inputPatente.value.trim().toUpperCase() : '';
+    const feedback = document.getElementById('tramite-feedback-box');
+    
+    if (!valor) {
+        if (feedback) {
+            feedback.innerHTML = '<div style="color: #dc2626; font-size: 14px; font-weight: 700; margin-top: 10px;">&#x26A0;&#xFE0F; Por favor ingresa una patente o RUT para consultar.</div>';
+        }
+        return;
+    }
+
+    if (feedback) {
+        feedback.innerHTML = '<div style="background: #f0fdf4; border: 1px solid #86efac; color: #166534; padding: 14px; border-radius: 8px; font-size: 14px; margin-top: 14px; line-height: 1.6;"><strong>&#x2705; Veh&iacute;culo identificado (' + valor + ')</strong><br>Estado: Habilitado para pago Permiso de Circulaci&oacute;n 2026.<br>Monto total: $58.420 (o 2 cuotas de $29.210).<br><br><a href="#" onclick="alert(\'Simulaci&oacute;n de pasarela: Pago procesado exitosamente por Tesorer&iacute;a General / Banco Estado.\'); return false;" class="btn-tramite-action" style="padding: 10px 20px; font-size: 14px !important; display: inline-block; margin-top: 8px;">Pagar con Webpay Plus</a></div>';
+    }
+};

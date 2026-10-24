@@ -108,9 +108,9 @@
                             <i class="fa-solid fa-caret-down dropdown-arrow" aria-hidden="true"></i>
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a href="#tramite-audiencias" class="dropdown-item">SOLICITUD DE AUDIENCIAS</a></li>
-                            <li><a href="#tramite-permiso" class="dropdown-item">PERMISO DE CIRCULACIÓN</a></li>
-                            <li><a href="#tramite-servicios" class="dropdown-item">PORTAL SERVICIOS MUNICIPALES</a></li>
+                            <li><a href="permiso-circulacion.html" class="dropdown-item">PERMISO DE CIRCULACIÓN</a></li>
+                            <li><a href="#tramite-solicitudes" class="dropdown-item">SOLICITUDES Y RECLAMOS</a></li>
+                            <li><a href="#tramite-becas" class="dropdown-item">BECAS Y BENEFICIOS</a></li>
                         </ul>
                     </li>
 
@@ -122,8 +122,8 @@
                         </button>
                         <ul class="dropdown-menu">
                             <li><a href="#historia" class="dropdown-item">HISTORIA Y PATRIMONIO</a></li>
-                            <li><a href="#turismo" class="dropdown-item">ATRACTIVOS TURÍSTICOS</a></li>
-                            <li><a href="#mapa" class="dropdown-item">MAPA COMUNAL</a></li>
+                            <li><a href="turismo.html" class="dropdown-item">ATRACTIVOS TURÍSTICOS</a></li>
+                            <li><a href="turismo.html#mapa-turistico" class="dropdown-item">MAPA COMUNAL</a></li>
                         </ul>
                     </li>
 
@@ -155,7 +155,7 @@
                             <i class="fa-solid fa-caret-down dropdown-arrow" aria-hidden="true"></i>
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a href="#turismo-portal" class="dropdown-item">PORTAL TURISMO</a></li>
+                            <li><a href="turismo.html" class="dropdown-item">PORTAL TURISMO</a></li>
                             <li><a href="#salud-portal" class="dropdown-item">DEPARTAMENTO DE SALUD</a></li>
                             <li><a href="#educacion-portal" class="dropdown-item">DEPARTAMENTO DE EDUCACIÓN</a></li>
                         </ul>
@@ -332,15 +332,15 @@
                 <!-- Cuadrícula de 3 Tarjetas Blancas Destacadas -->
                 <div class="services-grid">
                     <!-- Tarjeta 1: Pagos online -->
-                    <div class="service-card" id="tramite-pagos">
+                    <a href="permiso-circulacion.html" class="service-card" id="tramite-pagos" style="text-decoration: none; color: inherit;">
                         <div class="service-card-info">
                             <h3 class="service-card-title">Pagos online</h3>
-                            <p class="service-card-desc">Transporte, propiedades,<br>lorem ipsum</p>
+                            <p class="service-card-desc">Permiso de circulaci&oacute;n 2026,<br>patentes y derechos</p>
                         </div>
                         <div class="service-card-icon-container">
                             <img src="assets/icon-pagos.svg" alt="Pagos online" class="service-card-icon-img">
                         </div>
-                    </div>
+                    </a>
 
                     <!-- Tarjeta 2: Solicitudes y reclamos -->
                     <div class="service-card" id="tramite-solicitudes">
@@ -479,6 +479,10 @@
     <!-- =========================================================================
          PIE DE PÁGINA INSTITUCIONAL (Footer Verde Petróleo)
          ========================================================================= -->
+    <!-- Boton flotante para subir del todo (lado izquierdo) -->
+    <button type="button" id="scroll-to-top-btn" class="scroll-to-top-btn" aria-label="Subir del todo" title="Subir del todo">
+        <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+    </button>
     <footer class="site-footer" role="contentinfo">
         <div class="container footer-container">
             <!-- Bloque 1: Escudo y Nombre Municipal -->
