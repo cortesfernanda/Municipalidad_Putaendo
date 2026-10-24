@@ -3,7 +3,75 @@
    Diseño Web 2026 | Arquitectura e[ad] PUCV
    ========================================================================== */
 
-@import url('https://fonts.cdnfonts.com/css/proxima-nova');
+/* Tipografías Embebidas: Satoshi (UI & Lectura Rápida) + Lora (Lectura Prolongada) */
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@900,800,700,600,500,400,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap');
+
+/* Fuentes Locales Embebidas (Garantizan soporte 100% offline y local file://) */
+@font-face {
+    font-family: 'Satoshi';
+    src: url('fonts/Satoshi-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Satoshi';
+    src: url('fonts/Satoshi-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Satoshi';
+    src: url('fonts/Satoshi-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Satoshi';
+    src: url('fonts/Satoshi-Black.woff2') format('woff2');
+    font-weight: 800 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Lora';
+    src: url('fonts/Lora-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Lora';
+    src: url('fonts/Lora-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Lora';
+    src: url('fonts/Lora-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Lora';
+    src: url('fonts/Lora-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Lora';
+    src: url('fonts/Lora-Italic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
 
 /* --------------------------------------------------------------------------
    1. VARIABLES CSS (PALETA OFICIAL Y TIPOGRAFÍA)
@@ -28,9 +96,12 @@
     --color-text-light: #94a3b8;
     --color-white: #ffffff;
 
-    /* Tipografías: Proxima Nova */
-    --font-heading: 'Proxima Nova', 'ProximaNova', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    --font-body: 'Proxima Nova', 'ProximaNova', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    /* Tipografías Oficiales: Satoshi (UI y Lectura Rápida) + Lora (Lectura Prolongada) */
+    --font-heading: 'Satoshi', 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-body: 'Satoshi', 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-ui: 'Satoshi', 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-editorial: 'Lora', Georgia, 'Times New Roman', serif;
+    --font-prolonged: 'Lora', Georgia, 'Times New Roman', serif;
 
     /* Sombras y Elevaciones */
     --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.04);
@@ -189,7 +260,8 @@ ul, ol {
     flex-direction: column;
 }
 
-.brand-name {
+.brand-name,
+.brand-title {
     font-family: var(--font-heading);
     font-size: 1.55rem;
     font-weight: 800;
@@ -198,7 +270,9 @@ ul, ol {
     line-height: 1.1;
 }
 
-.brand-sub {
+.brand-sub,
+.brand-subtitle {
+    font-family: var(--font-body);
     font-size: 0.85rem;
     font-weight: 500;
     letter-spacing: 0.8px;
@@ -206,7 +280,8 @@ ul, ol {
 }
 
 /* Caja de búsqueda rápida */
-.search-wrapper {
+.search-wrapper,
+.header-search {
     position: relative;
     width: 100%;
     max-width: 280px;
@@ -368,13 +443,13 @@ ul, ol {
 .nav-btn-link, .nav-link {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    padding: 12px 16px;
+    gap: 5px;
+    padding: 12px 13px;
     color: var(--color-white);
     font-family: var(--font-heading);
-    font-size: 0.88rem;
+    font-size: 0.84rem;
     font-weight: 700;
-    letter-spacing: 0.6px;
+    letter-spacing: 0.5px;
     text-transform: uppercase;
     border-radius: var(--radius-sm);
     transition: all var(--transition-fast);
@@ -411,7 +486,7 @@ ul, ol {
     position: absolute;
     top: 100%;
     left: 0;
-    min-width: 220px;
+    min-width: 250px;
     background-color: var(--color-primary-dark);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
     border-radius: 0 0 var(--radius-sm) var(--radius-sm);
@@ -1239,6 +1314,15 @@ ul, ol {
     }
 }
 
+/* Tablets y pantallas medianas (769px - 1100px) */
+@media (min-width: 769px) and (max-width: 1100px) {
+    .nav-btn-link, .nav-link {
+        padding: 10px 7px;
+        font-size: 0.76rem;
+        gap: 3px;
+    }
+}
+
 /* Móviles (<= 768px) */
 @media (max-width: 768px) {
     .slider-viewport {
@@ -1344,15 +1428,18 @@ ul, ol {
         display: block;
     }
 
-    .search-wrapper {
+    .search-wrapper,
+    .header-search {
         max-width: 180px;
     }
 
-    .brand-name {
+    .brand-name,
+    .brand-title {
         font-size: 1.3rem;
     }
 
-    .brand-sub {
+    .brand-sub,
+    .brand-subtitle {
         font-size: 0.72rem;
     }
 
@@ -1449,7 +1536,7 @@ ul, ol {
 
 .news-banner-title {
     color: #ffffff;
-    font-family: 'Proxima Nova', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: var(--font-heading);
     font-size: 2.6rem;
     font-weight: 800;
     letter-spacing: 2.5px;
@@ -1670,127 +1757,289 @@ ul, ol {
 }
 
 /* --------------------------------------------------------------------------
-   12. PÁGINAS DE DETALLE DE NOTICIA (noticia-*.html)
+   12. PÁGINAS DE DETALLE DE NOTICIA (noticia-*.html) - FORMATO EDITORIAL 2026
    -------------------------------------------------------------------------- */
-.article-detail-section {
-    padding: 36px 0 72px;
-    background-color: var(--color-bg);
+/* Banner Superior Panorámico */
+.news-hero-banner-section {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #264e52;
+    overflow: hidden;
 }
 
-.article-container {
-    max-width: 860px;
-    margin: 0 auto;
-    background-color: #ffffff;
-    border-radius: var(--radius-md);
-    padding: 44px 48px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    border: 1px solid var(--color-border);
+.news-hero-banner-img {
+    width: 100%;
+    height: 340px;
+    object-fit: cover;
+    object-position: center 38%;
+    display: block;
 }
 
-.article-breadcrumb {
+/* Franja de Migas de Pan (Breadcrumbs) */
+.news-breadcrumbs-bar {
+    width: 100%;
+    background-color: #d0e0e2;
+    border-bottom: 1px solid #b7cbcd;
+    padding: 10px 0;
+}
+
+.news-breadcrumbs-inner {
     display: flex;
     align-items: center;
     gap: 8px;
-    font-size: 0.85rem;
-    color: var(--color-text-muted);
-    margin-bottom: 24px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #1e5759;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
     flex-wrap: wrap;
 }
 
-.article-breadcrumb a {
-    color: var(--color-primary);
-    font-weight: 600;
+.news-breadcrumbs-inner a {
+    color: #1e5759;
+    text-decoration: none;
+    transition: color var(--transition-fast);
 }
 
-.article-breadcrumb a:hover {
+.news-breadcrumbs-inner a:hover {
+    color: #0c3638;
     text-decoration: underline;
 }
 
-.article-header {
-    margin-bottom: 28px;
-    border-bottom: 1px solid var(--color-border);
-    padding-bottom: 24px;
+.news-breadcrumbs-inner .breadcrumb-sep {
+    color: #658c8e;
+    font-size: 0.74rem;
 }
 
-.article-meta {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    margin-bottom: 14px;
-    flex-wrap: wrap;
+.news-breadcrumbs-inner .breadcrumb-current {
+    color: #285456;
+    font-weight: 800;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 500px;
 }
 
-.article-badge {
-    background-color: var(--color-primary-soft);
-    color: var(--color-primary-dark);
-    font-size: 0.76rem;
+/* Contenedor Editorial Central */
+.article-detail-section {
+    padding: 40px 0 72px;
+    background-color: #ffffff;
+}
+
+.article-editorial-container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+/* Antetítulo / Kicker */
+.article-kicker {
+    font-size: 0.84rem;
     font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 0.6px;
-    padding: 4px 12px;
-    border-radius: var(--radius-full);
+    letter-spacing: 1.4px;
+    color: #2b5d61;
+    margin-bottom: 12px;
+    display: inline-block;
 }
 
-.article-date {
-    font-size: 0.86rem;
-    color: #4b5563;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.article-title {
+/* Titular Principal H1 */
+.article-title-editorial {
     font-family: var(--font-heading);
-    font-size: 2rem;
+    font-size: 2.25rem;
     font-weight: 800;
     color: #111827;
     line-height: 1.25;
-    letter-spacing: -0.5px;
+    letter-spacing: -0.4px;
+    margin-bottom: 18px;
 }
 
-.article-media-box {
-    margin-bottom: 32px;
-    border-radius: var(--radius-sm);
+/* Bajada / Lead */
+.article-lead-editorial {
+    font-family: var(--font-editorial);
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 1.6;
+    color: #2c363f;
+    margin-bottom: 22px;
+}
+
+/* Metadatos Byline (Autor y Fecha) */
+.article-byline-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.88rem;
+    color: #64748b;
+    margin-bottom: 28px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #e2e8f0;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.byline-author-label {
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #1e5759;
+    letter-spacing: 0.5px;
+}
+
+.byline-author-name {
+    color: #111827;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+
+.byline-date {
+    color: #64748b;
+    font-weight: 600;
+}
+
+/* Imagen Destacada Principal */
+.article-featured-box {
+    margin: 0 0 32px 0;
+    border-radius: 12px;
     overflow: hidden;
     background-color: #2D5E62;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
 }
 
-.article-img {
+.article-featured-img {
     width: 100%;
     height: auto;
-    max-height: 420px;
+    max-height: 480px;
     object-fit: cover;
     display: block;
 }
 
-.article-content {
-    font-size: 1.05rem;
-    line-height: 1.75;
-    color: #263238;
+/* Cuerpo de Texto Editorial (Lectura Prolongada: Lora) */
+.article-body-editorial {
+    font-family: var(--font-editorial);
+    font-size: 1.06rem;
+    line-height: 1.85;
+    color: #2d3748;
 }
 
-.article-content p {
-    margin-bottom: 20px;
+.article-body-editorial p {
+    font-family: var(--font-editorial);
+    font-size: 1.06rem;
+    line-height: 1.85;
+    margin-bottom: 22px;
+    color: #2d3748;
 }
 
-.article-content h3 {
+.article-body-editorial h3 {
     font-family: var(--font-heading);
     font-size: 1.35rem;
     font-weight: 800;
     color: #111827;
-    margin: 32px 0 14px;
+    margin: 34px 0 16px;
 }
 
-.article-content ul, .article-content ol {
+.article-body-editorial ul, .article-body-editorial ol {
     margin: 16px 0 24px 24px;
     list-style: disc;
 }
 
-.article-content li {
+.article-body-editorial li {
+    font-family: var(--font-editorial);
+    font-size: 1.04rem;
+    line-height: 1.75;
     margin-bottom: 10px;
+    color: #2d3748;
 }
 
+/* Cita Destacada (Pull Quote) */
+.article-quote-box {
+    font-family: var(--font-editorial);
+    margin: 32px 0;
+    padding: 22px 28px;
+    background-color: #f3f8f8;
+    border-left: 4px solid #2e585b;
+    border-radius: 0 10px 10px 0;
+    font-size: 1.15rem;
+    font-style: italic;
+    line-height: 1.7;
+    color: #1a3038;
+    font-weight: 500;
+}
+
+/* Galería / Slider con Flechas */
+.article-slider-box {
+    position: relative;
+    margin: 34px 0;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #1e3a3d;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+}
+
+.article-slider-track {
+    width: 100%;
+    position: relative;
+}
+
+.article-slider-slide {
+    display: none;
+    width: 100%;
+}
+
+.article-slider-slide.active {
+    display: block;
+}
+
+.article-slider-img {
+    width: 100%;
+    height: auto;
+    max-height: 480px;
+    object-fit: cover;
+    display: block;
+}
+
+.slider-arrow-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 42px;
+    height: 42px;
+    border-radius: 6px;
+    background-color: rgba(30, 58, 61, 0.75);
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.15rem;
+    transition: all 0.2s;
+    z-index: 10;
+}
+
+.slider-arrow-btn:hover {
+    background-color: rgba(30, 58, 61, 0.95);
+    transform: translateY(-50%) scale(1.08);
+}
+
+.slider-arrow-prev {
+    left: 14px;
+}
+
+.slider-arrow-next {
+    right: 14px;
+}
+
+.slider-caption {
+    padding: 10px 18px;
+    background-color: rgba(20, 42, 45, 0.88);
+    color: #f1f5f9;
+    font-size: 0.84rem;
+    text-align: center;
+}
+
+/* Tarjeta de descarga de documentos (para bases y ordenanzas) */
 .article-download-card {
     display: flex;
     align-items: center;
@@ -1853,52 +2102,196 @@ ul, ol {
     background-color: var(--color-primary-dark);
 }
 
-.article-footer-nav {
-    margin-top: 40px;
-    padding-top: 24px;
-    border-top: 1px solid var(--color-border);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 16px;
+/* Línea Divisoria */
+.article-divider {
+    border: 0;
+    height: 1px;
+    background-color: #e2e8f0;
+    margin: 36px 0 24px;
 }
 
-.btn-back-news {
+/* Sección COMPARTIR */
+.article-share-section {
+    margin-bottom: 40px;
+}
+
+.share-title {
+    font-size: 0.82rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: #2e585b;
+    margin-bottom: 12px;
+    display: block;
+}
+
+.share-buttons-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.share-circle-btn {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: #3b6e72;
+    color: #ffffff;
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    font-weight: 700;
+    justify-content: center;
     font-size: 0.95rem;
-    color: var(--color-primary);
-    padding: 8px 16px;
-    border-radius: var(--radius-sm);
-    border: 1px solid var(--color-primary);
-    transition: all var(--transition-fast);
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s ease;
 }
 
-.btn-back-news:hover {
-    background-color: var(--color-primary);
+.share-circle-btn:hover {
+    background-color: #244b4e;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
     color: #ffffff;
 }
 
+/* Sección CONTINUAR LEYENDO (6 Tarjetas) */
+.article-related-section {
+    margin-top: 48px;
+    padding-top: 36px;
+    border-top: 2px solid #e2e8f0;
+}
+
+.related-section-title {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #2e585b;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    margin-bottom: 24px;
+}
+
+.related-grid-6 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.related-card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+}
+
+.related-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    border-color: #cbd5e1;
+}
+
+.related-card-thumb {
+    width: 100%;
+    height: 145px;
+    overflow: hidden;
+    background-color: #2e585b;
+}
+
+.related-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.35s ease;
+}
+
+.related-card:hover .related-card-img {
+    transform: scale(1.06);
+}
+
+.related-card-body {
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.related-card-date {
+    font-size: 0.82rem;
+    color: #718096;
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: block;
+}
+
+.related-card-title {
+    font-size: 0.94rem;
+    font-weight: 700;
+    color: #1a202c;
+    line-height: 1.35;
+    margin: 0;
+    transition: color 0.2s;
+}
+
+.related-card:hover .related-card-title {
+    color: #2e585b;
+}
+
+/* Toast de notificación copiado */
+.toast-notification {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #2e585b;
+    color: #ffffff;
+    padding: 12px 22px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    z-index: 9999;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.toast-notification.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .related-grid-6 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 @media (max-width: 768px) {
-    .article-container {
-        padding: 24px 20px;
+    .news-hero-banner-img {
+        height: 200px;
     }
     
-    .article-title {
-        font-size: 1.5rem;
+    .article-title-editorial {
+        font-size: 1.65rem;
     }
     
-    .article-download-card {
-        flex-direction: column;
-        align-items: flex-start;
+    .article-lead-editorial {
+        font-size: 1.05rem;
     }
     
-    .download-btn {
-        width: 100%;
-        justify-content: center;
+    .related-grid-6 {
+        grid-template-columns: 1fr;
+    }
+    
+    .article-editorial-container {
+        padding: 0 12px;
     }
 }
 
@@ -1934,8 +2327,9 @@ ul, ol {
 }
 
 .about-authorities-text {
-    font-size: 16px !important;
-    line-height: 1.75;
+    font-family: var(--font-editorial);
+    font-size: 1.05rem !important;
+    line-height: 1.8;
     color: rgba(255, 255, 255, 0.95);
     margin: 0;
 }
@@ -3391,3 +3785,429 @@ p,
         word-break: normal;
     }
 }
+
+/* ==========================================================================
+   PORTAL PAGOS EN LÍNEA (ESTILO MAQUETA)
+   ========================================================================== */
+.pagos-hero-section {
+    position: relative;
+    width: 100%;
+    height: 205px;
+    overflow: hidden;
+    background-color: var(--color-primary-dark);
+}
+
+.pagos-hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 32%;
+    display: block;
+}
+
+.pagos-hero-capsule {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    background: rgba(38, 77, 82, 0.88);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    padding: 16px 48px 16px 40px;
+    border-radius: 0 999px 999px 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-left: none;
+    z-index: 10;
+}
+
+.pagos-hero-title {
+    margin: 0;
+    color: var(--color-white);
+    font-family: var(--font-heading);
+    font-size: 2.15rem;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    line-height: 1.1;
+}
+
+/* Breadcrumbs de Pagos */
+.pagos-breadcrumb-bar {
+    background-color: #cad8d8;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    padding: 9px 0;
+}
+
+.pagos-breadcrumb-list {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.84rem;
+    font-weight: 700;
+    font-family: var(--font-heading);
+    letter-spacing: 0.5px;
+    color: #2e585b;
+}
+
+.pagos-breadcrumb-list a {
+    color: #2e585b;
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.pagos-breadcrumb-list a:hover {
+    color: var(--color-primary-dark);
+    text-decoration: underline;
+}
+
+.pagos-breadcrumb-sep {
+    color: #5c8e93;
+    font-weight: 800;
+}
+
+.pagos-breadcrumb-current {
+    color: #204346;
+}
+
+/* Sección Central y Grilla */
+.pagos-main-content {
+    background-color: #f7f9f9;
+    padding: 36px 0 48px 0;
+}
+
+.pagos-intro-text {
+    text-align: center;
+    font-family: var(--font-heading);
+    font-size: 1.28rem;
+    font-weight: 600;
+    color: #2b3a3c;
+    margin: 0 auto 30px auto;
+    max-width: 720px;
+    padding: 0 16px;
+}
+
+.pagos-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.pagos-card {
+    background-color: #5c8e93;
+    border-radius: 22px;
+    padding: 30px 20px 24px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-decoration: none;
+    box-shadow: 0 8px 24px rgba(45, 94, 101, 0.16);
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), filter 0.25s ease;
+    cursor: pointer;
+    border: none;
+    min-height: 275px;
+    position: relative;
+    overflow: hidden;
+}
+
+.pagos-card:hover, .pagos-card:focus-visible {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 36px rgba(36, 73, 77, 0.28);
+    filter: brightness(1.04);
+    outline: none;
+}
+
+.pagos-card-title {
+    color: #ffffff;
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 800;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    line-height: 1.22;
+    margin: 0;
+}
+
+.pagos-card-icon-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 120px;
+    margin-top: 14px;
+}
+
+.pagos-card-icon {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.25s ease;
+}
+
+.pagos-card:hover .pagos-card-icon {
+    transform: scale(1.05);
+}
+
+/* Modal Informativo para trámites en habilitación */
+.pagos-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(18, 38, 40, 0.75);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+    padding: 20px;
+}
+
+.pagos-modal-overlay.is-open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.pagos-modal-box {
+    background: #ffffff;
+    border-radius: 20px;
+    max-width: 500px;
+    width: 100%;
+    padding: 34px 28px 28px 28px;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+    text-align: center;
+    transform: scale(0.92);
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+}
+
+.pagos-modal-overlay.is-open .pagos-modal-box {
+    transform: scale(1);
+}
+
+.pagos-modal-icon {
+    width: 68px;
+    height: 68px;
+    background-color: var(--color-primary-soft);
+    color: var(--color-primary);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    margin-bottom: 16px;
+}
+
+.pagos-modal-title {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--color-primary-dark);
+    margin: 0 0 10px 0;
+}
+
+.pagos-modal-desc {
+    font-size: 0.95rem;
+    color: var(--color-text-main);
+    line-height: 1.5;
+    margin-bottom: 24px;
+}
+
+.pagos-modal-btn-close {
+    background-color: var(--color-primary);
+    color: #ffffff;
+    border: none;
+    border-radius: 999px;
+    padding: 11px 30px;
+    font-size: 0.92rem;
+    font-weight: 700;
+    font-family: var(--font-heading);
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+}
+
+.pagos-modal-btn-close:hover {
+    background-color: var(--color-primary-dark);
+}
+
+@media (max-width: 768px) {
+    .pagos-hero-section {
+        height: 180px;
+    }
+
+    .pagos-hero-capsule {
+        padding: 12px 28px 12px 20px;
+    }
+
+    .pagos-hero-title {
+        font-size: 1.6rem;
+    }
+
+    .pagos-grid {
+        grid-template-columns: 1fr;
+        max-width: 360px;
+        gap: 22px;
+    }
+
+    .pagos-card {
+        min-height: 280px;
+        padding: 30px 20px 26px 20px;
+    }
+
+    .pagos-card-title {
+        font-size: 1.25rem;
+    }
+
+    .pagos-card-icon-wrap {
+        width: 110px;
+        height: 110px;
+    }
+
+    .pagos-intro-text {
+        font-size: 1.15rem;
+        padding: 0 16px;
+        margin-bottom: 30px;
+    }
+}
+
+/* ==========================================================================
+   FOOTER COMPACTO INSTITUCIONAL (ESTILO MAQUETA DE PAGOS)
+   ========================================================================== */
+.pagos-site-footer {
+    background-color: #274e53;
+    padding: 26px 0 24px 0;
+    color: #ffffff;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.pagos-footer-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.pagos-footer-left {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.pagos-footer-brand-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.pagos-footer-shield {
+    width: 36px;
+    height: 46px;
+    flex-shrink: 0;
+}
+
+.pagos-footer-title {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 800;
+    letter-spacing: 0.6px;
+    line-height: 1.1;
+    color: #ffffff;
+    display: block;
+}
+
+.pagos-footer-subtitle {
+    font-size: 0.72rem;
+    letter-spacing: 0.4px;
+    opacity: 0.9;
+    color: #ffffff;
+    display: block;
+}
+
+.pagos-footer-address {
+    margin: 0;
+    font-size: 0.76rem;
+    color: rgba(255, 255, 255, 0.85);
+    font-family: inherit;
+}
+
+.pagos-footer-center {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    text-align: left;
+}
+
+.pagos-footer-phone, .pagos-footer-email {
+    margin: 0;
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.92);
+    font-family: var(--font-heading);
+}
+
+.pagos-footer-email a, .pagos-footer-phone a {
+    color: inherit;
+    text-decoration: none;
+    transition: opacity var(--transition-fast);
+}
+
+.pagos-footer-email a:hover, .pagos-footer-phone a:hover {
+    text-decoration: underline;
+    opacity: 1;
+}
+
+.pagos-footer-right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.pagos-footer-social-label {
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.92);
+    font-family: var(--font-heading);
+    font-weight: 600;
+}
+
+.pagos-footer-social-circles {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.pagos-footer-circle-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #79a1a5;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: transform var(--transition-fast), background-color var(--transition-fast);
+}
+
+.pagos-footer-circle-btn:hover {
+    background-color: #92b7ba;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .pagos-footer-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+}
+
+

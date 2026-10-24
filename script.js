@@ -10,6 +10,9 @@ document.addEventListener('DOMContentLoaded', () => {
     initMobileNav();
     initNewsMonthFilter();
     initScrollToTopButton();
+    initArticleSlider();
+    initArticleShare();
+    initPagosModal();
 });
 
 /* ==========================================================================
@@ -242,46 +245,88 @@ function initSiteSearch() {
             keywords: 'autoridades alcalde mauricio quiroz concejo concejales municipio concejala francisco casas marta silva sebastian caldera miguel ortiz carlos gallardo mariana bravo'
         },
         {
-            title: 'Permiso de Circulación 2026',
+            title: 'Pagos en Línea (Portal Central de Pagos Municipales)',
+            type: 'Trámites',
+            link: 'pagos-en-linea.html',
+            keywords: 'pagos en linea portal de pagos tramites permiso circulacion patentes comerciales multas transito permisos construccion obras tesoreria pagar'
+        },
+        {
+            title: 'Permiso de Circulación 2026 (Pagar en Línea)',
             type: 'Trámite en Línea',
-            link: '#tramite-permiso',
-            keywords: 'permiso circulacion auto patente vehiculo pago cuota multas'
+            link: 'permiso-circulacion.html',
+            keywords: 'pagos online pagos en linea permiso circulacion auto patente vehiculo pago cuota multas tramite online pagar'
+        },
+        {
+            title: 'Patentes Comerciales (Portal de Pagos en Línea)',
+            type: 'Trámite en Línea',
+            link: 'pagos-en-linea.html?tramite=patentes',
+            keywords: 'patentes comerciales negocios microempresa rentas pago semestral'
+        },
+        {
+            title: 'Multas de Tránsito (Juzgado de Policía Local)',
+            type: 'Trámite en Línea',
+            link: 'pagos-en-linea.html?tramite=multas',
+            keywords: 'multas de transito parte tag jpl juzgado policia local partes infracciones'
+        },
+        {
+            title: 'Permisos de Construcción y Edificación (DOM)',
+            type: 'Trámite en Línea',
+            link: 'pagos-en-linea.html?tramite=obras',
+            keywords: 'permisos de construccion dom direccion de obras recepcion definitiva ampliacion loteos'
+        },
+        {
+            title: 'Portal de Turismo de Putaendo (4 Rutas y Mapa)',
+            type: 'Turismo',
+            link: 'turismo.html',
+            keywords: 'turismo portal de turismo atractivo rutas cruce andes patrimonio historia sendero mapa turistico'
+        },
+        {
+            title: 'Portal de Trámites y Servicios Municipales',
+            type: 'Trámites',
+            link: 'index.html#tramites',
+            keywords: 'tramites portal de tramites solicitudes reclamos becas beneficios certificados pagos online'
         },
         {
             title: 'Solicitud de Audiencias (Ley del Lobby)',
             type: 'Atención Ciudadana',
-            link: '#tramite-audiencias',
+            link: 'index.html#tramite-solicitudes',
             keywords: 'audiencia alcalde concejales lobby ley cita reunion'
-        },
-        {
-            title: 'Portal de Servicios & Certificados',
-            type: 'Ventanilla Municipal',
-            link: '#tramite-servicios',
-            keywords: 'servicios certificados residencia patentes obras comerciales ficha social'
-        },
-        {
-            title: 'Comunidad recibe posters de biodiversidad cordillerana',
-            type: 'Noticia Comunal',
-            link: '#noticia-1',
-            keywords: 'posters biodiversidad cordillera fauna flora ecosistema colegios'
-        },
-        {
-            title: 'Red Local de Solidaridad',
-            type: 'Desarrollo Comunitario',
-            link: '#noticia-2',
-            keywords: 'solidaridad ayuda voluntariado adultos mayores familias rural'
-        },
-        {
-            title: 'Rutas patrimoniales: Primer Pueblo Libre de Chile',
-            type: 'Turismo & Cultura',
-            link: '#noticia-3',
-            keywords: 'patrimonio historia calle comercio rutas turismo pueblo libre'
         },
         {
             title: 'Portal de Transparencia Activa',
             type: 'Gobierno Abierto',
             link: 'https://www.portaltransparencia.cl',
             keywords: 'transparencia sueldos contrataciones gastos decretos balance'
+        },
+        {
+            title: 'Organigrama y Estructura Municipal',
+            type: 'Municipio',
+            link: 'autoridades.html#organigrama',
+            keywords: 'organigrama direcciones secretarias departamentos estructura cargos'
+        },
+        {
+            title: 'Bolsa de Empleo Comunal (OMIL)',
+            type: 'Informaciones',
+            link: 'index.html#empleo',
+            keywords: 'empleo omil trabajo ofertas laborales capacitacion curriculum'
+        },
+        {
+            title: 'Juntos Planificamos (PLADECO y Plan Regulador)',
+            type: 'Informaciones',
+            link: 'index.html#planificamos',
+            keywords: 'planificamos pladeco proyectos desarrollo plan regulador participacion'
+        },
+        {
+            title: 'Red de Emprendedores de Putaendo',
+            type: 'Otros Sitios',
+            link: 'index.html#emprendedores',
+            keywords: 'emprendedores red pymes artesania comercio fomento productivo ferias'
+        },
+        {
+            title: 'Biodiversidad del Ecosistema Cordillerano (400 Posters)',
+            type: 'Noticia Comunal',
+            link: 'noticia-biodiversidad.html',
+            keywords: 'biodiversidad cordillera poster afiche fauna flora gato andino bazar maggi reserva biosfera'
         }
     ];
 
@@ -647,3 +692,184 @@ window.simularConsultaTramite = function(e) {
         feedback.innerHTML = '<div style="background: #f0fdf4; border: 1px solid #86efac; color: #166534; padding: 14px; border-radius: 8px; font-size: 14px; margin-top: 14px; line-height: 1.6;"><strong>&#x2705; Veh&iacute;culo identificado (' + valor + ')</strong><br>Estado: Habilitado para pago Permiso de Circulaci&oacute;n 2026.<br>Monto total: $58.420 (o 2 cuotas de $29.210).<br><br><a href="#" onclick="alert(\'Simulaci&oacute;n de pasarela: Pago procesado exitosamente por Tesorer&iacute;a General / Banco Estado.\'); return false;" class="btn-tramite-action" style="padding: 10px 20px; font-size: 14px !important; display: inline-block; margin-top: 8px;">Pagar con Webpay Plus</a></div>';
     }
 };
+
+/* ==========================================================================
+   9. SLIDER INTERACTIVO DE FOTOGRAFÍAS EN DETALLE DE NOTICIA
+   ========================================================================== */
+function initArticleSlider() {
+    const sliderBoxes = document.querySelectorAll('.article-slider-box');
+    sliderBoxes.forEach(box => {
+        const slides = box.querySelectorAll('.article-slider-slide');
+        if (!slides.length) return;
+
+        let currentIdx = 0;
+        const prevBtn = box.querySelector('.slider-arrow-prev');
+        const nextBtn = box.querySelector('.slider-arrow-next');
+        const caption = box.querySelector('.slider-caption-text');
+
+        function updateSlide(index) {
+            if (index < 0) {
+                currentIdx = slides.length - 1;
+            } else if (index >= slides.length) {
+                currentIdx = 0;
+            } else {
+                currentIdx = index;
+            }
+
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === currentIdx);
+            });
+
+            if (caption) {
+                const currentSlide = slides[currentIdx];
+                const customCaption = currentSlide.getAttribute('data-caption');
+                caption.textContent = customCaption ? customCaption : `Fotografía ${currentIdx + 1} de ${slides.length}`;
+            }
+        }
+
+        prevBtn?.addEventListener('click', (e) => {
+            e.preventDefault();
+            updateSlide(currentIdx - 1);
+        });
+
+        nextBtn?.addEventListener('click', (e) => {
+            e.preventDefault();
+            updateSlide(currentIdx + 1);
+        });
+
+        updateSlide(0);
+    });
+}
+
+/* ==========================================================================
+   10. BOTONES PARA COMPARTIR Y COPIAR ENLACE
+   ========================================================================== */
+function initArticleShare() {
+    const shareBtns = document.querySelectorAll('.share-circle-btn[data-action]');
+    if (!shareBtns.length) return;
+
+    let toast = document.getElementById('toast-notification');
+    if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'toast-notification';
+        toast.className = 'toast-notification';
+        toast.textContent = '¡Enlace copiado al portapapeles!';
+        document.body.appendChild(toast);
+    }
+
+    function showToast(msg) {
+        toast.textContent = msg || '¡Enlace copiado al portapapeles!';
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 3000);
+    }
+
+    shareBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const action = btn.getAttribute('data-action');
+            const pageUrl = encodeURIComponent(window.location.href);
+            const pageTitle = encodeURIComponent(document.title);
+
+            if (action === 'facebook') {
+                e.preventDefault();
+                window.open(`https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`, '_blank', 'width=620,height=440');
+            } else if (action === 'whatsapp') {
+                e.preventDefault();
+                window.open(`https://api.whatsapp.com/send?text=${pageTitle}%20${pageUrl}`, '_blank');
+            } else if (action === 'x') {
+                e.preventDefault();
+                window.open(`https://twitter.com/intent/tweet?text=${pageTitle}&url=${pageUrl}`, '_blank', 'width=620,height=440');
+            } else if (action === 'print') {
+                e.preventDefault();
+                window.print();
+            } else if (action === 'copy') {
+                e.preventDefault();
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(window.location.href).then(() => {
+                        showToast('¡Enlace copiado al portapapeles!');
+                    }).catch(() => {
+                        showToast('Copia manual: ' + window.location.href);
+                    });
+                } else {
+                    showToast('¡Enlace listo para compartir!');
+                }
+            }
+        });
+    });
+}
+
+/* ==========================================================================
+   9. MODAL INFORMATIVO PARA PORTAL DE PAGOS EN LÍNEA
+   ========================================================================== */
+function initPagosModal() {
+    const modal = document.getElementById('pagos-info-modal');
+    if (!modal) return;
+
+    const modalTitle = document.getElementById('pagos-modal-title');
+    const modalDesc = document.getElementById('pagos-modal-desc');
+    const modalIcon = document.getElementById('pagos-modal-icon-i');
+    const closeBtn = document.getElementById('pagos-modal-close');
+
+    const modalData = {
+        patentes: {
+            title: 'Pago de Patentes Comerciales',
+            desc: 'El pago semestral de Patentes Comerciales, Industriales, Profesionales y de Alcoholes estará habilitado próximamente en el portal digital. Para consultas o pagos presenciales, acércate al Departamento de Rentas en Prat 1 o escribe a rentas@muniputaendo.cl.',
+            icon: 'fa-shop'
+        },
+        multas: {
+            title: 'Pago de Multas de Tránsito',
+            desc: 'La plataforma integrada de consulta y pago de partes del Juzgado de Policía Local de Putaendo se encuentra en etapa de sincronización técnica. Puedes realizar el pago presencial en el Juzgado de Policía Local (Prat 1) o escribir a jpl@muniputaendo.cl.',
+            icon: 'fa-hand'
+        },
+        obras: {
+            title: 'Permisos de Construcción y Edificación',
+            desc: 'La cancelación de derechos municipales por permisos de edificación, subdivisión y certificados DOM se tramita directamente en la Dirección de Obras Municipales en Prat 1 o a través del correo dom@muniputaendo.cl.',
+            icon: 'fa-trowel-bricks'
+        }
+    };
+
+    document.querySelectorAll('[data-payment-modal]').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const key = btn.getAttribute('data-payment-modal');
+            const data = modalData[key];
+            if (data) {
+                if (modalTitle) modalTitle.textContent = data.title;
+                if (modalDesc) modalDesc.textContent = data.desc;
+                if (modalIcon) modalIcon.className = `fa-solid ${data.icon}`;
+                modal.classList.add('is-open');
+                modal.setAttribute('aria-hidden', 'false');
+            }
+        });
+    });
+
+    function closeModal() {
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+    }
+
+    closeBtn?.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('is-open')) {
+            closeModal();
+        }
+    });
+
+    // Abrir automáticamente si viene el parámetro en URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const tramiteParam = urlParams.get('tramite');
+    if (tramiteParam && modalData[tramiteParam]) {
+        setTimeout(() => {
+            const data = modalData[tramiteParam];
+            if (modalTitle) modalTitle.textContent = data.title;
+            if (modalDesc) modalDesc.textContent = data.desc;
+            if (modalIcon) modalIcon.className = `fa-solid ${data.icon}`;
+            modal.classList.add('is-open');
+            modal.setAttribute('aria-hidden', 'false');
+        }, 300);
+    }
+}
+
+

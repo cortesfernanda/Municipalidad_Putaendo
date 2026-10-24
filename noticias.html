@@ -6,11 +6,11 @@
     <title>Noticias Comunales | Ilustre Municipalidad de Putaendo</title>
     <meta name="description" content="Portal de noticias, avisos y actualidad de la Ilustre Municipalidad de Putaendo. Infórmate sobre proyectos comunales, medio ambiente, actividades y cultura.">
     
-    <!-- Tipografía Proxima Nova -->
-    <link href="https://fonts.cdnfonts.com/css/proxima-nova" rel="stylesheet">
+        <!-- Tipografias Oficiales Embebidas: Satoshi (UI y Lectura Rapida) + Lora (Lectura Prolongada) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@900,800,700,600,500,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
     
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -65,11 +65,11 @@
                         </button>
                     </form>
                     <!-- Contenedor desplegable de resultados rápidos -->
-                    <div id="search-results-dropdown" class="search-results-dropdown" aria-live="polite"></div>
+                                        <div id="search-results-dropdown" class="search-results-dropdown" aria-live="polite"></div>
                 </div>
 
-                <!-- Botón Menú Hamburguesa para Móviles -->
-                <button class="mobile-toggle" id="mobile-toggle" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="main-nav">
+                <!-- Boton Menu Hamburguesa para Moviles -->
+                <button class="mobile-toggle" id="mobile-toggle" aria-label="Abrir menu de navegacion" aria-expanded="false" aria-controls="main-nav">
                     <span class="hamburger-bar"></span>
                     <span class="hamburger-bar"></span>
                     <span class="hamburger-bar"></span>
@@ -77,8 +77,9 @@
             </div>
         </div>
 
-        <!-- Barra de Navegación Principal con Menús Desplegables -->
-        <nav class="main-nav" id="main-nav" aria-label="Navegación principal">
+        <!-- Barra de Navegacion Principal con Menus Desplegables -->
+                <!-- Barra de Navegacion Principal con Menus Desplegables -->
+        <nav class="main-nav" id="main-nav" aria-label="Navegacion principal">
             <div class="container">
                 <ul class="nav-list" id="nav-list">
                     <!-- Dropdown 1: MUNICIPIO -->
@@ -89,25 +90,24 @@
                         </button>
                         <ul class="dropdown-menu">
                             <li><a href="autoridades.html" class="dropdown-item">AUTORIDADES</a></li>
-                            <li><a href="index.html#organigrama" class="dropdown-item">ORGANIGRAMA</a></li>
-                            <li><a href="index.html#planificamos" class="dropdown-item">PLANIFICAMOS</a></li>
+                            <li><a href="autoridades.html#organigrama" class="dropdown-item">ORGANIGRAMA</a></li>
                         </ul>
                     </li>
 
-                    <!-- Dropdown 2: TRÁMITES -->
+                    <!-- Dropdown 2: TRAMITES -->
                     <li class="nav-item has-dropdown">
                         <button class="nav-btn-link" aria-expanded="false" aria-haspopup="true">
-                            <span>TRÁMITES</span>
+                            <span>TR&Aacute;MITES</span>
                             <i class="fa-solid fa-caret-down dropdown-arrow" aria-hidden="true"></i>
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a href="permiso-circulacion.html" class="dropdown-item">PERMISO DE CIRCULACIÓN</a></li>
-                            <li><a href="index.html#tramite-solicitudes" class="dropdown-item">SOLICITUDES Y RECLAMOS</a></li>
+                            <li><a href="pagos-en-linea.html" class="dropdown-item">PAGOS EN L&Iacute;NEA</a></li>
+                            <li><a href="index.html#tramite-solicitudes" class="dropdown-item">SOLICITUDES</a></li>
                             <li><a href="index.html#tramite-becas" class="dropdown-item">BECAS Y BENEFICIOS</a></li>
                         </ul>
                     </li>
 
-                    <!-- Dropdown 3: COMUNA -->
+                    <!-- Dropdown 3: COMUNA (solo ese) -->
                     <li class="nav-item has-dropdown">
                         <button class="nav-btn-link" aria-expanded="false" aria-haspopup="true">
                             <span>COMUNA</span>
@@ -115,21 +115,18 @@
                         </button>
                         <ul class="dropdown-menu">
                             <li><a href="index.html#historia" class="dropdown-item">HISTORIA Y PATRIMONIO</a></li>
-                            <li><a href="turismo.html" class="dropdown-item">ATRACTIVOS TURÍSTICOS</a></li>
-                            <li><a href="turismo.html#mapa-turistico" class="dropdown-item">MAPA COMUNAL</a></li>
                         </ul>
                     </li>
 
-                    <!-- Dropdown 4: INFORMACIONES (ACTIVO) -->
-                    <li class="nav-item has-dropdown is-active-page">
-                        <button class="nav-btn-link active-link" aria-expanded="false" aria-haspopup="true">
+                    <!-- Dropdown 4: INFORMACIONES -->
+                    <li class="nav-item has-dropdown">
+                        <button class="nav-btn-link" aria-expanded="false" aria-haspopup="true">
                             <span>INFORMACIONES</span>
                             <i class="fa-solid fa-caret-down dropdown-arrow" aria-hidden="true"></i>
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a href="noticias.html" class="dropdown-item active-dropdown-item">NOTICIAS COMUNALES</a></li>
-                            <li><a href="index.html#avisos" class="dropdown-item">AVISOS Y EDICTOS</a></li>
-                            <li><a href="index.html#fondos" class="dropdown-item">FONDOS CONCURSABLES</a></li>
+                            <li><a href="index.html#empleo" class="dropdown-item">EMPLEO</a></li>
+                            <li><a href="index.html#planificamos" class="dropdown-item">JUNTOS PLANIFICAMOS</a></li>
                         </ul>
                     </li>
 
@@ -148,9 +145,8 @@
                             <i class="fa-solid fa-caret-down dropdown-arrow" aria-hidden="true"></i>
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a href="turismo.html" class="dropdown-item">PORTAL TURISMO</a></li>
-                            <li><a href="index.html#salud-portal" class="dropdown-item">DEPARTAMENTO DE SALUD</a></li>
-                            <li><a href="index.html#educacion-portal" class="dropdown-item">DEPARTAMENTO DE EDUCACIÓN</a></li>
+                            <li><a href="turismo.html" class="dropdown-item">TURISMO</a></li>
+                            <li><a href="index.html#emprendedores" class="dropdown-item">RED DE EMPRENDEDORES</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -199,7 +195,29 @@
                 <!-- Grilla de Noticias: 2 Columnas con Noticias Reales de Putaendo -->
                 <div class="news-two-col-grid" id="news-grid-container">
 
-                    <!-- Noticia 1 Real: Modificación Ordenanza -->
+                    <!-- Noticia 1: Biodiversidad Cordillerana (Pósters Bazar Maggi) -->
+                    <article class="news-portal-card" data-month="10-2026">
+                        <div class="news-portal-media">
+                            <img src="assets/noticia-biodiversidad-1.jpg" alt="Comunidad de Putaendo recibe 400 ejemplares de posters de biodiversidad" class="news-portal-img">
+                        </div>
+                        <div class="news-portal-body">
+                            <time class="news-portal-date" datetime="2026-10-12">12 de octubre 2026</time>
+                            <h2 class="news-portal-title">
+                                Comunidad de Putaendo recibe 400 ejemplares de posters que muestran la biodiversidad del ecosistema cordillerano
+                            </h2>
+                            <p class="news-portal-excerpt">
+                                La iniciativa, impulsada por Putaendo Resiste Ahora, busca valorizar la riqueza natural del Valle del Aconcagua y respaldar la propuesta de una nueva Reserva de la Biósfera frente a proyectos mineros en la zona.
+                            </p>
+                            <div class="news-portal-action">
+                                <a href="noticia-biodiversidad.html" class="news-portal-link">
+                                    <span>Sigue leyendo</span>
+                                    <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Noticia 2 Real: Modificación Ordenanza -->
                     <article class="news-portal-card" data-month="09-2026">
                         <div class="news-portal-media">
                             <img src="assets/slide2-solidario.png" alt="Modificación de Ordenanza Municipal Putaendo" class="news-portal-img">

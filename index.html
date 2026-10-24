@@ -6,11 +6,11 @@
     <title>Ilustre Municipalidad de Putaendo | Sitio Oficial</title>
     <meta name="description" content="Sitio web oficial de la Ilustre Municipalidad de Putaendo. Información comunal, trámites en línea, noticias, portal de transparencia y servicios comunitarios.">
     
-    <!-- Tipografía Proxima Nova -->
-    <link href="https://fonts.cdnfonts.com/css/proxima-nova" rel="stylesheet">
+        <!-- Tipografias Oficiales Embebidas: Satoshi (UI y Lectura Rapida) + Lora (Lectura Prolongada) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@900,800,700,600,500,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
     
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -72,11 +72,11 @@
                         </button>
                     </form>
                     <!-- Contenedor desplegable de resultados rápidos -->
-                    <div id="search-results-dropdown" class="search-results-dropdown" aria-live="polite"></div>
+                                        <div id="search-results-dropdown" class="search-results-dropdown" aria-live="polite"></div>
                 </div>
 
-                <!-- Botón Menú Hamburguesa para Móviles -->
-                <button class="mobile-toggle" id="mobile-toggle" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="main-nav">
+                <!-- Boton Menu Hamburguesa para Moviles -->
+                <button class="mobile-toggle" id="mobile-toggle" aria-label="Abrir menu de navegacion" aria-expanded="false" aria-controls="main-nav">
                     <span class="hamburger-bar"></span>
                     <span class="hamburger-bar"></span>
                     <span class="hamburger-bar"></span>
@@ -84,8 +84,8 @@
             </div>
         </div>
 
-        <!-- Barra de Navegación Principal con Menús Desplegables -->
-        <nav class="main-nav" id="main-nav" aria-label="Navegación principal">
+        <!-- Barra de Navegacion Principal con Menus Desplegables -->
+        <nav class="main-nav" id="main-nav" aria-label="Navegacion principal">
             <div class="container">
                 <ul class="nav-list" id="nav-list">
                     <!-- Dropdown 1: MUNICIPIO -->
@@ -96,34 +96,31 @@
                         </button>
                         <ul class="dropdown-menu">
                             <li><a href="autoridades.html" class="dropdown-item">AUTORIDADES</a></li>
-                            <li><a href="#organigrama" class="dropdown-item">ORGANIGRAMA</a></li>
-                            <li><a href="#planificamos" class="dropdown-item">PLANIFICAMOS</a></li>
+                            <li><a href="autoridades.html#organigrama" class="dropdown-item">ORGANIGRAMA</a></li>
                         </ul>
                     </li>
 
-                    <!-- Dropdown 2: TRÁMITES -->
+                    <!-- Dropdown 2: TRAMITES -->
                     <li class="nav-item has-dropdown">
                         <button class="nav-btn-link" aria-expanded="false" aria-haspopup="true">
-                            <span>TRÁMITES</span>
+                            <span>TR&Aacute;MITES</span>
                             <i class="fa-solid fa-caret-down dropdown-arrow" aria-hidden="true"></i>
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a href="permiso-circulacion.html" class="dropdown-item">PERMISO DE CIRCULACIÓN</a></li>
-                            <li><a href="#tramite-solicitudes" class="dropdown-item">SOLICITUDES Y RECLAMOS</a></li>
-                            <li><a href="#tramite-becas" class="dropdown-item">BECAS Y BENEFICIOS</a></li>
+                            <li><a href="pagos-en-linea.html" class="dropdown-item">PAGOS EN L&Iacute;NEA</a></li>
+                            <li><a href="index.html#tramite-solicitudes" class="dropdown-item">SOLICITUDES</a></li>
+                            <li><a href="index.html#tramite-becas" class="dropdown-item">BECAS Y BENEFICIOS</a></li>
                         </ul>
                     </li>
 
-                    <!-- Dropdown 3: COMUNA -->
+                    <!-- Dropdown 3: COMUNA (solo ese) -->
                     <li class="nav-item has-dropdown">
                         <button class="nav-btn-link" aria-expanded="false" aria-haspopup="true">
                             <span>COMUNA</span>
                             <i class="fa-solid fa-caret-down dropdown-arrow" aria-hidden="true"></i>
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a href="#historia" class="dropdown-item">HISTORIA Y PATRIMONIO</a></li>
-                            <li><a href="turismo.html" class="dropdown-item">ATRACTIVOS TURÍSTICOS</a></li>
-                            <li><a href="turismo.html#mapa-turistico" class="dropdown-item">MAPA COMUNAL</a></li>
+                            <li><a href="index.html#historia" class="dropdown-item">HISTORIA Y PATRIMONIO</a></li>
                         </ul>
                     </li>
 
@@ -134,9 +131,8 @@
                             <i class="fa-solid fa-caret-down dropdown-arrow" aria-hidden="true"></i>
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a href="noticias.html" class="dropdown-item">NOTICIAS COMUNALES</a></li>
-                            <li><a href="#avisos" class="dropdown-item">AVISOS Y EDICTOS</a></li>
-                            <li><a href="#fondos" class="dropdown-item">FONDOS CONCURSABLES</a></li>
+                            <li><a href="index.html#empleo" class="dropdown-item">EMPLEO</a></li>
+                            <li><a href="index.html#planificamos" class="dropdown-item">JUNTOS PLANIFICAMOS</a></li>
                         </ul>
                     </li>
 
@@ -155,9 +151,8 @@
                             <i class="fa-solid fa-caret-down dropdown-arrow" aria-hidden="true"></i>
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a href="turismo.html" class="dropdown-item">PORTAL TURISMO</a></li>
-                            <li><a href="#salud-portal" class="dropdown-item">DEPARTAMENTO DE SALUD</a></li>
-                            <li><a href="#educacion-portal" class="dropdown-item">DEPARTAMENTO DE EDUCACIÓN</a></li>
+                            <li><a href="turismo.html" class="dropdown-item">TURISMO</a></li>
+                            <li><a href="index.html#emprendedores" class="dropdown-item">RED DE EMPRENDEDORES</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -173,6 +168,7 @@
         <!-- =====================================================================
              1. SECCIÓN HERO: CARRUSEL PRINCIPAL DE PANTALLA COMPLETA
              ===================================================================== -->
+        <div id="historia"></div>
         <section class="hero-slider-section full-width-hero" aria-label="Noticias y avisos destacados">
             <!-- Marco del Slider de Ancho Completo -->
             <div class="slider-viewport" id="hero-slider">
@@ -331,14 +327,14 @@
 
                 <!-- Cuadrícula de 3 Tarjetas Blancas Destacadas -->
                 <div class="services-grid">
-                    <!-- Tarjeta 1: Pagos online -->
-                    <a href="permiso-circulacion.html" class="service-card" id="tramite-pagos" style="text-decoration: none; color: inherit;">
+                    <!-- Tarjeta 1: Pagos en línea -->
+                    <a href="pagos-en-linea.html" class="service-card" id="tramite-pagos" style="text-decoration: none; color: inherit;">
                         <div class="service-card-info">
-                            <h3 class="service-card-title">Pagos online</h3>
+                            <h3 class="service-card-title">Pagos en l&iacute;nea</h3>
                             <p class="service-card-desc">Permiso de circulaci&oacute;n 2026,<br>patentes y derechos</p>
                         </div>
                         <div class="service-card-icon-container">
-                            <img src="assets/icon-pagos.svg" alt="Pagos online" class="service-card-icon-img">
+                            <img src="assets/icon-pagos.svg" alt="Pagos en l&iacute;nea" class="service-card-icon-img">
                         </div>
                     </a>
 
@@ -474,6 +470,11 @@
             </div>
         </section>
 
+            <!-- Anclas de Navegacion Informaciones y Emprendedores -->
+        <div id="empleo" class="visually-hidden"></div>
+        <div id="planificamos" class="visually-hidden"></div>
+        <div id="emprendedores" class="visually-hidden"></div>
+        <div id="organigrama" class="visually-hidden"></div>
     </main>
 
     <!-- =========================================================================

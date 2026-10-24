@@ -6,11 +6,11 @@
     <title>Turismo y Rutas Patrimoniales | Ilustre Municipalidad de Putaendo</title>
     <meta name="description" content="Descubre Putaendo, Primer Pueblo Libre de Chile: Rutas temáticas del Cruce de Los Andes, Patrimonio Arquitectónico, Cultural y Religioso, y el Mapa Turístico Oficial.">
     
-    <!-- Tipografía Proxima Nova -->
-    <link href="https://fonts.cdnfonts.com/css/proxima-nova" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="preconnect" href="https://fonts.preconnect.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+        <!-- Tipografias Oficiales Embebidas: Satoshi (UI y Lectura Rapida) + Lora (Lectura Prolongada) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@900,800,700,600,500,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
     
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -56,10 +56,11 @@
                         <input type="search" id="site-search" class="search-input" placeholder="Buscar..." autocomplete="off">
                         <button type="submit" class="search-btn" aria-label="Buscar"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </form>
-                    <div id="search-results-dropdown" class="search-results-dropdown" aria-live="polite"></div>
+                                        <div id="search-results-dropdown" class="search-results-dropdown" aria-live="polite"></div>
                 </div>
 
-                <button class="mobile-toggle" id="mobile-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">
+                <!-- Boton Menu Hamburguesa para Moviles -->
+                <button class="mobile-toggle" id="mobile-toggle" aria-label="Abrir menu de navegacion" aria-expanded="false" aria-controls="main-nav">
                     <span class="hamburger-bar"></span>
                     <span class="hamburger-bar"></span>
                     <span class="hamburger-bar"></span>
@@ -67,7 +68,9 @@
             </div>
         </div>
 
-        <nav class="main-nav" id="main-nav" aria-label="Navegación principal">
+        <!-- Barra de Navegacion Principal con Menus Desplegables -->
+                <!-- Barra de Navegacion Principal con Menus Desplegables -->
+        <nav class="main-nav" id="main-nav" aria-label="Navegacion principal">
             <div class="container">
                 <ul class="nav-list" id="nav-list">
                     <!-- Dropdown 1: MUNICIPIO -->
@@ -78,34 +81,31 @@
                         </button>
                         <ul class="dropdown-menu">
                             <li><a href="autoridades.html" class="dropdown-item">AUTORIDADES</a></li>
-                            <li><a href="index.html#organigrama" class="dropdown-item">ORGANIGRAMA</a></li>
-                            <li><a href="index.html#planificamos" class="dropdown-item">PLANIFICAMOS</a></li>
+                            <li><a href="autoridades.html#organigrama" class="dropdown-item">ORGANIGRAMA</a></li>
                         </ul>
                     </li>
 
-                    <!-- Dropdown 2: TRÁMITES -->
+                    <!-- Dropdown 2: TRAMITES -->
                     <li class="nav-item has-dropdown">
                         <button class="nav-btn-link" aria-expanded="false" aria-haspopup="true">
-                            <span>TRÁMITES</span>
+                            <span>TR&Aacute;MITES</span>
                             <i class="fa-solid fa-caret-down dropdown-arrow" aria-hidden="true"></i>
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a href="permiso-circulacion.html" class="dropdown-item">PERMISO DE CIRCULACIÓN</a></li>
-                            <li><a href="index.html#tramite-solicitudes" class="dropdown-item">SOLICITUDES Y RECLAMOS</a></li>
+                            <li><a href="pagos-en-linea.html" class="dropdown-item">PAGOS EN L&Iacute;NEA</a></li>
+                            <li><a href="index.html#tramite-solicitudes" class="dropdown-item">SOLICITUDES</a></li>
                             <li><a href="index.html#tramite-becas" class="dropdown-item">BECAS Y BENEFICIOS</a></li>
                         </ul>
                     </li>
 
-                    <!-- Dropdown 3: COMUNA (ACTIVO) -->
-                    <li class="nav-item has-dropdown is-active-page">
-                        <button class="nav-btn-link active-link" aria-expanded="false" aria-haspopup="true">
+                    <!-- Dropdown 3: COMUNA (solo ese) -->
+                    <li class="nav-item has-dropdown">
+                        <button class="nav-btn-link" aria-expanded="false" aria-haspopup="true">
                             <span>COMUNA</span>
                             <i class="fa-solid fa-caret-down dropdown-arrow" aria-hidden="true"></i>
                         </button>
                         <ul class="dropdown-menu">
                             <li><a href="index.html#historia" class="dropdown-item">HISTORIA Y PATRIMONIO</a></li>
-                            <li><a href="turismo.html" class="dropdown-item active-dropdown-item">ATRACTIVOS TURÍSTICOS</a></li>
-                            <li><a href="turismo.html#mapa-turistico" class="dropdown-item">MAPA COMUNAL</a></li>
                         </ul>
                     </li>
 
@@ -116,9 +116,8 @@
                             <i class="fa-solid fa-caret-down dropdown-arrow" aria-hidden="true"></i>
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a href="noticias.html" class="dropdown-item">NOTICIAS COMUNALES</a></li>
-                            <li><a href="index.html#avisos" class="dropdown-item">AVISOS Y EDICTOS</a></li>
-                            <li><a href="index.html#fondos" class="dropdown-item">FONDOS CONCURSABLES</a></li>
+                            <li><a href="index.html#empleo" class="dropdown-item">EMPLEO</a></li>
+                            <li><a href="index.html#planificamos" class="dropdown-item">JUNTOS PLANIFICAMOS</a></li>
                         </ul>
                     </li>
 
@@ -137,9 +136,8 @@
                             <i class="fa-solid fa-caret-down dropdown-arrow" aria-hidden="true"></i>
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a href="turismo.html" class="dropdown-item">PORTAL TURISMO</a></li>
-                            <li><a href="index.html#salud-portal" class="dropdown-item">DEPARTAMENTO DE SALUD</a></li>
-                            <li><a href="index.html#educacion-portal" class="dropdown-item">DEPARTAMENTO DE EDUCACIÓN</a></li>
+                            <li><a href="turismo.html" class="dropdown-item">TURISMO</a></li>
+                            <li><a href="index.html#emprendedores" class="dropdown-item">RED DE EMPRENDEDORES</a></li>
                         </ul>
                     </li>
                 </ul>

@@ -1,21 +1,16 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Concursos Públicos: Profesionales, Jefaturas y Auxiliares | Ilustre Municipalidad de Putaendo</title>
-    <meta name="description" content="Concursos públicos de antecedentes para proveer cargos de Encargado/a de Cultura, Jefe/a de Personal y Auxiliar en la Municipalidad de Putaendo.">
-    
-    <!-- Tipografía Proxima Nova -->
-    <link href="https://fonts.cdnfonts.com/css/proxima-nova" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="preconnect" href="https://fonts.preconnect.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome Icons -->
+    <title>Concurso P&uacute;blico Municipal 2026 | Ilustre Municipalidad de Putaendo</title>
+    <meta name="description" content="Llamado a concurso publico de oposicion y antecedentes para proveer cargos en la Ilustre Municipalidad de Putaendo.">
+        <!-- Tipografias Oficiales Embebidas: Satoshi (UI y Lectura Rapida) + Lora (Lectura Prolongada) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@900,800,700,600,500,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    <!-- Hoja de estilos principal -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -57,7 +52,7 @@
                     <div id="search-results-dropdown" class="search-results-dropdown" aria-live="polite"></div>
                 </div>
 
-                <button class="mobile-toggle" id="mobile-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">
+                <button class="mobile-toggle" id="mobile-toggle" aria-label="Abrir menu de navegacion" aria-expanded="false" aria-controls="main-nav">
                     <span class="hamburger-bar"></span>
                     <span class="hamburger-bar"></span>
                     <span class="hamburger-bar"></span>
@@ -65,52 +60,75 @@
             </div>
         </div>
 
-        <nav class="main-nav" id="main-nav" aria-label="Navegación principal">
+                <!-- Barra de Navegacion Principal con Menus Desplegables -->
+        <nav class="main-nav" id="main-nav" aria-label="Navegacion principal">
             <div class="container">
                 <ul class="nav-list" id="nav-list">
+                    <!-- Dropdown 1: MUNICIPIO -->
                     <li class="nav-item has-dropdown">
-                        <button class="nav-btn-link" aria-expanded="false"><span>MUNICIPIO</span> <i class="fa-solid fa-caret-down dropdown-arrow"></i></button>
+                        <button class="nav-btn-link" aria-expanded="false" aria-haspopup="true">
+                            <span>MUNICIPIO</span>
+                            <i class="fa-solid fa-caret-down dropdown-arrow" aria-hidden="true"></i>
+                        </button>
                         <ul class="dropdown-menu">
-                            <li><a href="index.html#alcalde" class="dropdown-item">AUTORIDADES</a></li>
-                            <li><a href="index.html#organigrama" class="dropdown-item">ORGANIGRAMA</a></li>
-                            <li><a href="index.html#planificamos" class="dropdown-item">PLANIFICAMOS</a></li>
+                            <li><a href="autoridades.html" class="dropdown-item">AUTORIDADES</a></li>
+                            <li><a href="autoridades.html#organigrama" class="dropdown-item">ORGANIGRAMA</a></li>
                         </ul>
                     </li>
+
+                    <!-- Dropdown 2: TRAMITES -->
                     <li class="nav-item has-dropdown">
-                        <button class="nav-btn-link" aria-expanded="false"><span>TRÁMITES</span> <i class="fa-solid fa-caret-down dropdown-arrow"></i></button>
+                        <button class="nav-btn-link" aria-expanded="false" aria-haspopup="true">
+                            <span>TR&Aacute;MITES</span>
+                            <i class="fa-solid fa-caret-down dropdown-arrow" aria-hidden="true"></i>
+                        </button>
                         <ul class="dropdown-menu">
-                            <li><a href="index.html#tramite-pagos" class="dropdown-item">PAGOS ONLINE</a></li>
-                            <li><a href="index.html#tramite-solicitudes" class="dropdown-item">SOLICITUDES Y RECLAMOS</a></li>
+                            <li><a href="pagos-en-linea.html" class="dropdown-item">PAGOS EN L&Iacute;NEA</a></li>
+                            <li><a href="index.html#tramite-solicitudes" class="dropdown-item">SOLICITUDES</a></li>
                             <li><a href="index.html#tramite-becas" class="dropdown-item">BECAS Y BENEFICIOS</a></li>
                         </ul>
                     </li>
+
+                    <!-- Dropdown 3: COMUNA (solo ese) -->
                     <li class="nav-item has-dropdown">
-                        <button class="nav-btn-link" aria-expanded="false"><span>COMUNA</span> <i class="fa-solid fa-caret-down dropdown-arrow"></i></button>
+                        <button class="nav-btn-link" aria-expanded="false" aria-haspopup="true">
+                            <span>COMUNA</span>
+                            <i class="fa-solid fa-caret-down dropdown-arrow" aria-hidden="true"></i>
+                        </button>
                         <ul class="dropdown-menu">
                             <li><a href="index.html#historia" class="dropdown-item">HISTORIA Y PATRIMONIO</a></li>
-                            <li><a href="turismo.html" class="dropdown-item">ATRACTIVOS TURÍSTICOS</a></li>
-                            <li><a href="index.html#mapa" class="dropdown-item">MAPA COMUNAL</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item has-dropdown is-active-page">
-                        <button class="nav-btn-link active-link" aria-expanded="false"><span>INFORMACIONES</span> <i class="fa-solid fa-caret-down dropdown-arrow"></i></button>
+
+                    <!-- Dropdown 4: INFORMACIONES -->
+                    <li class="nav-item has-dropdown">
+                        <button class="nav-btn-link" aria-expanded="false" aria-haspopup="true">
+                            <span>INFORMACIONES</span>
+                            <i class="fa-solid fa-caret-down dropdown-arrow" aria-hidden="true"></i>
+                        </button>
                         <ul class="dropdown-menu">
-                            <li><a href="noticias.html" class="dropdown-item active-dropdown-item">NOTICIAS COMUNALES</a></li>
-                            <li><a href="index.html#avisos" class="dropdown-item">AVISOS Y EDICTOS</a></li>
-                            <li><a href="index.html#fondos" class="dropdown-item">FONDOS CONCURSABLES</a></li>
+                            <li><a href="index.html#empleo" class="dropdown-item">EMPLEO</a></li>
+                            <li><a href="index.html#planificamos" class="dropdown-item">JUNTOS PLANIFICAMOS</a></li>
                         </ul>
                     </li>
+
+                    <!-- Enlace directo: PORTAL TRANSPARENCIA -->
                     <li class="nav-item">
                         <a href="https://www.portaltransparencia.cl" target="_blank" rel="noopener noreferrer" class="nav-link nav-link-highlight">
-                            <span>PORTAL TRANSPARENCIA</span> <i class="fa-solid fa-arrow-up-right-from-square external-icon"></i>
+                            <span>PORTAL TRANSPARENCIA</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square external-icon" aria-hidden="true"></i>
                         </a>
                     </li>
+
+                    <!-- Dropdown 5: OTROS SITIOS -->
                     <li class="nav-item has-dropdown">
-                        <button class="nav-btn-link" aria-expanded="false"><span>OTROS SITIOS</span> <i class="fa-solid fa-caret-down dropdown-arrow"></i></button>
+                        <button class="nav-btn-link" aria-expanded="false" aria-haspopup="true">
+                            <span>OTROS SITIOS</span>
+                            <i class="fa-solid fa-caret-down dropdown-arrow" aria-hidden="true"></i>
+                        </button>
                         <ul class="dropdown-menu">
-                            <li><a href="turismo.html" class="dropdown-item">PORTAL TURISMO</a></li>
-                            <li><a href="index.html#salud-portal" class="dropdown-item">DEPARTAMENTO DE SALUD</a></li>
-                            <li><a href="index.html#educacion-portal" class="dropdown-item">DEPARTAMENTO DE EDUCACIÓN</a></li>
+                            <li><a href="turismo.html" class="dropdown-item">TURISMO</a></li>
+                            <li><a href="index.html#emprendedores" class="dropdown-item">RED DE EMPRENDEDORES</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -118,114 +136,173 @@
         </nav>
     </header>
 
-    <!-- Contenido del Artículo -->
+    <!-- Banner Superior Panoramico -->
+    <section class="news-hero-banner-section" aria-label="Banner de cabecera">
+        <img src="assets/banner-noticias.png" alt="Convocatorias Municipales Putaendo" class="news-hero-banner-img">
+    </section>
+
+    <!-- Migas de Pan -->
+    <nav class="news-breadcrumbs-bar" aria-label="Ruta de navegacion">
+        <div class="container news-breadcrumbs-inner">
+            <a href="index.html">INICIO</a>
+            <span class="breadcrumb-sep">&gt;</span>
+            <a href="noticias.html">NOTICIAS</a>
+            <span class="breadcrumb-sep">&gt;</span>
+            <span class="breadcrumb-current">CONCURSO P&Uacute;BLICO MUNICIPAL</span>
+        </div>
+    </nav>
+
+    <!-- Contenido Editorial Central -->
     <main id="contenido-principal" class="article-detail-section">
-        <div class="container">
-            <article class="article-container">
-                <!-- Migas de Pan -->
-                <nav class="article-breadcrumb" aria-label="Ruta de navegación">
-                    <a href="index.html">Inicio</a>
-                    <span>/</span>
-                    <a href="noticias.html">Noticias</a>
-                    <span>/</span>
-                    <span>Concursos Públicos</span>
-                </nav>
+        <div class="article-editorial-container">
+            <article>
+                <span class="article-kicker">CONVOCATORIAS &middot; GESTI&Oacute;N MUNICIPAL</span>
+                <h1 class="article-title-editorial">
+                    Concurso p&uacute;blico para provisi&oacute;n de cargos de planta y contrata en la Municipalidad de Putaendo
+                </h1>
+                <p class="article-lead-editorial">
+                    Apertura de proceso de selecci&oacute;n p&uacute;blica y transparente para incorporar nuevos profesionales y t&eacute;cnicos comprometidos con el servicio p&uacute;blico y el desarrollo comunal.
+                </p>
 
-                <!-- Cabecera de la Noticia -->
-                <header class="article-header">
-                    <div class="article-meta">
-                        <span class="article-badge">Concursos Públicos · Convocatoria 2026</span>
-                        <time class="article-date" datetime="2026-07-27">
-                            <i class="fa-regular fa-calendar" aria-hidden="true"></i> 27 de Julio, 2026
-                        </time>
+                <div class="article-byline-meta">
+                    <div>
+                        <span class="byline-author-label">POR: </span>
+                        <strong class="byline-author-name">DEPTO. RECURSOS HUMANOS</strong>
                     </div>
-                    <h1 class="article-title">
-                        Concursos Públicos: Encargado de Cultura, Turismo y Patrimonio – Jefe de Personal – Auxiliar
-                    </h1>
-                </header>
-
-                <!-- Imagen Destacada -->
-                <div class="article-media-box">
-                    <img src="assets/slide3-patrimonio.png" alt="Concursos Públicos Municipalidad de Putaendo" class="article-img">
+                    <time class="byline-date" datetime="2026-08-10">10 de Agosto, 2026</time>
                 </div>
 
-                <!-- Cuerpo del Artículo -->
-                <div class="article-content">
-                    <p>
-                        La <strong>Ilustre Municipalidad de Putaendo</strong> convoca a concurso público de antecedentes para proveer en calidad de titulares los cargos vacantes de la planta municipal que a continuación se individualizan, de conformidad a lo establecido en la <em>Ley N° 18.883</em>, Estatuto Administrativo para Funcionarios Municipales.
-                    </p>
+                <div class="article-featured-box">
+                    <img src="assets/banner-noticias.png" alt="Convocatoria Concurso Publico Putaendo" class="article-featured-img">
+                </div>
 
-                    <h3>Cargos Convocados</h3>
-                    <ul>
-                        <li>
-                            <strong>1. Encargado/a de Cultura, Turismo y Patrimonio:</strong>
-                            <br>Planta Profesionales, Grado 10° E.U.M. Título profesional otorgado por un establecimiento de Educación Superior del Estado o reconocido por este, de a lo menos 8 semestres de duración.
-                        </li>
-                        <li>
-                            <strong>2. Jefatura de Personal:</strong>
-                            <br>Planta Jefaturas, Grado 11° E.U.M. Título profesional o técnico con experiencia acreditada en gestión de personas y normativa del sector público municipal.
-                        </li>
-                        <li>
-                            <strong>3. Auxiliar de Servicios Generales:</strong>
-                            <br>Planta Auxiliares, Grado 18° E.U.M. Licencia de Educación Media y experiencia en mantenimiento e instalaciones.
-                        </li>
-                    </ul>
-
-                    <h3>Requisitos de Postulación</h3>
+                <div class="article-body-editorial">
                     <p>
-                        Los y las postulantes deberán acreditar el cumplimiento de los requisitos generales de ingreso a la administración pública contemplados en el artículo 10 y 11 de la Ley N° 18.883, así como no hallarse inhabilitados en virtud del artículo 54 y 56 del DFL 1/19.653.
+                        La Ilustre Municipalidad de Putaendo abre un nuevo proceso de <strong>Concurso P&uacute;blico de Oposici&oacute;n y Antecedentes</strong> con el fin de proveer vacantes en los estamentos profesional, t&eacute;cnico y administrativo de la dotaci&oacute;n municipal.
                     </p>
                     <p>
-                        La entrega de postulaciones debe realizarse en <strong>Oficina de Partes</strong> de la Ilustre Municipalidad de Putaendo, ubicada en <strong>Prat N° 1, Putaendo</strong>, dentro de los plazos establecidos en el cronograma oficial de las bases.
+                        El proceso se rige bajo los principios de m&eacute;rito, igualdad de oportunidades y probidad administrativa, convocando a personas con alta vocaci&oacute;n de servicio a integrarse a los equipos de trabajo comunales.
                     </p>
 
-                    <h3>Documentos y Bases Oficiales</h3>
-                    <p>
-                        A continuación puede descargar las bases completas, perfil del cargo, pautas de evaluación y decretos asociados:
-                    </p>
-
-                    <!-- Descarga 1: Bases Generales -->
+                    <h3>Descarga de Bases y Cronograma</h3>
                     <div class="article-download-card">
                         <div class="download-info">
                             <i class="fa-solid fa-file-pdf download-icon" aria-hidden="true"></i>
                             <div>
-                                <div class="download-title">Bases Oficiales Concurso Público 2026</div>
-                                <div class="download-sub">Bases técnicas, requisitos, ponderaciones y cronograma de postulación (PDF)</div>
+                                <div class="download-title">Bases Oficiales Concurso P&uacute;blico 2026</div>
+                                <div class="download-sub">Perfil de cargos, requisitos obligatorios, ponderaciones y calendario de postulaci&oacute;n</div>
                             </div>
                         </div>
-                        <a href="https://www.putaendo.cl/wp-content/uploads/2026/07/BASES_CONCURSO_PUBLICO_2026_Municipalidad_Putaendo-27.07.2026.pdf" target="_blank" rel="noopener noreferrer" class="download-btn">
+                        <a href="noticias.html" class="download-btn">
                             <i class="fa-solid fa-download"></i>
                             <span>Descargar Bases</span>
                         </a>
                     </div>
 
-                    <!-- Descarga 2: Rectificación de Bases -->
-                    <div class="article-download-card">
-                        <div class="download-info">
-                            <i class="fa-solid fa-file-shield download-icon" aria-hidden="true"></i>
-                            <div>
-                                <div class="download-title">Decreto Alcaldicio Rectificación de Bases</div>
-                                <div class="download-sub">Documento oficial rectificatorio del proceso de selección (PDF)</div>
-                            </div>
-                        </div>
-                        <a href="https://www.putaendo.cl/wp-content/uploads/2026/08/CCF_000512-1.pdf" target="_blank" rel="noopener noreferrer" class="download-btn">
-                            <i class="fa-solid fa-download"></i>
-                            <span>Descargar Decreto</span>
-                        </a>
-                    </div>
-
-                    <p>
-                        Cualquier consulta formal relativa al proceso de postulación debe ser remitida a la comisión evaluadora conforme a lo estipulado en las bases oficiales.
-                    </p>
+                    <blockquote class="article-quote-box">
+                        &ldquo;Buscamos profesionales y t&eacute;cnicos comprometidos con el bienestar de nuestros vecinos y con el desaf&iacute;o hist&oacute;rico de construir un Putaendo moderno, sustentable y cercano a la gente&rdquo;, se&ntilde;al&oacute; el comit&eacute; de selecci&oacute;n.
+                    </blockquote>
                 </div>
 
-                <!-- Barra de Navegación Inferior -->
-                <footer class="article-footer-nav">
-                    <a href="noticias.html" class="btn-back-news">
-                        <i class="fa-solid fa-arrow-left"></i>
-                        <span>Volver a Noticias</span>
-                    </a>
-                </footer>
+                <!-- Slider de Fotos -->
+                <div class="article-slider-box" aria-label="Galeria institucional">
+                    <button type="button" class="slider-arrow-btn slider-arrow-prev" aria-label="Fotografia anterior"><i class="fa-solid fa-chevron-left"></i></button>
+                    <div class="article-slider-track">
+                        <div class="article-slider-slide active" data-caption="Fotografia 1 de 2: Servicios y atencion a la comunidad en dependencias municipales.">
+                            <img src="assets/banner-noticias.png" alt="Gestion Municipal" class="article-slider-img">
+                        </div>
+                        <div class="article-slider-slide" data-caption="Fotografia 2 de 2: Patrimonio historico y espacios civicos de Putaendo.">
+                            <img src="assets/slide3-patrimonio.png" alt="Espacios civicos" class="article-slider-img">
+                        </div>
+                    </div>
+                    <button type="button" class="slider-arrow-btn slider-arrow-next" aria-label="Siguiente fotografia"><i class="fa-solid fa-chevron-right"></i></button>
+                    <div class="slider-caption"><span class="slider-caption-text">Fotografia 1 de 2: Servicios y atencion a la comunidad en dependencias municipales.</span></div>
+                </div>
+
+                <hr class="article-divider">
+
+                <div class="article-share-section">
+                    <span class="share-title">COMPARTIR</span>
+                    <div class="share-buttons-row">
+                        <a href="#" class="share-circle-btn" data-action="facebook" aria-label="Compartir en Facebook" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="share-circle-btn" data-action="whatsapp" aria-label="Compartir en WhatsApp" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="#" class="share-circle-btn" data-action="x" aria-label="Compartir en X" title="X"><i class="fa-brands fa-x-twitter"></i></a>
+                        <button type="button" class="share-circle-btn" data-action="print" aria-label="Imprimir noticia" title="Imprimir"><i class="fa-solid fa-print"></i></button>
+                        <button type="button" class="share-circle-btn" data-action="copy" aria-label="Copiar enlace" title="Copiar enlace"><i class="fa-solid fa-link"></i></button>
+                    </div>
+                </div>
+
+                <!-- Seccion CONTINUAR LEYENDO (6 Noticias Relacionadas) -->
+                <section class="article-related-section" aria-label="Continuar leyendo mas noticias">
+                    <h2 class="related-section-title">CONTINUAR LEYENDO</h2>
+                    <div class="related-grid-6">
+                        <!-- Card 1: Biodiversidad -->
+                        <a href="noticia-biodiversidad.html" class="related-card">
+                            <div class="related-card-thumb">
+                                <img src="assets/noticia-biodiversidad-1.jpg" alt="Biodiversidad Cordillerana Putaendo" class="related-card-img">
+                            </div>
+                            <div class="related-card-body">
+                                <time class="related-card-date" datetime="2026-10-12">12 de Octubre, 2026</time>
+                                <h3 class="related-card-title">Comunidad recibe 400 ejemplares de posters de la biodiversidad cordillerana</h3>
+                            </div>
+                        </a>
+
+                        <!-- Card 2: Ordenanza -->
+                        <a href="noticia-ordenanza.html" class="related-card">
+                            <div class="related-card-thumb">
+                                <img src="assets/slide2-solidario.png" alt="Modificacion Ordenanza Municipal" class="related-card-img">
+                            </div>
+                            <div class="related-card-body">
+                                <time class="related-card-date" datetime="2026-09-17">17 de Septiembre, 2026</time>
+                                <h3 class="related-card-title">Modificaci&oacute;n Ordenanza: Derechos Municipales por Concesiones y Permisos</h3>
+                            </div>
+                        </a>
+
+                        <!-- Card 3: Cultura -->
+                        <a href="noticia-fondo-cultura.html" class="related-card">
+                            <div class="related-card-thumb">
+                                <img src="assets/slide1-gastronomia.png" alt="Fondo de Cultura 2026" class="related-card-img">
+                            </div>
+                            <div class="related-card-body">
+                                <time class="related-card-date" datetime="2026-09-16">16 de Septiembre, 2026</time>
+                                <h3 class="related-card-title">[DESCARGAR BASES] Fondo Concursable Municipal de Cultura 2026</h3>
+                            </div>
+                        </a>
+
+                        <!-- Card 4: Obras -->
+                        <a href="noticia-obras.html" class="related-card">
+                            <div class="related-card-thumb">
+                                <img src="assets/slide3-patrimonio.png" alt="Obras viales y deportes" class="related-card-img">
+                            </div>
+                            <div class="related-card-body">
+                                <time class="related-card-date" datetime="2026-05-19">19 de Mayo, 2026</time>
+                                <h3 class="related-card-title">Putaendo logra aprobaci&oacute;n de 1.490 millones para obras viales y deportes</h3>
+                            </div>
+                        </a>
+
+                        <!-- Card 5: Concursos -->
+                        <a href="noticia-concursos.html" class="related-card">
+                            <div class="related-card-thumb">
+                                <img src="assets/banner-noticias.png" alt="Concurso Publico Municipal" class="related-card-img">
+                            </div>
+                            <div class="related-card-body">
+                                <time class="related-card-date" datetime="2026-08-10">10 de Agosto, 2026</time>
+                                <h3 class="related-card-title">Concurso p&uacute;blico para provisi&oacute;n de cargos de planta y contrata</h3>
+                            </div>
+                        </a>
+
+                        <!-- Card 6: Turismo -->
+                        <a href="turismo.html" class="related-card">
+                            <div class="related-card-thumb">
+                                <img src="assets/slide1-gastronomia.png" alt="Portal de Turismo" class="related-card-img">
+                            </div>
+                            <div class="related-card-body">
+                                <span class="related-card-date">Portal de Turismo</span>
+                                <h3 class="related-card-title">Descubre las 4 Rutas Tur&iacute;sticas y Patrimoniales de Putaendo</h3>
+                            </div>
+                        </a>
+                    </div>
+                </section>
             </article>
         </div>
     </main>
@@ -254,15 +331,15 @@
                         <span class="footer-subtitle">Ilustre Municipalidad</span>
                     </div>
                 </div>
-                <p class="footer-motto">Primer Pueblo Libre de Chile · Región de Valparaíso</p>
+                <p class="footer-motto">Primer Pueblo Libre de Chile &middot; Regi&oacute;n de Valpara&iacute;so</p>
             </div>
 
             <div class="footer-col footer-col-contact">
                 <h4 class="footer-col-title">Contacto</h4>
                 <ul class="contact-list">
-                    <li><i class="fa-solid fa-phone"></i> <span>Fono Alcaldía: <strong>(34) 243 1552</strong></span></li>
+                    <li><i class="fa-solid fa-phone"></i> <span>Fono Alcald&iacute;a: <strong>(34) 243 1552</strong></span></li>
                     <li><i class="fa-solid fa-envelope"></i> <span>alcaldia@muniputaendo.cl</span></li>
-                    <li><i class="fa-solid fa-location-dot"></i> <span>Prat 1, Putaendo, Valparaíso, Chile</span></li>
+                    <li><i class="fa-solid fa-location-dot"></i> <span>Prat 1, Putaendo, Valpara&iacute;so, Chile</span></li>
                 </ul>
             </div>
 
@@ -282,9 +359,9 @@
                 <p>&copy; 2026 Ilustre Municipalidad de Putaendo. Todos los derechos reservados.</p>
                 <div class="footer-legal-links">
                     <a href="https://www.portaltransparencia.cl" target="_blank" rel="noopener noreferrer">Transparencia Activa</a>
-                    <span>·</span>
-                    <a href="#privacidad">Políticas de Privacidad</a>
-                    <span>·</span>
+                    <span>&middot;</span>
+                    <a href="#privacidad">Pol&iacute;ticas de Privacidad</a>
+                    <span>&middot;</span>
                     <a href="#accesibilidad">Accesibilidad Web</a>
                 </div>
             </div>

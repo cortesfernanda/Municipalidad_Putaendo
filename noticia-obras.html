@@ -1,21 +1,16 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Putaendo logra aprobación de 1.490 millones para obras viales y deportes | Ilustre Municipalidad de Putaendo</title>
-    <meta name="description" content="Histórica aprobación de $1.490 millones por el CORE de Valparaíso para repavimentación en Rinconada de Silva y complejo deportivo en Quebrada de Herrera.">
-    
-    <!-- Tipografía Proxima Nova -->
-    <link href="https://fonts.cdnfonts.com/css/proxima-nova" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <title>Putaendo logra aprobaci&oacute;n de 1.490 millones para obras viales y deportes | Ilustre Municipalidad de Putaendo</title>
+    <meta name="description" content="Historica aprobacion unanime de .490 millones por el CORE de Valparaiso para repavimentacion en Rinconada de Silva y complejo deportivo en Quebrada de Herrera.">
+        <!-- Tipografias Oficiales Embebidas: Satoshi (UI y Lectura Rapida) + Lora (Lectura Prolongada) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome Icons -->
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@900,800,700,600,500,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    <!-- Hoja de estilos principal -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -57,7 +52,7 @@
                     <div id="search-results-dropdown" class="search-results-dropdown" aria-live="polite"></div>
                 </div>
 
-                <button class="mobile-toggle" id="mobile-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">
+                <button class="mobile-toggle" id="mobile-toggle" aria-label="Abrir menu de navegacion" aria-expanded="false" aria-controls="main-nav">
                     <span class="hamburger-bar"></span>
                     <span class="hamburger-bar"></span>
                     <span class="hamburger-bar"></span>
@@ -65,52 +60,75 @@
             </div>
         </div>
 
-        <nav class="main-nav" id="main-nav" aria-label="Navegación principal">
+                <!-- Barra de Navegacion Principal con Menus Desplegables -->
+        <nav class="main-nav" id="main-nav" aria-label="Navegacion principal">
             <div class="container">
                 <ul class="nav-list" id="nav-list">
+                    <!-- Dropdown 1: MUNICIPIO -->
                     <li class="nav-item has-dropdown">
-                        <button class="nav-btn-link" aria-expanded="false"><span>MUNICIPIO</span> <i class="fa-solid fa-caret-down dropdown-arrow"></i></button>
+                        <button class="nav-btn-link" aria-expanded="false" aria-haspopup="true">
+                            <span>MUNICIPIO</span>
+                            <i class="fa-solid fa-caret-down dropdown-arrow" aria-hidden="true"></i>
+                        </button>
                         <ul class="dropdown-menu">
-                            <li><a href="index.html#alcalde" class="dropdown-item">AUTORIDADES</a></li>
-                            <li><a href="index.html#organigrama" class="dropdown-item">ORGANIGRAMA</a></li>
-                            <li><a href="index.html#planificamos" class="dropdown-item">PLANIFICAMOS</a></li>
+                            <li><a href="autoridades.html" class="dropdown-item">AUTORIDADES</a></li>
+                            <li><a href="autoridades.html#organigrama" class="dropdown-item">ORGANIGRAMA</a></li>
                         </ul>
                     </li>
+
+                    <!-- Dropdown 2: TRAMITES -->
                     <li class="nav-item has-dropdown">
-                        <button class="nav-btn-link" aria-expanded="false"><span>TRÁMITES</span> <i class="fa-solid fa-caret-down dropdown-arrow"></i></button>
+                        <button class="nav-btn-link" aria-expanded="false" aria-haspopup="true">
+                            <span>TR&Aacute;MITES</span>
+                            <i class="fa-solid fa-caret-down dropdown-arrow" aria-hidden="true"></i>
+                        </button>
                         <ul class="dropdown-menu">
-                            <li><a href="index.html#tramite-pagos" class="dropdown-item">PAGOS ONLINE</a></li>
-                            <li><a href="index.html#tramite-solicitudes" class="dropdown-item">SOLICITUDES Y RECLAMOS</a></li>
+                            <li><a href="pagos-en-linea.html" class="dropdown-item">PAGOS EN L&Iacute;NEA</a></li>
+                            <li><a href="index.html#tramite-solicitudes" class="dropdown-item">SOLICITUDES</a></li>
                             <li><a href="index.html#tramite-becas" class="dropdown-item">BECAS Y BENEFICIOS</a></li>
                         </ul>
                     </li>
+
+                    <!-- Dropdown 3: COMUNA (solo ese) -->
                     <li class="nav-item has-dropdown">
-                        <button class="nav-btn-link" aria-expanded="false"><span>COMUNA</span> <i class="fa-solid fa-caret-down dropdown-arrow"></i></button>
+                        <button class="nav-btn-link" aria-expanded="false" aria-haspopup="true">
+                            <span>COMUNA</span>
+                            <i class="fa-solid fa-caret-down dropdown-arrow" aria-hidden="true"></i>
+                        </button>
                         <ul class="dropdown-menu">
                             <li><a href="index.html#historia" class="dropdown-item">HISTORIA Y PATRIMONIO</a></li>
-                            <li><a href="turismo.html" class="dropdown-item">ATRACTIVOS TURÍSTICOS</a></li>
-                            <li><a href="index.html#mapa" class="dropdown-item">MAPA COMUNAL</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item has-dropdown is-active-page">
-                        <button class="nav-btn-link active-link" aria-expanded="false"><span>INFORMACIONES</span> <i class="fa-solid fa-caret-down dropdown-arrow"></i></button>
+
+                    <!-- Dropdown 4: INFORMACIONES -->
+                    <li class="nav-item has-dropdown">
+                        <button class="nav-btn-link" aria-expanded="false" aria-haspopup="true">
+                            <span>INFORMACIONES</span>
+                            <i class="fa-solid fa-caret-down dropdown-arrow" aria-hidden="true"></i>
+                        </button>
                         <ul class="dropdown-menu">
-                            <li><a href="noticias.html" class="dropdown-item active-dropdown-item">NOTICIAS COMUNALES</a></li>
-                            <li><a href="index.html#avisos" class="dropdown-item">AVISOS Y EDICTOS</a></li>
-                            <li><a href="index.html#fondos" class="dropdown-item">FONDOS CONCURSABLES</a></li>
+                            <li><a href="index.html#empleo" class="dropdown-item">EMPLEO</a></li>
+                            <li><a href="index.html#planificamos" class="dropdown-item">JUNTOS PLANIFICAMOS</a></li>
                         </ul>
                     </li>
+
+                    <!-- Enlace directo: PORTAL TRANSPARENCIA -->
                     <li class="nav-item">
                         <a href="https://www.portaltransparencia.cl" target="_blank" rel="noopener noreferrer" class="nav-link nav-link-highlight">
-                            <span>PORTAL TRANSPARENCIA</span> <i class="fa-solid fa-arrow-up-right-from-square external-icon"></i>
+                            <span>PORTAL TRANSPARENCIA</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square external-icon" aria-hidden="true"></i>
                         </a>
                     </li>
+
+                    <!-- Dropdown 5: OTROS SITIOS -->
                     <li class="nav-item has-dropdown">
-                        <button class="nav-btn-link" aria-expanded="false"><span>OTROS SITIOS</span> <i class="fa-solid fa-caret-down dropdown-arrow"></i></button>
+                        <button class="nav-btn-link" aria-expanded="false" aria-haspopup="true">
+                            <span>OTROS SITIOS</span>
+                            <i class="fa-solid fa-caret-down dropdown-arrow" aria-hidden="true"></i>
+                        </button>
                         <ul class="dropdown-menu">
-                            <li><a href="turismo.html" class="dropdown-item">PORTAL TURISMO</a></li>
-                            <li><a href="index.html#salud-portal" class="dropdown-item">DEPARTAMENTO DE SALUD</a></li>
-                            <li><a href="index.html#educacion-portal" class="dropdown-item">DEPARTAMENTO DE EDUCACIÓN</a></li>
+                            <li><a href="turismo.html" class="dropdown-item">TURISMO</a></li>
+                            <li><a href="index.html#emprendedores" class="dropdown-item">RED DE EMPRENDEDORES</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -118,80 +136,184 @@
         </nav>
     </header>
 
-    <!-- Contenido del Artículo -->
+    <!-- Banner Superior Panoramico -->
+    <section class="news-hero-banner-section" aria-label="Banner de cabecera">
+        <img src="assets/banner-noticias.png" alt="Obras de infraestructura en Putaendo" class="news-hero-banner-img">
+    </section>
+
+    <!-- Migas de Pan -->
+    <nav class="news-breadcrumbs-bar" aria-label="Ruta de navegacion">
+        <div class="container news-breadcrumbs-inner">
+            <a href="index.html">INICIO</a>
+            <span class="breadcrumb-sep">&gt;</span>
+            <a href="noticias.html">NOTICIAS</a>
+            <span class="breadcrumb-sep">&gt;</span>
+            <span class="breadcrumb-current">OBRAS VIALES Y DEPORTES</span>
+        </div>
+    </nav>
+
+    <!-- Contenido Editorial Central -->
     <main id="contenido-principal" class="article-detail-section">
-        <div class="container">
-            <article class="article-container">
-                <!-- Migas de Pan -->
-                <nav class="article-breadcrumb" aria-label="Ruta de navegación">
-                    <a href="index.html">Inicio</a>
-                    <span>/</span>
-                    <a href="noticias.html">Noticias</a>
-                    <span>/</span>
-                    <span>Obras e Infraestructura</span>
-                </nav>
+        <div class="article-editorial-container">
+            <article>
+                <span class="article-kicker">OBRAS &amp; INFRAESTRUCTURA COMUNAL</span>
+                <h1 class="article-title-editorial">
+                    Putaendo logra aprobaci&oacute;n de 1.490 millones de pesos para la ejecuci&oacute;n de importantes obras de infraestructura vial y deportes
+                </h1>
+                <p class="article-lead-editorial">
+                    Hist&oacute;rica aprobaci&oacute;n por unanimidad del Consejo Regional de Valpara&iacute;so para el financiamiento de dos proyectos de alto impacto social y urbano presentados por la administraci&oacute;n del Alcalde Mauricio Quiroz.
+                </p>
 
-                <!-- Cabecera de la Noticia -->
-                <header class="article-header">
-                    <div class="article-meta">
-                        <span class="article-badge">Obras & Infraestructura Comunal</span>
-                        <time class="article-date" datetime="2026-05-19">
-                            <i class="fa-regular fa-calendar" aria-hidden="true"></i> 19 de Mayo, 2026
-                        </time>
+                <div class="article-byline-meta">
+                    <div>
+                        <span class="byline-author-label">POR: </span>
+                        <strong class="byline-author-name">SECPLAC &middot; MUNICIPALIDAD DE PUTAENDO</strong>
                     </div>
-                    <h1 class="article-title">
-                        Putaendo logra aprobación de 1.490 millones de pesos para la ejecución de importantes obras de infraestructura vial y deportes
-                    </h1>
-                </header>
-
-                <!-- Imagen Destacada -->
-                <div class="article-media-box">
-                    <img src="assets/slide2-solidario.png" alt="Obras de infraestructura vial y deportes en Putaendo" class="article-img">
+                    <time class="byline-date" datetime="2026-05-19">19 de Mayo, 2026</time>
                 </div>
 
-                <!-- Cuerpo del Artículo -->
-                <div class="article-content">
+                <div class="article-featured-box">
+                    <img src="assets/slide2-solidario.png" alt="Aprobacion de fondos CORE para obras en Putaendo" class="article-featured-img">
+                </div>
+
+                <div class="article-body-editorial">
                     <p>
-                        En una jornada calificada como histórica para el desarrollo equitativo de los distintos sectores de Putaendo, el Consejo Regional (CORE) de Valparaíso aprobó por unanimidad una inversión de <strong>$1.490 millones de pesos</strong> destinada al financiamiento de dos proyectos de alto impacto social y urbano presentados por la administración del Alcalde <strong>Mauricio Quiroz Vásquez</strong> y formulados por la Secretaría Comunal de Planificación (SECPLAC).
+                        En una jornada calificada como hist&oacute;rica para el desarrollo equitativo de los distintos sectores de Putaendo, el Consejo Regional (CORE) de Valpara&iacute;so aprob&oacute; por unanimidad una inversi&oacute;n de <strong>.490 millones de pesos</strong> destinada al financiamiento de dos proyectos prioritarios formulados por la Secretar&iacute;a Comunal de Planificaci&oacute;n (SECPLAC).
                     </p>
 
-                    <h3>1. Circuito Vial La Ermita – Aníbal Carvajal en Rinconada de Silva ($960 Millones)</h3>
+                    <h3>1. Circuito Vial La Ermita &ndash; An&iacute;bal Carvajal en Rinconada de Silva ( Millones)</h3>
                     <p>
-                        El primer proyecto aprobado contempla una inversión de <strong>$960.000.000</strong> para la reposición y pavimentación integral del emblemático circuito vial La Ermita - Aníbal Carvajal, situado en el sector patrimonial de Rinconada de Silva.
-                    </p>
-                    <ul>
-                        <li><strong>3.760 m² de calzada:</strong> Nueva carpeta de asfalto y hormigón de alta durabilidad para tránsito seguro de vehículos particulares y locomoción colectiva.</li>
-                        <li><strong>3.069 m² de aceras peatonales:</strong> Veredas continuas con normas de accesibilidad universal, rebajes peatonales y huellas podotáctiles.</li>
-                        <li><strong>Adoquinado Patrimonial:</strong> Conservación de zonas de adoquines en sectores tradicionales, armonizando modernización con el valor histórico de la zona.</li>
-                        <li><strong>Obras de Drenaje:</strong> Sumideros y colectores para la oportuna evacuación de aguas lluvias, resolviendo anegamientos históricos.</li>
-                    </ul>
-
-                    <h3>2. Modernización Complejo Deportivo Club Intersporting en Quebrada de Herrera ($530 Millones)</h3>
-                    <p>
-                        La segunda iniciativa destina <strong>$530.000.000</strong> a la transformación del recinto del tradicional Club Deportivo Intersporting en Quebrada de Herrera, beneficiando a cientos de deportistas, niños, jóvenes y adultos mayores del sector rural.
+                        El primer proyecto aprobado contempla una inversi&oacute;n de <strong>.000.000</strong> para la reposici&oacute;n y pavimentaci&oacute;n integral del emblem&aacute;tico circuito vial La Ermita &ndash; An&iacute;bal Carvajal, situado en el sector patrimonial de Rinconada de Silva.
                     </p>
                     <ul>
-                        <li><strong>Iluminación Profesional LED:</strong> Instalación de 4 torres metálicas de 20 metros de altura provistas de 12 proyectores LED de 1.000W de alta eficiencia, permitiendo partidos y actividades deportivas nocturnas.</li>
-                        <li><strong>Nuevas Graderías Techadas:</strong> Estructura metálica techada con capacidad para 496 espectadores sentados, incluyendo sectores preferenciales para personas con movilidad reducida.</li>
-                        <li><strong>Cierres Perimetrales y Entorno:</strong> Cerco olímpico de seguridad, pavimentación de senderos interiores y mejoras sanitarias.</li>
+                        <li><strong>3.760 m&sup2; de calzada:</strong> Nueva carpeta asf&aacute;ltica y de hormig&oacute;n de alta durabilidad para tr&aacute;nsito seguro de veh&iacute;culos y locomoci&oacute;n colectiva.</li>
+                        <li><strong>3.069 m&sup2; de aceras peatonales:</strong> Veredas continuas bajo normativa de accesibilidad universal, rebajes peatonales y huellas podot&aacute;ctiles.</li>
+                        <li><strong>Adoquinado Patrimonial:</strong> Conservaci&oacute;n de zonas de adoquines en sectores t&iacute;picos, protegiendo el valor hist&oacute;rico del entorno.</li>
+                        <li><strong>Evacuaci&oacute;n de Aguas Lluvias:</strong> Sumideros y colectores para resolver anegamientos hist&oacute;ricos durante invierno.</li>
                     </ul>
 
-                    <blockquote>
-                        <em>"Estas dos iniciativas responden a una planificación participativa con nuestras comunidades vecinales y deportivas. Putaendo avanza tanto en el centro como en sus localidades rurales, entregando dignidad, seguridad peatonal y espacios deportivos de primer nivel para nuestras familias"</em>, enfatizó el Alcalde Mauricio Quiroz tras la votación en el Consejo Regional.
+                    <h3>2. Modernizaci&oacute;n Complejo Deportivo Club Intersporting en Quebrada de Herrera ( Millones)</h3>
+                    <p>
+                        La segunda iniciativa destina <strong>.000.000</strong> a la transformaci&oacute;n del tradicional Club Deportivo Intersporting en Quebrada de Herrera, beneficiando a cientos de deportistas, ni&ntilde;os, j&oacute;venes y personas mayores.
+                    </p>
+                    <ul>
+                        <li><strong>Iluminaci&oacute;n Profesional LED:</strong> 4 torres met&aacute;licas de 20 metros con proyectores LED de alta eficiencia para competencias nocturnas.</li>
+                        <li><strong>Grader&iacute;as Techadas:</strong> Estructura protegida para 496 espectadores sentados, con accesibilidad universal.</li>
+                        <li><strong>Cierres Perimetrales:</strong> Malla ol&iacute;mpica, pavimentaci&oacute;n de senderos y modernas dependencias sanitarias.</li>
+                    </ul>
+
+                    <blockquote class="article-quote-box">
+                        &ldquo;Estas dos iniciativas responden a una planificaci&oacute;n participativa con nuestras comunidades vecinales y deportivas. Putaendo avanza tanto en el centro como en sus localidades rurales, entregando dignidad, seguridad peatonal y espacios deportivos de primer nivel para nuestras familias&rdquo;, enfatiz&oacute; el Alcalde Mauricio Quiroz tras la votaci&oacute;n en el Consejo Regional.
                     </blockquote>
 
                     <p>
-                        Los procesos de licitación pública a través del portal Mercado Público se iniciarán dentro de las próximas semanas, proyectando el inicio de faenas durante el presente año.
+                        Los llamados a licitaci&oacute;n p&uacute;blica a trav&eacute;s del portal Mercado P&uacute;blico se publicar&aacute;n durante las pr&oacute;ximas semanas, estim&aacute;ndose el inicio de faenas durante el presente a&ntilde;o.
                     </p>
                 </div>
 
-                <!-- Barra de Navegación Inferior -->
-                <footer class="article-footer-nav">
-                    <a href="noticias.html" class="btn-back-news">
-                        <i class="fa-solid fa-arrow-left"></i>
-                        <span>Volver a Noticias</span>
-                    </a>
-                </footer>
+                <!-- Slider de Fotos -->
+                <div class="article-slider-box" aria-label="Galeria de obras">
+                    <button type="button" class="slider-arrow-btn slider-arrow-prev" aria-label="Fotografia anterior"><i class="fa-solid fa-chevron-left"></i></button>
+                    <div class="article-slider-track">
+                        <div class="article-slider-slide active" data-caption="Fotografia 1 de 3: Reunion de autoridades y firma de respaldo de fondos en el Consejo Regional.">
+                            <img src="assets/slide2-solidario.png" alt="Autoridades en sesion CORE" class="article-slider-img">
+                        </div>
+                        <div class="article-slider-slide" data-caption="Fotografia 2 de 3: Trazado patrimonial a repavimentar en Rinconada de Silva.">
+                            <img src="assets/slide3-patrimonio.png" alt="Rinconada de Silva" class="article-slider-img">
+                        </div>
+                        <div class="article-slider-slide" data-caption="Fotografia 3 de 3: Entorno cordillerano y rural de Quebrada de Herrera.">
+                            <img src="assets/banner-noticias.png" alt="Quebrada de Herrera" class="article-slider-img">
+                        </div>
+                    </div>
+                    <button type="button" class="slider-arrow-btn slider-arrow-next" aria-label="Siguiente fotografia"><i class="fa-solid fa-chevron-right"></i></button>
+                    <div class="slider-caption"><span class="slider-caption-text">Fotografia 1 de 3: Reunion de autoridades y firma de respaldo de fondos en el Consejo Regional.</span></div>
+                </div>
+
+                <hr class="article-divider">
+
+                <!-- Compartir -->
+                <div class="article-share-section">
+                    <span class="share-title">COMPARTIR</span>
+                    <div class="share-buttons-row">
+                        <a href="#" class="share-circle-btn" data-action="facebook" aria-label="Compartir en Facebook" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="share-circle-btn" data-action="whatsapp" aria-label="Compartir en WhatsApp" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="#" class="share-circle-btn" data-action="x" aria-label="Compartir en X" title="X"><i class="fa-brands fa-x-twitter"></i></a>
+                        <button type="button" class="share-circle-btn" data-action="print" aria-label="Imprimir noticia" title="Imprimir"><i class="fa-solid fa-print"></i></button>
+                        <button type="button" class="share-circle-btn" data-action="copy" aria-label="Copiar enlace" title="Copiar enlace"><i class="fa-solid fa-link"></i></button>
+                    </div>
+                </div>
+
+                <!-- Seccion CONTINUAR LEYENDO (6 Noticias Relacionadas) -->
+                <section class="article-related-section" aria-label="Continuar leyendo mas noticias">
+                    <h2 class="related-section-title">CONTINUAR LEYENDO</h2>
+                    <div class="related-grid-6">
+                        <!-- Card 1: Biodiversidad -->
+                        <a href="noticia-biodiversidad.html" class="related-card">
+                            <div class="related-card-thumb">
+                                <img src="assets/noticia-biodiversidad-1.jpg" alt="Biodiversidad Cordillerana Putaendo" class="related-card-img">
+                            </div>
+                            <div class="related-card-body">
+                                <time class="related-card-date" datetime="2026-10-12">12 de Octubre, 2026</time>
+                                <h3 class="related-card-title">Comunidad recibe 400 ejemplares de posters de la biodiversidad cordillerana</h3>
+                            </div>
+                        </a>
+
+                        <!-- Card 2: Ordenanza -->
+                        <a href="noticia-ordenanza.html" class="related-card">
+                            <div class="related-card-thumb">
+                                <img src="assets/slide2-solidario.png" alt="Modificacion Ordenanza Municipal" class="related-card-img">
+                            </div>
+                            <div class="related-card-body">
+                                <time class="related-card-date" datetime="2026-09-17">17 de Septiembre, 2026</time>
+                                <h3 class="related-card-title">Modificaci&oacute;n Ordenanza: Derechos Municipales por Concesiones y Permisos</h3>
+                            </div>
+                        </a>
+
+                        <!-- Card 3: Cultura -->
+                        <a href="noticia-fondo-cultura.html" class="related-card">
+                            <div class="related-card-thumb">
+                                <img src="assets/slide1-gastronomia.png" alt="Fondo de Cultura 2026" class="related-card-img">
+                            </div>
+                            <div class="related-card-body">
+                                <time class="related-card-date" datetime="2026-09-16">16 de Septiembre, 2026</time>
+                                <h3 class="related-card-title">[DESCARGAR BASES] Fondo Concursable Municipal de Cultura 2026</h3>
+                            </div>
+                        </a>
+
+                        <!-- Card 4: Obras -->
+                        <a href="noticia-obras.html" class="related-card">
+                            <div class="related-card-thumb">
+                                <img src="assets/slide3-patrimonio.png" alt="Obras viales y deportes" class="related-card-img">
+                            </div>
+                            <div class="related-card-body">
+                                <time class="related-card-date" datetime="2026-05-19">19 de Mayo, 2026</time>
+                                <h3 class="related-card-title">Putaendo logra aprobaci&oacute;n de 1.490 millones para obras viales y deportes</h3>
+                            </div>
+                        </a>
+
+                        <!-- Card 5: Concursos -->
+                        <a href="noticia-concursos.html" class="related-card">
+                            <div class="related-card-thumb">
+                                <img src="assets/banner-noticias.png" alt="Concurso Publico Municipal" class="related-card-img">
+                            </div>
+                            <div class="related-card-body">
+                                <time class="related-card-date" datetime="2026-08-10">10 de Agosto, 2026</time>
+                                <h3 class="related-card-title">Concurso p&uacute;blico para provisi&oacute;n de cargos de planta y contrata</h3>
+                            </div>
+                        </a>
+
+                        <!-- Card 6: Turismo -->
+                        <a href="turismo.html" class="related-card">
+                            <div class="related-card-thumb">
+                                <img src="assets/slide1-gastronomia.png" alt="Portal de Turismo" class="related-card-img">
+                            </div>
+                            <div class="related-card-body">
+                                <span class="related-card-date">Portal de Turismo</span>
+                                <h3 class="related-card-title">Descubre las 4 Rutas Tur&iacute;sticas y Patrimoniales de Putaendo</h3>
+                            </div>
+                        </a>
+                    </div>
+                </section>
             </article>
         </div>
     </main>
@@ -220,15 +342,15 @@
                         <span class="footer-subtitle">Ilustre Municipalidad</span>
                     </div>
                 </div>
-                <p class="footer-motto">Primer Pueblo Libre de Chile · Región de Valparaíso</p>
+                <p class="footer-motto">Primer Pueblo Libre de Chile &middot; Regi&oacute;n de Valpara&iacute;so</p>
             </div>
 
             <div class="footer-col footer-col-contact">
                 <h4 class="footer-col-title">Contacto</h4>
                 <ul class="contact-list">
-                    <li><i class="fa-solid fa-phone"></i> <span>Fono Alcaldía: <strong>(34) 243 1552</strong></span></li>
+                    <li><i class="fa-solid fa-phone"></i> <span>Fono Alcald&iacute;a: <strong>(34) 243 1552</strong></span></li>
                     <li><i class="fa-solid fa-envelope"></i> <span>alcaldia@muniputaendo.cl</span></li>
-                    <li><i class="fa-solid fa-location-dot"></i> <span>Prat 1, Putaendo, Valparaíso, Chile</span></li>
+                    <li><i class="fa-solid fa-location-dot"></i> <span>Prat 1, Putaendo, Valpara&iacute;so, Chile</span></li>
                 </ul>
             </div>
 
@@ -248,9 +370,9 @@
                 <p>&copy; 2026 Ilustre Municipalidad de Putaendo. Todos los derechos reservados.</p>
                 <div class="footer-legal-links">
                     <a href="https://www.portaltransparencia.cl" target="_blank" rel="noopener noreferrer">Transparencia Activa</a>
-                    <span>·</span>
-                    <a href="#privacidad">Políticas de Privacidad</a>
-                    <span>·</span>
+                    <span>&middot;</span>
+                    <a href="#privacidad">Pol&iacute;ticas de Privacidad</a>
+                    <span>&middot;</span>
                     <a href="#accesibilidad">Accesibilidad Web</a>
                 </div>
             </div>
