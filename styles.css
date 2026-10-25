@@ -7,67 +7,77 @@
 @import url('https://api.fontshare.com/v2/css?f[]=satoshi@900,800,700,600,500,400,300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap');
 
-/* Fuentes Locales Embebidas (Garantizan soporte 100% offline y local file://) */
+/* Satoshi: Webfonts Locales con Fallback HTTPS Directo */
 @font-face {
     font-family: 'Satoshi';
-    src: url('fonts/Satoshi-Regular.woff2') format('woff2');
+    src: url('fonts/Satoshi-Regular.woff2') format('woff2'),
+         url('https://cdn.fontshare.com/wf/P2LQKHE6KA6ZP4AAGN72KDWMHH6ZH3TA/ZC32TK2P7FPS5GFTL46EU6KQJA24ZYDB/7AHDUZ4A7LFLVFUIFSARGIWCRQJHISQP.woff2') format('woff2');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
 }
 @font-face {
     font-family: 'Satoshi';
-    src: url('fonts/Satoshi-Medium.woff2') format('woff2');
+    src: url('fonts/Satoshi-Medium.woff2') format('woff2'),
+         url('https://cdn.fontshare.com/wf/LAFFD4SDUCDVQEXFPDC7C53EQ4ZELWQI/PXCT3G6LO6ICM5I3NTYENYPWJAECAWDD/GHM6WVH6MILNYOOCXHXB5GTSGNTMGXZR.woff2') format('woff2');
     font-weight: 500;
     font-style: normal;
     font-display: swap;
 }
 @font-face {
     font-family: 'Satoshi';
-    src: url('fonts/Satoshi-Bold.woff2') format('woff2');
+    src: url('fonts/Satoshi-Bold.woff2') format('woff2'),
+         url('https://cdn.fontshare.com/wf/NHPGVFYUXYXE33DZ75OIT4JFGHITX5PE/PSUTMASCDJTVPERDYJZPN23BVUFUCQIF/J64QX5IPOHK56I2KYUNBQ5M2XWZEYKYX.woff2') format('woff2');
     font-weight: 700;
     font-style: normal;
     font-display: swap;
 }
 @font-face {
     font-family: 'Satoshi';
-    src: url('fonts/Satoshi-Black.woff2') format('woff2');
+    src: url('fonts/Satoshi-Black.woff2') format('woff2'),
+         url('https://cdn.fontshare.com/wf/4H5L27GEX7G7W26T2G7W7M2T43A3K26W/4Z5N36CZX4A2BNC747W26K27W743A3K2/7Z4N36CZX4A2BNC747W26K27W743A3K2.woff2') format('woff2');
     font-weight: 800 900;
     font-style: normal;
     font-display: swap;
 }
 
+/* Lora: Webfonts Locales con Fallback HTTPS Directo */
 @font-face {
     font-family: 'Lora';
-    src: url('fonts/Lora-Regular.ttf') format('truetype');
+    src: url('fonts/Lora-Regular.ttf') format('truetype'),
+         url('https://fonts.gstatic.com/s/lora/v37/0QIvMX1D_JOuMwr7Iw.woff2') format('woff2');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
 }
 @font-face {
     font-family: 'Lora';
-    src: url('fonts/Lora-Medium.ttf') format('truetype');
+    src: url('fonts/Lora-Medium.ttf') format('truetype'),
+         url('https://fonts.gstatic.com/s/lora/v37/0QIvMX1D_JOuMwr7Iw.woff2') format('woff2');
     font-weight: 500;
     font-style: normal;
     font-display: swap;
 }
 @font-face {
     font-family: 'Lora';
-    src: url('fonts/Lora-SemiBold.ttf') format('truetype');
+    src: url('fonts/Lora-SemiBold.ttf') format('truetype'),
+         url('https://fonts.gstatic.com/s/lora/v37/0QIvMX1D_JOuMwr7Iw.woff2') format('woff2');
     font-weight: 600;
     font-style: normal;
     font-display: swap;
 }
 @font-face {
     font-family: 'Lora';
-    src: url('fonts/Lora-Bold.ttf') format('truetype');
+    src: url('fonts/Lora-Bold.ttf') format('truetype'),
+         url('https://fonts.gstatic.com/s/lora/v37/0QIvMX1D_JOuMwr7Iw.woff2') format('woff2');
     font-weight: 700;
     font-style: normal;
     font-display: swap;
 }
 @font-face {
     font-family: 'Lora';
-    src: url('fonts/Lora-Italic.ttf') format('truetype');
+    src: url('fonts/Lora-Italic.ttf') format('truetype'),
+         url('https://fonts.gstatic.com/s/lora/v37/0QI8MX1D_JOuMw_hLdO6T2wV9KnW-MoFkqg.ttf') format('truetype');
     font-weight: 400;
     font-style: italic;
     font-display: swap;
@@ -168,6 +178,112 @@ button {
 
 ul, ol {
     list-style: none;
+}
+
+/* ==========================================================================
+   TIPOGRAFÍA Y REGLAS DE LECTURA (SATOSHI UI / LORA PROLONGADA)
+   ========================================================================== */
+
+/* 1. Textos Rápidos de Leer, Interfaz y Encabezados: SATOSHI */
+h1, h2, h3, h4, h5, h6,
+button,
+input,
+select,
+textarea,
+nav,
+header,
+footer,
+table,
+th,
+td,
+.brand-name,
+.brand-title,
+.brand-sub,
+.brand-subtitle,
+.nav-link,
+.nav-btn-link,
+.dropdown-item,
+.search-input,
+.search-btn,
+.btn,
+.service-card-title,
+.pago-card-title,
+.banner-capsule,
+.pagos-hero-capsule,
+.pagos-hero-title,
+.kicker,
+.article-kicker,
+.byline-author-label,
+.byline-author-name,
+.byline-date,
+.news-portal-date,
+.news-portal-title,
+.news-portal-link,
+.news-card-title,
+.btn-more-news,
+.footer-col-title,
+.footer-title,
+.footer-subtitle,
+.footer-bottom-bar,
+.footer-legal-links,
+.breadcrumb-list,
+.breadcrumb-item,
+.breadcrumb-current,
+.tab-btn,
+.month-nav-label,
+.route-card-title,
+.mayor-name,
+.mayor-role-badge,
+.council-name,
+.council-role,
+.table-head,
+.badge,
+.tag {
+    font-family: var(--font-heading);
+}
+
+/* 2. Textos de Lectura Prolongada: LORA */
+p,
+blockquote,
+.reading-text,
+.prolonged-reading,
+.article-body-editorial,
+.article-body-editorial p,
+.article-body-editorial li,
+.article-lead-editorial,
+.article-quote-box,
+.news-portal-excerpt,
+.news-card-summary,
+.news-desc,
+.news-portal-desc,
+.slide-summary,
+.tourism-intro-text,
+.route-card-desc,
+.modal-route-desc,
+.history-content p,
+.about-authorities-text,
+.authority-bio,
+.mayor-speech,
+.requisito-desc,
+.step-desc,
+.faq-answer,
+.tramite-note,
+.info-alert-text {
+    font-family: var(--font-editorial);
+}
+
+/* 3. Excepciones puntuales de párrafos que son UI o metadatos rápidos: SATOSHI */
+.service-card-desc,
+.footer-motto,
+.footer-col-contact li span,
+.footer-bottom-bar p,
+.footer-bottom-container p,
+.brand-sub,
+.brand-subtitle,
+.search-results-dropdown p,
+.byline-date,
+.route-card-meta span {
+    font-family: var(--font-heading) !important;
 }
 
 /* Contenedor central responsivo */

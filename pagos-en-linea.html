@@ -320,14 +320,15 @@
     <!-- =========================================================================
          PIE DE P&Aacute;GINA INSTITUCIONAL COMPACTO (SITE FOOTER FIEL A LA MAQUETA)
          ========================================================================= -->
-    <footer class="pagos-site-footer" role="contentinfo">
-        <div class="container pagos-footer-container">
-            <!-- Bloque 1: Identidad Municipal y Direccion -->
-            <div class="pagos-footer-left">
-                <div class="pagos-footer-brand-box">
-                    <svg class="pagos-footer-shield" viewBox="0 0 54 68" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <footer class="site-footer" role="contentinfo">
+        <div class="container footer-container">
+            <!-- Bloque 1: Escudo y Nombre Municipal -->
+            <div class="footer-col footer-col-brand">
+                <div class="footer-logo">
+                    <!-- Escudo Vectorial en blanco -->
+                    <svg class="footer-shield" viewBox="0 0 54 68" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <path d="M7 16 L7 6 L14 6 L14 10 L22 10 L22 6 L32 6 L32 10 L40 10 L40 6 L47 6 L47 16 Z" fill="#ffffff" stroke="#ffffff" stroke-width="1.2" stroke-linejoin="round"/>
-                        <path d="M5 18 H49 C49 42 42 58 27 66 C12 58 5 42 5 18 Z" fill="#2d5e62" stroke="#ffffff" stroke-width="2.2" stroke-linejoin="round"/>
+                        <path d="M5 18 H49 C49 42 42 58 27 66 C12 58 5 42 5 18 Z" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linejoin="round"/>
                         <line x1="5" y1="36" x2="49" y2="36" stroke="#ffffff" stroke-width="1.8"/>
                         <line x1="27" y1="18" x2="27" y2="65" stroke="#ffffff" stroke-width="1.8"/>
                         <path d="M16 23 L17.2 26.5 L20.8 27.7 L17.2 28.9 L16 32.5 L14.8 28.9 L11.2 27.7 L14.8 26.5 Z" fill="#ffffff"/>
@@ -339,30 +340,63 @@
                         <path d="M37.5 40 V54 M30.5 47 H44.5" stroke="#ffffff" stroke-width="2.2" stroke-linecap="square"/>
                         <circle cx="37.5" cy="47" r="2" fill="#ffffff"/>
                     </svg>
-                    <div class="pagos-footer-brand-text">
-                        <span class="pagos-footer-title">PUTAENDO</span>
-                        <span class="pagos-footer-subtitle">Ilustre Municipalidad</span>
+                    <div class="footer-brand-text">
+                        <span class="footer-title">PUTAENDO</span>
+                        <span class="footer-subtitle">Ilustre Municipalidad</span>
                     </div>
                 </div>
-                <p class="pagos-footer-address">Prat 1 Putaendo, Putaendo, Chile</p>
+                <p class="footer-motto">Primer Pueblo Libre de Chile · Región de Valparaíso</p>
             </div>
 
-            <!-- Bloque 2: Contacto Telefonico y Correo -->
-            <div class="pagos-footer-center">
-                <p class="pagos-footer-phone"><a href="tel:+56342431552">(34) 243 1552</a></p>
-                <p class="pagos-footer-email"><a href="mailto:alcaldia@putaendo.cl">alcaldia@putaendo.cl</a></p>
+            <!-- Bloque 2: Información de Contacto Oficial -->
+            <div class="footer-col footer-col-contact">
+                <h4 class="footer-col-title">Contacto</h4>
+                <ul class="contact-list">
+                    <li>
+                        <i class="fa-solid fa-phone" aria-hidden="true"></i>
+                        <span>Fono Alcaldía: <strong>(34) 243 1552</strong></span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                        <span>alcaldia@muniputaendo.cl</span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                        <span>Prat 1, Putaendo, Valparaíso, Chile</span>
+                    </li>
+                </ul>
             </div>
 
             <!-- Bloque 3: Redes Sociales -->
-            <div class="pagos-footer-right">
-                <span class="pagos-footer-social-label">Redes Sociales</span>
-                <div class="pagos-footer-social-circles">
-                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="pagos-footer-circle-btn" aria-label="Facebook">
+            <div class="footer-col footer-col-social">
+                <h4 class="footer-col-title">Redes Sociales</h4>
+                <div class="social-links-grid">
+                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-circle-btn" aria-label="Facebook Ilustre Municipalidad de Putaendo">
                         <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
                     </a>
-                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="pagos-footer-circle-btn" aria-label="Instagram">
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-circle-btn" aria-label="Instagram Ilustre Municipalidad de Putaendo">
                         <i class="fa-brands fa-instagram" aria-hidden="true"></i>
                     </a>
+                    <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-circle-btn" aria-label="YouTube Ilustre Municipalidad de Putaendo">
+                        <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="social-circle-btn" aria-label="X (Twitter) Ilustre Municipalidad de Putaendo">
+                        <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Barra inferior de Copyright y Enlaces Legales -->
+        <div class="footer-bottom-bar">
+            <div class="container footer-bottom-container">
+                <p>&copy; 2026 Ilustre Municipalidad de Putaendo. Todos los derechos reservados.</p>
+                <div class="footer-legal-links">
+                    <a href="https://www.portaltransparencia.cl" target="_blank" rel="noopener noreferrer">Transparencia Activa</a>
+                    <span>·</span>
+                    <a href="#privacidad">Políticas de Privacidad</a>
+                    <span>·</span>
+                    <a href="#accesibilidad">Accesibilidad Web</a>
                 </div>
             </div>
         </div>
