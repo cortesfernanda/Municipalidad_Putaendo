@@ -665,6 +665,182 @@ blockquote,
     color: var(--color-white);
 }
 
+/* ==========================================================================
+   CABECERA EN SCROLL & MENÚ COMPACTO DE 3 PUNTITOS (ESTILO MAQUETA)
+   ========================================================================== */
+
+/* Botón de 3 puntitos para scroll */
+.scroll-dots-btn {
+    display: none; /* Oculto en vista superior normal */
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 6px;
+    background-color: rgba(255, 255, 255, 0.18);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    flex-shrink: 0;
+    margin-left: 12px;
+}
+
+.scroll-dots-btn:hover {
+    background-color: rgba(255, 255, 255, 0.32);
+    transform: scale(1.05);
+}
+
+.scroll-dots-btn.is-active {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+    color: #ffffff;
+}
+
+/* Botón de búsqueda compacta para el menú en scroll */
+.nav-item-scrolled-search {
+    display: none;
+    position: relative;
+    margin-left: 6px;
+}
+
+.scrolled-search-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 6px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.scrolled-search-btn:hover {
+    background-color: rgba(255, 255, 255, 0.35);
+}
+
+/* Popover de búsqueda desplegable en el menú en scroll */
+.scrolled-search-popover {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    width: 260px;
+    background-color: var(--color-primary-dark);
+    padding: 8px 10px;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: none;
+    align-items: center;
+    gap: 8px;
+    z-index: 1050;
+}
+
+.scrolled-search-popover.is-open {
+    display: flex;
+}
+
+.scrolled-search-field {
+    flex-grow: 1;
+    background-color: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 4px;
+    padding: 6px 10px;
+    color: #ffffff;
+    font-family: var(--font-heading);
+    font-size: 0.88rem;
+    outline: none;
+}
+
+.scrolled-search-field::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.scrolled-search-submit {
+    background: var(--color-accent);
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+/* Estado de la Cabecera al hacer Scroll */
+.header--scrolled {
+    box-shadow: 0 6px 20px rgba(18, 42, 45, 0.28);
+}
+
+.header--scrolled .top-bar {
+    padding: 8px 0;
+    border-bottom: none;
+}
+
+.header--scrolled .brand-sub,
+.header--scrolled .brand-subtitle {
+    display: none !important;
+}
+
+.header--scrolled .brand-name,
+.header--scrolled .brand-title {
+    font-size: 1.35rem;
+}
+
+.header--scrolled .muni-shield {
+    width: 34px;
+    height: 44px;
+}
+
+.header--scrolled .search-wrapper {
+    display: none !important;
+}
+
+.header--scrolled .scroll-dots-btn {
+    display: inline-flex;
+}
+
+/* Por defecto al hacer scroll: ocultar la barra de navegación para dejar la cabecera limpia */
+.header--scrolled .main-nav {
+    display: none;
+}
+
+/* Al apretar los 3 puntitos (.scrolled-menu-open): se despliega exactamente como la maqueta */
+.header--scrolled.scrolled-menu-open .main-nav {
+    display: block;
+    animation: fadeInSlideNav 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.header--scrolled.scrolled-menu-open .nav-list {
+    justify-content: flex-end;
+    padding: 4px 0 6px 0;
+}
+
+.header--scrolled.scrolled-menu-open .nav-item-scrolled-search {
+    display: inline-flex;
+    align-items: center;
+}
+
+.header--scrolled.scrolled-menu-open .nav-link-highlight {
+    display: none !important; /* Oculta Portal Transparencia para coincidir con los 5 ítems de la maqueta */
+}
+
+@keyframes fadeInSlideNav {
+    from {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* --------------------------------------------------------------------------
    5. SECCIÓN HERO: CARRUSEL PRINCIPAL DE PANTALLA COMPLETA (FULL-WIDTH)
    -------------------------------------------------------------------------- */
@@ -4327,3 +4503,1075 @@ p,
 }
 
 
+/* ==========================================================================
+   CABECERA COMPACTA EN SCROLL & MENÃš DESPLEGABLE DE 3 PUNTITOS (KEBAB)
+   DiseÃ±ado segÃºn maqueta oficial (media_1792887284347.png)
+   ========================================================================== */
+
+/* BotÃ³n de 3 puntitos verticales (Oculto en estado normal) */
+.scroll-dots-btn {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.16);
+    border: 1.5px solid rgba(255, 255, 255, 0.35);
+    color: #ffffff;
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    margin-left: auto;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.scroll-dots-btn:hover {
+    background: rgba(255, 255, 255, 0.28);
+    border-color: rgba(255, 255, 255, 0.65);
+    transform: scale(1.06);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+}
+
+.scroll-dots-btn:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
+}
+
+/* Estado de la Cabecera al hacer Scroll */
+.header.header--scrolled {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1100;
+    box-shadow: 0 4px 18px rgba(29, 60, 63, 0.22);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    background-color: var(--color-primary);
+}
+
+.header.header--scrolled .top-bar {
+    padding: 7px 0;
+    border-bottom: none;
+}
+
+.header.header--scrolled .top-bar-container {
+    gap: 14px;
+}
+
+.header.header--scrolled .muni-shield {
+    width: 36px;
+    height: 46px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.header.header--scrolled .brand-name {
+    font-size: 1.32rem;
+    letter-spacing: 1.2px;
+}
+
+/* Ocultar elementos sobrantes en la barra superior al hacer scroll */
+.header.header--scrolled .brand-sub {
+    display: none !important;
+}
+
+.header.header--scrolled .search-wrapper {
+    display: none !important;
+}
+
+.header.header--scrolled .mobile-toggle {
+    display: none !important;
+}
+
+/* Mostrar los 3 puntitos a la derecha */
+.header.header--scrolled .scroll-dots-btn {
+    display: inline-flex !important;
+}
+
+/* Cuando el menÃº desplegable estÃ¡ abierto mediante los 3 puntitos */
+.header.header--scrolled.scrolled-menu-open .scroll-dots-btn {
+    background-color: #ffffff;
+    color: var(--color-primary-dark);
+    border-color: #ffffff;
+    transform: scale(1.04);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+
+/* La barra de navegaciÃ³n se oculta por defecto al scrollear para dejar ver el contenido */
+.header.header--scrolled .main-nav {
+    display: none;
+}
+
+/* Al presionar los 3 puntitos, se despliega la barra horizontal idÃ©ntica a la maqueta */
+.header.header--scrolled.scrolled-menu-open .main-nav {
+    display: block !important;
+    background-color: #386f74;
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    animation: fadeInSlideNav 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeInSlideNav {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* DistribuciÃ³n exacta de la barra como en la maqueta: 5 categorÃ­as + lupa a la derecha */
+.header.header--scrolled .nav-list {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 14px;
+    padding: 6px 0;
+    flex-wrap: nowrap;
+}
+
+/* En la maqueta de scroll no aparece el botÃ³n de Portal Transparencia */
+.header.header--scrolled .nav-link-highlight {
+    display: none !important;
+}
+
+/* Estilo de los botones de navegaciÃ³n en la barra de scroll */
+.header.header--scrolled .nav-btn-link {
+    padding: 10px 14px;
+    font-size: 0.88rem;
+    font-weight: 800;
+    letter-spacing: 0.6px;
+    color: #ffffff;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.header.header--scrolled .nav-btn-link:hover,
+.header.header--scrolled .nav-item.is-open > .nav-btn-link {
+    background-color: rgba(255, 255, 255, 0.18);
+    color: #ffffff;
+}
+
+/* BotÃ³n de bÃºsqueda de la maqueta (lupa en cÃ¡psula redondeada a la derecha) */
+.nav-item-scrolled-search {
+    display: none;
+    position: relative;
+    margin-left: 6px;
+}
+
+.header.header--scrolled .nav-item-scrolled-search {
+    display: flex !important;
+    align-items: center;
+}
+
+.scrolled-search-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.38);
+    border-radius: 8px;
+    width: 44px;
+    height: 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scrolled-search-btn:hover,
+.scrolled-search-btn.is-active {
+    background: rgba(255, 255, 255, 0.35);
+    border-color: #ffffff;
+    transform: scale(1.05);
+}
+
+/* Popover desplegable del buscador rÃ¡pido en modo scroll */
+.scrolled-search-popover {
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 0;
+    width: 330px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.28);
+    border: 1px solid #cbd5e1;
+    padding: 12px;
+    z-index: 1200;
+    display: none;
+    animation: fadeInDown 0.2s ease-out;
+}
+
+.scrolled-search-popover.is-open {
+    display: block;
+}
+
+.scrolled-search-form {
+    display: flex;
+    align-items: center;
+    background: #f1f5f9;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 3px 6px 3px 12px;
+    transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.scrolled-search-form:focus-within {
+    border-color: #386f74;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(56, 111, 116, 0.18);
+}
+
+.scrolled-search-field {
+    width: 100%;
+    border: none;
+    background: transparent;
+    padding: 7px 0;
+    font-size: 0.92rem;
+    outline: none;
+    color: #1e293b;
+    font-family: var(--font-heading);
+}
+
+.scrolled-search-submit {
+    color: #386f74;
+    padding: 6px 10px;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: none;
+    border: none;
+    transition: color 0.15s ease;
+}
+
+.scrolled-search-submit:hover {
+    color: #264e52;
+}
+
+.scrolled-search-results {
+    max-height: 260px;
+    overflow-y: auto;
+    margin-top: 8px;
+}
+
+/* Responsividad para pantallas medianas y mÃ³viles */
+@media (max-width: 960px) {
+    .header.header--scrolled .nav-list {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+    }
+    .header.header--scrolled .nav-btn-link {
+        padding: 8px 10px;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 680px) {
+    .header.header--scrolled.scrolled-menu-open .main-nav {
+        max-height: 80vh;
+        overflow-y: auto;
+    }
+    .header.header--scrolled .nav-list {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 6px;
+    }
+    .header.header--scrolled .nav-item-scrolled-search {
+        margin: 6px 0 0 0;
+        width: 100%;
+    }
+    .scrolled-search-btn {
+        width: 100%;
+        border-radius: 6px;
+    }
+    .scrolled-search-popover {
+        position: static;
+        width: 100%;
+        margin-top: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+}
+
+
+/* ==========================================================================
+   PAGINA JUNTOS PLANIFICAMOS (INFORMACIONES)
+   Disenado segun maqueta oficial (media_1792893640059.png)
+   ========================================================================== */
+
+/* Slider Hero de Juntos Planificamos */
+.planificamos-slider-section {
+    background-color: #cad8d8;
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.planificamos-slider-container {
+    position: relative;
+    width: 100%;
+    max-width: 1220px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.planificamos-slider-track {
+    display: flex;
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    width: 100%;
+}
+
+.planificamos-slide {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f7f5ef;
+    height: 380px;
+    overflow: hidden;
+}
+
+.planificamos-slide-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+/* Flechas de navegacion del Slider */
+.planificamos-slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    background: rgba(38, 78, 82, 0.65);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    color: #ffffff;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.planificamos-slider-arrow:hover {
+    background: rgba(38, 78, 82, 0.9);
+    transform: translateY(-50%) scale(1.08);
+}
+
+.planificamos-slider-arrow.prev {
+    left: 18px;
+}
+
+.planificamos-slider-arrow.next {
+    right: 18px;
+}
+
+/* Indicadores / Dots del Slider */
+.planificamos-dots-bar {
+    background-color: #cad8d8;
+    padding: 8px 0 12px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.planificamos-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 1px solid #79a1a5;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    padding: 0;
+}
+
+.planificamos-dot.active,
+.planificamos-dot:hover {
+    background-color: #274e53;
+    border-color: #274e53;
+    transform: scale(1.2);
+}
+
+/* Area de contenido principal (2 columnas) */
+.planificamos-content-area {
+    background-color: #ffffff;
+    padding: 42px 0 64px 0;
+}
+
+.planificamos-grid {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 36px;
+    align-items: start;
+}
+
+/* Columna Izquierda: Tarjetas del Feed */
+.planificamos-feed {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+}
+
+.planificamos-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.planificamos-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.planificamos-card-media {
+    width: 100%;
+    height: 320px;
+    overflow: hidden;
+    background-color: #f1f5f9;
+}
+
+.planificamos-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.35s ease;
+}
+
+.planificamos-card:hover .planificamos-card-img {
+    transform: scale(1.03);
+}
+
+.planificamos-card-body {
+    padding: 24px 28px 26px 28px;
+}
+
+.planificamos-card-date {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #64748b;
+    margin-bottom: 10px;
+    letter-spacing: 0.3px;
+}
+
+.planificamos-card-title {
+    font-family: var(--font-heading);
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: #111827;
+    margin-bottom: 14px;
+    line-height: 1.25;
+    letter-spacing: -0.2px;
+}
+
+.planificamos-card-text {
+    font-family: var(--font-editorial);
+    font-size: 1rem;
+    line-height: 1.68;
+    color: #334155;
+    margin: 0;
+}
+
+.planificamos-card-text strong {
+    font-weight: 700;
+    color: #0f172a;
+}
+
+/* Columna Derecha: Sidebar Noticias en Putaendo */
+.planificamos-sidebar {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 6px 0;
+}
+
+.planificamos-sidebar-title {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #274e53;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 22px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #58858a;
+}
+
+.sidebar-news-list {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+}
+
+.sidebar-news-card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sidebar-news-thumb {
+    display: block;
+    width: 100%;
+    height: 115px;
+    border-radius: 8px;
+    background-color: #386f74;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.sidebar-news-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.25s ease;
+}
+
+.sidebar-news-card:hover .sidebar-news-thumb img {
+    transform: scale(1.05);
+}
+
+.sidebar-news-date {
+    font-family: var(--font-heading);
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #64748b;
+    margin-top: 2px;
+}
+
+.sidebar-news-title {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #111827;
+    line-height: 1.35;
+    margin: 0;
+}
+
+.sidebar-news-title a {
+    color: inherit;
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.sidebar-news-title a:hover {
+    color: #386f74;
+}
+
+.sidebar-news-link {
+    align-self: flex-end;
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #386f74;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 2px;
+    transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.sidebar-news-link:hover {
+    color: #264e52;
+    transform: translateX(3px);
+    text-decoration: underline;
+}
+
+/* Responsividad para moviles y tablets */
+@media (max-width: 900px) {
+    .planificamos-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .planificamos-card-media {
+        height: 240px;
+    }
+
+    .planificamos-card-body {
+        padding: 20px 20px;
+    }
+
+    .planificamos-card-title {
+        font-size: 1.25rem;
+    }
+}
+
+/* ==========================================================================
+   BADGES Y SECCIONES: PROXIMAMENTE (MODULOS EN CONSTRUCCION)
+   ========================================================================== */
+
+/* Dropdown menu items con badge */
+.dropdown-item {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 8px !important;
+}
+
+/* Badge Proximamente en Menus Desplegables */
+.nav-badge-soon {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.62rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    background-color: rgba(255, 255, 255, 0.16);
+    color: #e2e8f0;
+    padding: 2px 7px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    white-space: nowrap;
+    line-height: 1.3;
+}
+
+.dropdown-item:hover .nav-badge-soon {
+    background-color: rgba(255, 255, 255, 0.32);
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.55);
+}
+
+/* Badge Proximamente en Tarjetas de Servicios (Tramites) */
+.service-card-badge-soon {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background-color: #e6f0f1;
+    color: #274e53;
+    padding: 4px 12px;
+    border-radius: 12px;
+    border: 1px solid #b5d1d4;
+    margin-bottom: 12px;
+}
+
+/* Seccion Informativa: Modulos Proximamente en Index */
+.proximamente-section {
+    background-color: #f8fafc;
+    border-top: 1px solid #e2e8f0;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 56px 0;
+}
+
+.proximamente-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+    max-width: 1040px;
+    margin: 0 auto;
+}
+
+.proximamente-card {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 14px;
+    padding: 28px 30px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.proximamente-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.proximamente-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 14px;
+}
+
+.proximamente-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    background-color: rgba(56, 111, 116, 0.12);
+    color: #274e53;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+}
+
+.proximamente-title {
+    font-family: var(--font-heading);
+    font-size: 1.18rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 4px 0 0 0;
+}
+
+.proximamente-desc {
+    font-family: var(--font-editorial);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #475569;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .proximamente-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==========================================================================
+   14. PAGINA COMUNA & ACORDEON INTERACTIVO (comuna.html)
+   ========================================================================== */
+
+/* 1. Hero Section */
+.comuna-hero-section {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background-color: #1a3c40;
+}
+
+.comuna-hero-wrapper {
+    position: relative;
+    width: 100%;
+    max-height: 480px;
+    height: 38vw;
+    min-height: 260px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.comuna-hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.comuna-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0.35) 60%, rgba(15, 35, 38, 0.7) 100%);
+    pointer-events: none;
+}
+
+.comuna-hero-content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: clamp(16px, 3.5vw, 36px);
+    z-index: 2;
+}
+
+.comuna-hero-title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.8rem, 4.5vw, 3.4rem);
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
+    margin: 0;
+    text-align: center;
+}
+
+.comuna-hero-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.18);
+    border: none;
+    color: #ffffff;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    cursor: pointer;
+    backdrop-filter: blur(4px);
+    transition: background 0.2s ease, transform 0.2s ease;
+    z-index: 3;
+}
+
+.comuna-hero-arrow:hover {
+    background: rgba(255, 255, 255, 0.38);
+    transform: translateY(-50%) scale(1.08);
+}
+
+.comuna-hero-arrow--prev {
+    left: clamp(12px, 2.5vw, 36px);
+}
+
+.comuna-hero-arrow--next {
+    right: clamp(12px, 2.5vw, 36px);
+}
+
+/* 2. Intro Strip */
+.comuna-intro-strip {
+    background: linear-gradient(135deg, #235860 0%, #306c74 40%, #1f4f56 100%);
+    color: #ffffff;
+    padding: clamp(28px, 4vw, 44px) 20px;
+    text-align: center;
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+.comuna-intro-container {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.comuna-intro-text {
+    font-family: var(--font-editorial);
+    font-size: clamp(0.95rem, 1.4vw, 1.15rem);
+    line-height: 1.8;
+    color: #f1f8f9;
+    margin: 0;
+    letter-spacing: 0.01em;
+}
+
+/* 3. Accordion Section */
+.comuna-accordion-section {
+    width: 100%;
+    background-color: #ffffff;
+}
+
+.comuna-accordion-item {
+    border-bottom: 2px solid #ffffff;
+    overflow: hidden;
+}
+
+.comuna-accordion-header {
+    position: relative;
+    width: 100%;
+    height: clamp(140px, 18vw, 220px);
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+}
+
+.comuna-accordion-img-closed,
+.comuna-accordion-img-open {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1), transform 0.5s ease;
+}
+
+.comuna-accordion-img-closed {
+    opacity: 1;
+    z-index: 1;
+}
+
+.comuna-accordion-img-open {
+    opacity: 0;
+    z-index: 2;
+}
+
+.comuna-accordion-header:hover .comuna-accordion-img-closed,
+.comuna-accordion-header:hover .comuna-accordion-img-open {
+    transform: scale(1.02);
+}
+
+/* When accordion is open: crossfade image to show the #A6BEC1 typography */
+.comuna-accordion-item.is-open .comuna-accordion-img-closed {
+    opacity: 0;
+}
+
+.comuna-accordion-item.is-open .comuna-accordion-img-open {
+    opacity: 1;
+}
+
+.comuna-accordion-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.18);
+    z-index: 3;
+    pointer-events: none;
+    transition: background 0.3s ease;
+}
+
+.comuna-accordion-header:hover .comuna-accordion-overlay {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.comuna-accordion-title {
+    position: relative;
+    z-index: 4;
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 4.5vw, 3.2rem);
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #ffffff;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+    margin: 0;
+    transition: color 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+}
+
+.comuna-accordion-item.is-open .comuna-accordion-title {
+    color: #a6bec1;
+}
+
+/* 4. Accordion Body / Collapse Panel */
+.comuna-accordion-collapse {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.35s ease;
+    background: linear-gradient(180deg, #f3f7f8 0%, #eaf2f3 100%);
+}
+
+.comuna-accordion-item.is-open .comuna-accordion-collapse {
+    max-height: 1000px;
+    opacity: 1;
+}
+
+.comuna-accordion-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: clamp(32px, 5vw, 56px) 24px clamp(36px, 5vw, 64px);
+    text-align: center;
+}
+
+.comuna-accordion-heading {
+    font-family: var(--font-heading);
+    font-size: clamp(1.4rem, 2.4vw, 1.9rem);
+    font-weight: 800;
+    color: #174850;
+    margin: 0 0 18px 0;
+    letter-spacing: 0.02em;
+}
+
+.comuna-accordion-text {
+    font-family: var(--font-editorial);
+    font-size: clamp(0.95rem, 1.25vw, 1.08rem);
+    line-height: 1.85;
+    color: #2c3e50;
+    margin: 0 auto 28px auto;
+    max-width: 820px;
+    font-style: italic;
+}
+
+.comuna-accordion-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #21545d;
+    color: #ffffff;
+    font-family: var(--font-heading);
+    font-size: 0.88rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 13px 34px;
+    border-radius: 9999px;
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 14px rgba(33, 84, 93, 0.25);
+}
+
+.comuna-accordion-btn:hover {
+    background-color: #2c6e7a;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(33, 84, 93, 0.35);
+    color: #ffffff;
+}
+
+/* 5. Follow Us Section */
+.comuna-follow-section {
+    padding: clamp(36px, 5vw, 56px) 20px clamp(44px, 6vw, 68px);
+    text-align: center;
+    background-color: #ffffff;
+}
+
+.comuna-divider {
+    width: min(280px, 60vw);
+    height: 2px;
+    background-color: #2b6973;
+    margin: 0 auto 32px auto;
+    opacity: 0.7;
+}
+
+.comuna-follow-title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.3rem, 2vw, 1.7rem);
+    font-weight: 800;
+    color: #174850;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin: 0 0 28px 0;
+}
+
+.comuna-social-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.comuna-social-btn {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background-color: #2b6973;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.35rem;
+    text-decoration: none;
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 3px 10px rgba(43, 105, 115, 0.25);
+}
+
+.comuna-social-btn:hover {
+    background-color: #174850;
+    transform: translateY(-3px) scale(1.06);
+    box-shadow: 0 6px 16px rgba(23, 72, 80, 0.35);
+    color: #ffffff;
+}

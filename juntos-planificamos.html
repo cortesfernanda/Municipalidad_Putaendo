@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juntos Planificamos &mdash; Ilustre Municipalidad de Putaendo</title>
+    <meta name="description" content="Portal Juntos Planificamos de la Ilustre Municipalidad de Putaendo: Talleres informativos, voluntariado comunitario, PLADECO y participaci&oacute;n ciudadana.">
+
+    <!-- Tipografias Oficiales Embebidas: Satoshi (UI & Lectura Rapida) + Lora (Lectura Prolongada) -->
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@900,800,700,600,500,400,300&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap">
+
+    <!-- Iconos FontAwesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Hoja de Estilos Global del Sitio -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Enlace accesible de salto al contenido -->
+    <a href="#contenido-principal" class="skip-link">Saltar al contenido principal</a>
+
+    <!-- =========================================================================
+         CABECERA INSTITUCIONAL Y NAVEGACION
+         ========================================================================= -->
+<header class="header" role="banner">
+        <!-- Barra superior: Logotipo oficial + Buscador -->
+        <div class="top-bar">
+            <div class="container top-bar-container">
+                <!-- Logotipo de la Municipalidad -->
+                <a href="index.html" class="brand-logo" aria-label="Ilustre Municipalidad de Putaendo - Inicio">
+                    <div class="brand-logo-content">
+                        <!-- Escudo Vectorial Heráldico de Putaendo -->
+                        <svg class="muni-shield" viewBox="0 0 54 68" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <!-- Corona Mural de 3 Almenas -->
+                            <path d="M7 16 L7 6 L14 6 L14 10 L22 10 L22 6 L32 6 L32 10 L40 10 L40 6 L47 6 L47 16 Z" fill="#ffffff" stroke="#ffffff" stroke-width="1.2" stroke-linejoin="round"/>
+                            <!-- Silueta del Escudo -->
+                            <path d="M5 18 H49 C49 42 42 58 27 66 C12 58 5 42 5 18 Z" fill="#3b6e72" stroke="#ffffff" stroke-width="2.2" stroke-linejoin="round"/>
+                            <!-- Divisiones cuarteladas -->
+                            <line x1="5" y1="36" x2="49" y2="36" stroke="#ffffff" stroke-width="1.8"/>
+                            <line x1="27" y1="18" x2="27" y2="65" stroke="#ffffff" stroke-width="1.8"/>
+                            <!-- Cuartel 1: Estrella radiante de los Andes -->
+                            <path d="M16 23 L17.2 26.5 L20.8 27.7 L17.2 28.9 L16 32.5 L14.8 28.9 L11.2 27.7 L14.8 26.5 Z" fill="#ffffff"/>
+                            <!-- Cuartel 2: Emblema / Espiga de trigo -->
+                            <path d="M37.5 22 C37.5 26 35 30 37.5 34 C40 30 37.5 26 37.5 22 Z" fill="#ffffff"/>
+                            <circle cx="37.5" cy="28" r="1.5" fill="#3b6e72"/>
+                            <!-- Cuartel 3: Bandas diagonales heráldicas -->
+                            <line x1="8" y1="52" x2="23" y2="37" stroke="#ffffff" stroke-width="2"/>
+                            <line x1="11" y1="58" x2="27" y2="43" stroke="#ffffff" stroke-width="2"/>
+                            <line x1="17" y1="62" x2="27" y2="52" stroke="#ffffff" stroke-width="2"/>
+                            <!-- Cuartel 4: Cruz patada -->
+                            <path d="M37.5 40 V54 M30.5 47 H44.5" stroke="#ffffff" stroke-width="2.2" stroke-linecap="square"/>
+                            <circle cx="37.5" cy="47" r="2" fill="#ffffff"/>
+                        </svg>
+                        
+                        <div class="brand-text">
+                            <span class="brand-name">PUTAENDO</span>
+                            <span class="brand-sub">Ilustre Municipalidad</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Formulario de búsqueda accesible -->
+                <div class="search-wrapper">
+                    <form class="search-form" id="search-form" role="search" onsubmit="event.preventDefault(); window.ejecutarBusqueda();">
+                        <label for="site-search" class="visually-hidden">Buscar en el sitio web de Putaendo</label>
+                        <input type="search" id="site-search" class="search-input" placeholder="Buscar..." autocomplete="off">
+                        <button type="submit" class="search-btn" aria-label="Ejecutar búsqueda">
+                            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                        </button>
+                    </form>
+                    <!-- Contenedor desplegable de resultados rápidos -->
+                                        <div id="search-results-dropdown" class="search-results-dropdown" aria-live="polite"></div>
+                </div>
+
+                <!-- Boton Menu Hamburguesa para Moviles -->
+                <button class="mobile-toggle" id="mobile-toggle" aria-label="Abrir menu de navegacion" aria-expanded="false" aria-controls="main-nav">
+                    <span class="hamburger-bar"></span>
+                    <span class="hamburger-bar"></span>
+                    <span class="hamburger-bar"></span>
+                </button>
+
+                <!-- Boton 3 Puntitos (Kebab Menu) para Scroll y Menu Compacto -->
+                <button type="button" class="scroll-dots-btn" id="scroll-dots-btn" aria-label="Abrir men&uacute; de navegaci&oacute;n" aria-expanded="false" title="Men&uacute; de navegaci&oacute;n">
+                    <i class="fa-solid fa-ellipsis-vertical" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Barra de Navegacion Principal con Menus Desplegables -->
+        <nav class="main-nav" id="main-nav" aria-label="Navegacion principal">
+            <div class="container">
+                <ul class="nav-list" id="nav-list">
+                    <!-- Dropdown 1: MUNICIPIO -->
+                    <li class="nav-item has-dropdown">
+                        <button class="nav-btn-link" aria-expanded="false" aria-haspopup="true">
+                            <span>MUNICIPIO</span>
+                            <i class="fa-solid fa-caret-down dropdown-arrow" aria-hidden="true"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="autoridades.html" class="dropdown-item">AUTORIDADES</a></li>
+                            <li><a href="autoridades.html#organigrama" class="dropdown-item"><span>ORGANIGRAMA</span> <span class="nav-badge-soon">Pr&oacute;ximamente</span></a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Dropdown 2: TRAMITES -->
+                    <li class="nav-item has-dropdown">
+                        <button class="nav-btn-link" aria-expanded="false" aria-haspopup="true">
+                            <span>TR&Aacute;MITES</span>
+                            <i class="fa-solid fa-caret-down dropdown-arrow" aria-hidden="true"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="pagos-en-linea.html" class="dropdown-item">PAGOS EN L&Iacute;NEA</a></li>
+                            <li><a href="index.html#tramite-solicitudes" class="dropdown-item"><span>SOLICITUDES</span> <span class="nav-badge-soon">Pr&oacute;ximamente</span></a></li>
+                            <li><a href="index.html#tramite-becas" class="dropdown-item"><span>BECAS Y BENEFICIOS</span> <span class="nav-badge-soon">Pr&oacute;ximamente</span></a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Dropdown 3: COMUNA (solo ese) -->
+                    <li class="nav-item has-dropdown">
+                        <a href="comuna.html" class="nav-btn-link" aria-expanded="false" aria-haspopup="true">
+                            <span>COMUNA</span>
+                            <i class="fa-solid fa-caret-down dropdown-arrow" aria-hidden="true"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="comuna.html" class="dropdown-item">CONOCE LA COMUNA</a></li>
+                            <li><a href="comuna.html#historia" class="dropdown-item">HISTORIA</a></li>
+                            <li><a href="comuna.html#turismo" class="dropdown-item">TURISMO</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Dropdown 4: INFORMACIONES -->
+                    <li class="nav-item has-dropdown">
+                        <button class="nav-btn-link" aria-expanded="false" aria-haspopup="true">
+                            <span>INFORMACIONES</span>
+                            <i class="fa-solid fa-caret-down dropdown-arrow" aria-hidden="true"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="index.html#empleo" class="dropdown-item"><span>EMPLEO</span> <span class="nav-badge-soon">Pr&oacute;ximamente</span></a></li>
+                            <li><a href="juntos-planificamos.html" class="dropdown-item">JUNTOS PLANIFICAMOS</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Enlace directo: PORTAL TRANSPARENCIA -->
+                    <li class="nav-item">
+                        <a href="https://www.portaltransparencia.cl" target="_blank" rel="noopener noreferrer" class="nav-link nav-link-highlight">
+                            <span>PORTAL TRANSPARENCIA</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square external-icon" aria-hidden="true"></i>
+                        </a>
+                    </li>
+
+                    <!-- Dropdown 5: OTROS SITIOS -->
+                    <li class="nav-item has-dropdown">
+                        <button class="nav-btn-link" aria-expanded="false" aria-haspopup="true">
+                            <span>OTROS SITIOS</span>
+                            <i class="fa-solid fa-caret-down dropdown-arrow" aria-hidden="true"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="turismo.html" class="dropdown-item">TURISMO</a></li>
+                            <li><a href="index.html#emprendedores" class="dropdown-item"><span>RED DE EMPRENDEDORES</span> <span class="nav-badge-soon">Pr&oacute;ximamente</span></a></li>
+                        </ul>
+                    </li>
+                                    <!-- Busqueda rapida en modo Scroll (Icono Lupa segun maqueta) -->
+                    <li class="nav-item nav-item-scrolled-search">
+                        <button type="button" class="scrolled-search-btn" id="scrolled-search-btn" aria-label="Buscar en el sitio" title="Buscar">
+                            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                        </button>
+                        <div class="scrolled-search-popover" id="scrolled-search-popover">
+                            <form class="scrolled-search-form" id="scrolled-search-form" onsubmit="event.preventDefault();">
+                                <label for="scrolled-search-input" class="visually-hidden">Buscar en el sitio web</label>
+                                <input type="search" class="scrolled-search-field" id="scrolled-search-input" placeholder="Buscar en el sitio..." autocomplete="off">
+                                <button type="submit" class="scrolled-search-submit" id="scrolled-search-submit" aria-label="Ejecutar b&uacute;squeda">
+                                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                                </button>
+                            </form>
+                            <div class="scrolled-search-results" id="scrolled-search-results"></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- =========================================================================
+         CONTENIDO PRINCIPAL: JUNTOS PLANIFICAMOS
+         ========================================================================= -->
+    <main id="contenido-principal">
+
+        <!-- 1. HERO BANNER PANORAMICO CON CAPSULA "JUNTOS PLANIFICAMOS" -->
+        <section class="pagos-hero-section" aria-label="Portal Juntos Planificamos">
+            <img src="assets/banner-noticias.png" alt="Ecosistema Cordillerano y Biodiversidad de Putaendo" class="pagos-hero-img">
+            <h1 class="visually-hidden">Juntos Planificamos</h1>
+        </section>
+
+        <!-- 2. MIGA DE PAN (BREADCRUMB STRIP) -->
+        <nav class="pagos-breadcrumb-bar" aria-label="Miga de pan">
+            <div class="container">
+                <div class="pagos-breadcrumb-list">
+                    <a href="index.html">INICIO</a>
+                    <span class="pagos-breadcrumb-sep">&gt;</span>
+                    <a href="index.html#informaciones">INFORMACIONES</a>
+                    <span class="pagos-breadcrumb-sep">&gt;</span>
+                    <span class="pagos-breadcrumb-current" aria-current="page">JUNTOS PLANIFICAMOS</span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- 3. CARRUSEL HERO INFORMATIVO (Identico al Index) -->
+        <section class="hero-slider-section full-width-hero" aria-label="Noticias y avisos destacados">
+            <!-- Marco del Slider de Ancho Completo -->
+            <div class="slider-viewport" id="hero-slider">
+                <!-- Flecha Diapositiva Anterior -->
+                <button class="slider-arrow slider-arrow-prev" id="slider-prev" aria-label="Ver diapositiva anterior">
+                    <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+                </button>
+
+                <!-- Diapositiva 1: Concejo Municipal y Autoridades de Putaendo -->
+                <article class="slide-item active" data-slide="0" aria-current="true">
+                    <div class="slide-bg-wrapper">
+                        <img src="assets/banner-autoridades.png" alt="Concejo Municipal y Autoridades de Putaendo" class="slide-bg-img">
+                    </div>
+                </article>
+
+                <!-- Diapositiva 2: Plan Comunal de Seguridad Publica -->
+                <article class="slide-item" data-slide="1" aria-hidden="true">
+                    <div class="slide-bg-wrapper">
+                        <img src="assets/slide2-solidario.png" alt="Plan Comunal de Seguridad Publica en Putaendo" class="slide-bg-img">
+                    </div>
+                </article>
+
+                <!-- Diapositiva 3: Patrimonio e Identidad -->
+                <article class="slide-item" data-slide="2" aria-hidden="true">
+                    <div class="slide-bg-wrapper">
+                        <img src="assets/slide3-patrimonio.png" alt="Calle patrimonial y paisaje cordillerano en Putaendo" class="slide-bg-img">
+                    </div>
+                </article>
+
+                <!-- Diapositiva 4: Transparencia y Medio Ambiente -->
+                <article class="slide-item" data-slide="3" aria-hidden="true">
+                    <div class="slide-bg-wrapper">
+                        <img src="assets/banner-noticias.png" alt="Portal de Transparencia Activa de Putaendo" class="slide-bg-img">
+                    </div>
+                </article>
+
+                <!-- Flecha Diapositiva Siguiente -->
+                <button class="slider-arrow slider-arrow-next" id="slider-next" aria-label="Ver diapositiva siguiente">
+                    <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                </button>
+
+                <!-- Indicadores de Paginaci&oacute;n (4 Dots) -->
+                <div class="slider-dots" id="slider-dots" role="tablist" aria-label="Seleccionar diapositiva">
+                    <button class="dot-btn active" role="tab" aria-selected="true" aria-label="Ir a diapositiva 1" data-slide-target="0"></button>
+                    <button class="dot-btn" role="tab" aria-selected="false" aria-label="Ir a diapositiva 2" data-slide-target="1"></button>
+                    <button class="dot-btn" role="tab" aria-selected="false" aria-label="Ir a diapositiva 3" data-slide-target="2"></button>
+                    <button class="dot-btn" role="tab" aria-selected="false" aria-label="Ir a diapositiva 4" data-slide-target="3"></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. SECCION PRINCIPAL DE CONTENIDO (FEED + SIDEBAR DE NOTICIAS) -->
+        <section class="planificamos-content-area">
+            <div class="container">
+                <div class="planificamos-grid">
+
+                    <!-- Columna Izquierda: Tarjetas del Feed Comunal -->
+                    <div class="planificamos-feed">
+
+                        <!-- Tarjeta 1: Red Local de Voluntariado -->
+                        <article class="planificamos-card">
+                            <div class="planificamos-card-media">
+                                <img src="assets/planificamos-voluntariado.jpg" alt="Grupo de vecinos y j&oacute;venes en la Red Local de Voluntariado de Putaendo" class="planificamos-card-img" loading="lazy">
+                            </div>
+                            <div class="planificamos-card-body">
+                                <span class="planificamos-card-date">10 de septiembre 2026</span>
+                                <h2 class="planificamos-card-title">Inscr&iacute;bete en la Red Local de Voluntariado</h2>
+                                <p class="planificamos-card-text">
+                                    La <strong>Ilustre Municipalidad de Putaendo</strong> invita a vecinas, vecinos y juventudes de la comuna a ser parte de la <strong>Red Local de Voluntariado Putaendo Solidario</strong>, una iniciativa que busca reunir a personas con compromiso, solidaridad y ganas de aportar al bienestar de nuestra comuna. Putaendo te necesita. S&uacute;mate, inscr&iacute;bete y s&eacute; parte de esta red solidaria.
+                                </p>
+                            </div>
+                        </article>
+
+                        <!-- Tarjeta 2: Taller Informativo sobre Regularizacion de Derechos de Agua -->
+                        <article class="planificamos-card">
+                            <div class="planificamos-card-media">
+                                <img src="assets/planificamos-taller-agua.jpg" alt="Afiche ilustrado del Taller Informativo sobre Regularizaci&oacute;n de Derechos de Aprovechamiento de Agua" class="planificamos-card-img" loading="lazy">
+                            </div>
+                            <div class="planificamos-card-body">
+                                <span class="planificamos-card-date">12 de septiembre 2026</span>
+                                <h2 class="planificamos-card-title">Taller Informativo sobre Regularizaci&oacute;n de Derechos de Agua</h2>
+                                <p class="planificamos-card-text">
+                                    La <strong>Ilustre Municipalidad de Putaendo</strong>, a trav&eacute;s de la Oficina de Desarrollo Rural, invita a vecinos, vecinas y personas interesadas a participar en un taller informativo sobre regularizaci&oacute;n de t&iacute;tulos de dominio, orientado a la regularizaci&oacute;n de Derechos de Aprovechamiento de Agua (DAA).
+                                </p>
+                            </div>
+                        </article>
+
+                    </div>
+
+                    <!-- Columna Derecha: Sidebar Noticias en Putaendo -->
+                    <aside class="planificamos-sidebar" aria-label="Noticias Comunales Destacadas">
+                        <h3 class="planificamos-sidebar-title">NOTICIAS EN PUTAENDO</h3>
+
+                        <div class="sidebar-news-list">
+
+                            <!-- Noticia 1 -->
+                            <article class="sidebar-news-card">
+                                <a href="noticia-biodiversidad.html" class="sidebar-news-thumb" aria-label="Leer m&aacute;s sobre entrega de afiches sobre biodiversidad">
+                                    <img src="assets/noticia-biodiversidad-1.jpg" alt="Comunidad de Putaendo recibe ejemplares de posters de biodiversidad" loading="lazy">
+                                </a>
+                                <span class="sidebar-news-date">12 de octubre 2026</span>
+                                <h4 class="sidebar-news-title">
+                                    <a href="noticia-biodiversidad.html">Comunidad de Putaendo recibe 400 ejemplares de posters sobre biodiversidad</a>
+                                </h4>
+                                <a href="noticia-biodiversidad.html" class="sidebar-news-link">Seguir leyendo &gt;</a>
+                            </article>
+
+                            <!-- Noticia 2 -->
+                            <article class="sidebar-news-card">
+                                <a href="noticia-fondo-cultura.html" class="sidebar-news-thumb" aria-label="Leer m&aacute;s sobre Fondo Concursable Municipal de Cultura">
+                                    <img src="assets/slide1-gastronomia.png" alt="Convocatoria Fondo Concursable Municipal de Cultura 2026" loading="lazy">
+                                </a>
+                                <span class="sidebar-news-date">16 de septiembre 2026</span>
+                                <h4 class="sidebar-news-title">
+                                    <a href="noticia-fondo-cultura.html">[DESCARGAR BASES] Fondo Concursable Municipal de Cultura 2026</a>
+                                </h4>
+                                <a href="noticia-fondo-cultura.html" class="sidebar-news-link">Seguir leyendo &gt;</a>
+                            </article>
+
+                            <!-- Noticia 3 -->
+                            <article class="sidebar-news-card">
+                                <a href="noticia-obras.html" class="sidebar-news-thumb" aria-label="Leer m&aacute;s sobre obras de infraestructura vial y deportes">
+                                    <img src="assets/slide3-patrimonio.png" alt="Aprobaci&oacute;n de 1.490 millones de pesos para obras de infraestructura" loading="lazy">
+                                </a>
+                                <span class="sidebar-news-date">19 de mayo 2026</span>
+                                <h4 class="sidebar-news-title">
+                                    <a href="noticia-obras.html">Aprobaci&oacute;n de $1.490 millones para obras viales y deportivas en Putaendo</a>
+                                </h4>
+                                <a href="noticia-obras.html" class="sidebar-news-link">Seguir leyendo &gt;</a>
+                            </article>
+
+                        </div>
+                    </aside>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Boton flotante para subir del todo (lado izquierdo) -->
+    <button type="button" id="scroll-to-top-btn" class="scroll-to-top-btn" aria-label="Subir del todo" title="Subir del todo">
+        <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+    </button>
+
+    <!-- =========================================================================
+         PIE DE PAGINA INSTITUCIONAL UNIFICADO (Identico a index.html)
+         ========================================================================= -->
+<footer class="site-footer" role="contentinfo">
+        <div class="container footer-container">
+            <!-- Bloque 1: Escudo y Nombre Municipal -->
+            <div class="footer-col footer-col-brand">
+                <div class="footer-logo">
+                    <!-- Escudo Vectorial en blanco -->
+                    <svg class="footer-shield" viewBox="0 0 54 68" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path d="M7 16 L7 6 L14 6 L14 10 L22 10 L22 6 L32 6 L32 10 L40 10 L40 6 L47 6 L47 16 Z" fill="#ffffff" stroke="#ffffff" stroke-width="1.2" stroke-linejoin="round"/>
+                        <path d="M5 18 H49 C49 42 42 58 27 66 C12 58 5 42 5 18 Z" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linejoin="round"/>
+                        <line x1="5" y1="36" x2="49" y2="36" stroke="#ffffff" stroke-width="1.8"/>
+                        <line x1="27" y1="18" x2="27" y2="65" stroke="#ffffff" stroke-width="1.8"/>
+                        <path d="M16 23 L17.2 26.5 L20.8 27.7 L17.2 28.9 L16 32.5 L14.8 28.9 L11.2 27.7 L14.8 26.5 Z" fill="#ffffff"/>
+                        <path d="M37.5 22 C37.5 26 35 30 37.5 34 C40 30 37.5 26 37.5 22 Z" fill="#ffffff"/>
+                        <circle cx="37.5" cy="28" r="1.5" fill="#2d5e62"/>
+                        <line x1="8" y1="52" x2="23" y2="37" stroke="#ffffff" stroke-width="2"/>
+                        <line x1="11" y1="58" x2="27" y2="43" stroke="#ffffff" stroke-width="2"/>
+                        <line x1="17" y1="62" x2="27" y2="52" stroke="#ffffff" stroke-width="2"/>
+                        <path d="M37.5 40 V54 M30.5 47 H44.5" stroke="#ffffff" stroke-width="2.2" stroke-linecap="square"/>
+                        <circle cx="37.5" cy="47" r="2" fill="#ffffff"/>
+                    </svg>
+                    <div class="footer-brand-text">
+                        <span class="footer-title">PUTAENDO</span>
+                        <span class="footer-subtitle">Ilustre Municipalidad</span>
+                    </div>
+                </div>
+                <p class="footer-motto">Primer Pueblo Libre de Chile · Región de Valparaíso</p>
+            </div>
+
+            <!-- Bloque 2: Información de Contacto Oficial -->
+            <div class="footer-col footer-col-contact">
+                <h4 class="footer-col-title">Contacto</h4>
+                <ul class="contact-list">
+                    <li>
+                        <i class="fa-solid fa-phone" aria-hidden="true"></i>
+                        <span>Fono Alcaldía: <strong>(34) 243 1552</strong></span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                        <span>alcaldia@muniputaendo.cl</span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                        <span>Prat 1, Putaendo, Valparaíso, Chile</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Bloque 3: Redes Sociales -->
+            <div class="footer-col footer-col-social">
+                <h4 class="footer-col-title">Redes Sociales</h4>
+                <div class="social-links-grid">
+                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-circle-btn" aria-label="Facebook Ilustre Municipalidad de Putaendo">
+                        <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-circle-btn" aria-label="Instagram Ilustre Municipalidad de Putaendo">
+                        <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-circle-btn" aria-label="YouTube Ilustre Municipalidad de Putaendo">
+                        <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="social-circle-btn" aria-label="X (Twitter) Ilustre Municipalidad de Putaendo">
+                        <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Barra inferior de Copyright y Enlaces Legales -->
+        <div class="footer-bottom-bar">
+            <div class="container footer-bottom-container">
+                <p>&copy; 2026 Ilustre Municipalidad de Putaendo. Todos los derechos reservados.</p>
+                <div class="footer-legal-links">
+                    <a href="https://www.portaltransparencia.cl" target="_blank" rel="noopener noreferrer">Transparencia Activa</a>
+                    <span>·</span>
+                    <a href="#privacidad">Políticas de Privacidad</a>
+                    <span>·</span>
+                    <a href="#accesibilidad">Accesibilidad Web</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script de interactividad -->
+    <script src="script.js"></script>
+</body>
+</html>

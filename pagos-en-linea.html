@@ -73,6 +73,11 @@
                     <span class="hamburger-bar"></span>
                     <span class="hamburger-bar"></span>
                 </button>
+
+                <!-- Boton 3 Puntitos (Kebab Menu) para Scroll y Menu Compacto -->
+                <button type="button" class="scroll-dots-btn" id="scroll-dots-btn" aria-label="Abrir men&uacute; de navegaci&oacute;n" aria-expanded="false" title="Men&uacute; de navegaci&oacute;n">
+                    <i class="fa-solid fa-ellipsis-vertical" aria-hidden="true"></i>
+                </button>
             </div>
         </div>
 
@@ -88,7 +93,7 @@
                         </button>
                         <ul class="dropdown-menu">
                             <li><a href="autoridades.html" class="dropdown-item">AUTORIDADES</a></li>
-                            <li><a href="autoridades.html#organigrama" class="dropdown-item">ORGANIGRAMA</a></li>
+                            <li><a href="autoridades.html#organigrama" class="dropdown-item"><span>ORGANIGRAMA</span> <span class="nav-badge-soon">Pr&oacute;ximamente</span></a></li>
                         </ul>
                     </li>
 
@@ -100,19 +105,21 @@
                         </button>
                         <ul class="dropdown-menu">
                             <li><a href="pagos-en-linea.html" class="dropdown-item active-page">PAGOS EN L&Iacute;NEA</a></li>
-                            <li><a href="index.html#tramite-solicitudes" class="dropdown-item">SOLICITUDES</a></li>
-                            <li><a href="index.html#tramite-becas" class="dropdown-item">BECAS Y BENEFICIOS</a></li>
+                            <li><a href="index.html#tramite-solicitudes" class="dropdown-item"><span>SOLICITUDES</span> <span class="nav-badge-soon">Pr&oacute;ximamente</span></a></li>
+                            <li><a href="index.html#tramite-becas" class="dropdown-item"><span>BECAS Y BENEFICIOS</span> <span class="nav-badge-soon">Pr&oacute;ximamente</span></a></li>
                         </ul>
                     </li>
 
                     <!-- Dropdown 3: COMUNA -->
                     <li class="nav-item has-dropdown">
-                        <button class="nav-btn-link" aria-expanded="false" aria-haspopup="true">
+                        <a href="comuna.html" class="nav-btn-link" aria-expanded="false" aria-haspopup="true">
                             <span>COMUNA</span>
                             <i class="fa-solid fa-caret-down dropdown-arrow" aria-hidden="true"></i>
-                        </button>
+                        </a>
                         <ul class="dropdown-menu">
-                            <li><a href="index.html#historia" class="dropdown-item">HISTORIA Y PATRIMONIO</a></li>
+                            <li><a href="comuna.html" class="dropdown-item">CONOCE LA COMUNA</a></li>
+                            <li><a href="comuna.html#historia" class="dropdown-item">HISTORIA</a></li>
+                            <li><a href="comuna.html#turismo" class="dropdown-item">TURISMO</a></li>
                         </ul>
                     </li>
 
@@ -123,8 +130,8 @@
                             <i class="fa-solid fa-caret-down dropdown-arrow" aria-hidden="true"></i>
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a href="index.html#empleo" class="dropdown-item">EMPLEO</a></li>
-                            <li><a href="index.html#planificamos" class="dropdown-item">JUNTOS PLANIFICAMOS</a></li>
+                            <li><a href="index.html#empleo" class="dropdown-item"><span>EMPLEO</span> <span class="nav-badge-soon">Pr&oacute;ximamente</span></a></li>
+                            <li><a href="juntos-planificamos.html" class="dropdown-item">JUNTOS PLANIFICAMOS</a></li>
                         </ul>
                     </li>
 
@@ -144,8 +151,24 @@
                         </button>
                         <ul class="dropdown-menu">
                             <li><a href="turismo.html" class="dropdown-item">TURISMO</a></li>
-                            <li><a href="index.html#emprendedores" class="dropdown-item">RED DE EMPRENDEDORES</a></li>
+                            <li><a href="index.html#emprendedores" class="dropdown-item"><span>RED DE EMPRENDEDORES</span> <span class="nav-badge-soon">Pr&oacute;ximamente</span></a></li>
                         </ul>
+                    </li>
+                                    <!-- Busqueda rapida en modo Scroll (Icono Lupa segun maqueta) -->
+                    <li class="nav-item nav-item-scrolled-search">
+                        <button type="button" class="scrolled-search-btn" id="scrolled-search-btn" aria-label="Buscar en el sitio" title="Buscar">
+                            <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                        </button>
+                        <div class="scrolled-search-popover" id="scrolled-search-popover">
+                            <form class="scrolled-search-form" id="scrolled-search-form" onsubmit="event.preventDefault();">
+                                <label for="scrolled-search-input" class="visually-hidden">Buscar en el sitio web</label>
+                                <input type="search" class="scrolled-search-field" id="scrolled-search-input" placeholder="Buscar en el sitio..." autocomplete="off">
+                                <button type="submit" class="scrolled-search-submit" id="scrolled-search-submit" aria-label="Ejecutar b&uacute;squeda">
+                                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                                </button>
+                            </form>
+                            <div class="scrolled-search-results" id="scrolled-search-results"></div>
+                        </div>
                     </li>
                 </ul>
             </div>

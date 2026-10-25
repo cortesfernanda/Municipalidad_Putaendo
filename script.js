@@ -13,6 +13,9 @@ document.addEventListener('DOMContentLoaded', () => {
     initArticleSlider();
     initArticleShare();
     initPagosModal();
+    initStickyScrollMenu();
+    initPlanificamosSlider();
+    initComunaAccordion();
 });
 
 /* ==========================================================================
@@ -39,6 +42,10 @@ function initNavigationDropdowns() {
 
         // Click en el boton de navegacion: abre y cierra fluidamente al presionar tanto en movil como en escritorio
         btn.addEventListener('click', (e) => {
+            // Si el boton es un enlace real a otra pagina (como comuna.html) y no se hizo click en la flecha
+            if (btn.tagName === 'A' && btn.getAttribute('href') && !btn.getAttribute('href').startsWith('#') && !e.target.closest('.dropdown-arrow')) {
+                return;
+            }
             e.preventDefault();
             e.stopPropagation();
 
@@ -313,7 +320,7 @@ function initSiteSearch() {
         {
             title: 'Juntos Planificamos (PLADECO y Plan Regulador)',
             type: 'Informaciones',
-            link: 'index.html#planificamos',
+            link: 'juntos-planificamos.html',
             keywords: 'planificamos pladeco proyectos desarrollo plan regulador participacion'
         },
         {
@@ -873,3 +880,417 @@ function initPagosModal() {
 }
 
 
+/* ==========================================================================
+   10. CABECERA COMPACTA EN SCROLL CON MENU DE 3 PUNTITOS (KEBAB)
+   Diseñado según maqueta oficial (media_1792887284347.png)
+   ========================================================================== */
+function initStickyScrollMenu() {
+    const header = document.querySelector('.header');
+    if (!header) return;
+
+    const topBarContainer = header.querySelector('.top-bar-container');
+    const navList = header.querySelector('.nav-list');
+    if (!topBarContainer || !navList) return;
+
+    // 1. Boton de 3 puntitos (.scroll-dots-btn)
+    let dotsBtn = header.querySelector('.scroll-dots-btn');
+    if (!dotsBtn) {
+        dotsBtn = document.createElement('button');
+        dotsBtn.type = 'button';
+        dotsBtn.className = 'scroll-dots-btn';
+        dotsBtn.id = 'scroll-dots-btn';
+        dotsBtn.setAttribute('aria-label', 'Abrir menú de navegación');
+        dotsBtn.setAttribute('aria-expanded', 'false');
+        dotsBtn.setAttribute('title', 'Menú de navegación');
+        dotsBtn.innerHTML = '<i class="fa-solid fa-ellipsis-vertical" aria-hidden="true"></i>';
+        topBarContainer.appendChild(dotsBtn);
+    }
+
+    // 2. Elemento de busqueda rapida en modo scroll (lupa en capsula)
+    let searchNavItem = navList.querySelector('.nav-item-scrolled-search');
+    if (!searchNavItem) {
+        searchNavItem = document.createElement('li');
+        searchNavItem.className = 'nav-item nav-item-scrolled-search';
+        searchNavItem.innerHTML = `
+            <button type="button" class="scrolled-search-btn" id="scrolled-search-btn" aria-label="Buscar en el sitio" title="Buscar">
+                <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+            </button>
+            <div class="scrolled-search-popover" id="scrolled-search-popover">
+                <form class="scrolled-search-form" id="scrolled-search-form">
+                    <label for="scrolled-search-input" class="visually-hidden">Buscar en el sitio web</label>
+                    <input type="search" class="scrolled-search-field" id="scrolled-search-input" placeholder="Buscar en el sitio..." autocomplete="off">
+                    <button type="submit" class="scrolled-search-submit" id="scrolled-search-submit" aria-label="Ejecutar búsqueda">
+                        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    </button>
+                </form>
+                <div class="scrolled-search-results" id="scrolled-search-results"></div>
+            </div>
+        `;
+        navList.appendChild(searchNavItem);
+    }
+
+    const scrolledSearchBtn = searchNavItem.querySelector('.scrolled-search-btn');
+    const scrolledSearchPopover = searchNavItem.querySelector('.scrolled-search-popover');
+    const scrolledSearchForm = searchNavItem.querySelector('.scrolled-search-form');
+    const scrolledSearchInput = searchNavItem.querySelector('.scrolled-search-field');
+    const scrolledSearchResults = searchNavItem.querySelector('.scrolled-search-results');
+
+    // 3. Control de Scroll para activar/desactivar estado compacto
+    const SCROLL_THRESHOLD = 80;
+    let isScrolled = false;
+
+    function handleScroll() {
+        const currentScrollY = window.scrollY || window.pageYOffset;
+        if (currentScrollY > SCROLL_THRESHOLD) {
+            if (!isScrolled) {
+                isScrolled = true;
+                header.classList.add('header--scrolled');
+            }
+        } else {
+            if (isScrolled) {
+                isScrolled = false;
+                header.classList.remove('header--scrolled', 'scrolled-menu-open');
+                dotsBtn.setAttribute('aria-expanded', 'false');
+                dotsBtn.innerHTML = '<i class="fa-solid fa-ellipsis-vertical" aria-hidden="true"></i>';
+                dotsBtn.setAttribute('title', 'Menú de navegación');
+                if (scrolledSearchPopover) {
+                    scrolledSearchPopover.classList.remove('is-open');
+                    scrolledSearchBtn?.classList.remove('is-active');
+                }
+            }
+        }
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+
+    // Soporte para parametro URL en pruebas y visualizacion (?scrolled=1&open=1)
+    const testParams = new URLSearchParams(window.location.search);
+    if (testParams.get('scrolled') === '1') {
+        isScrolled = true;
+        header.classList.add('header--scrolled');
+        if (testParams.get('open') === '1') {
+            header.classList.add('scrolled-menu-open');
+            dotsBtn.setAttribute('aria-expanded', 'true');
+            dotsBtn.innerHTML = '<i class="fa-solid fa-xmark" aria-hidden="true"></i>';
+            dotsBtn.setAttribute('title', 'Cerrar menú');
+            const drop = testParams.get('dropdown');
+            if (drop) {
+                const targetDrop = header.querySelector(`.nav-item:nth-child(${drop})`);
+                if (targetDrop) {
+                    targetDrop.classList.add('is-open');
+                }
+            }
+            if (testParams.get('search') === '1' && scrolledSearchPopover) {
+                scrolledSearchPopover.classList.add('is-open');
+                scrolledSearchBtn?.classList.add('is-active');
+            }
+        }
+    }
+
+    // 4. Click en el boton de 3 puntitos: Alterna apertura/cierre de la barra
+    dotsBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = header.classList.toggle('scrolled-menu-open');
+        dotsBtn.setAttribute('aria-expanded', isOpen.toString());
+        if (isOpen) {
+            dotsBtn.innerHTML = '<i class="fa-solid fa-xmark" aria-hidden="true"></i>';
+            dotsBtn.setAttribute('title', 'Cerrar menú');
+        } else {
+            dotsBtn.innerHTML = '<i class="fa-solid fa-ellipsis-vertical" aria-hidden="true"></i>';
+            dotsBtn.setAttribute('title', 'Menú de navegación');
+            if (scrolledSearchPopover) {
+                scrolledSearchPopover.classList.remove('is-open');
+                scrolledSearchBtn?.classList.remove('is-active');
+            }
+        }
+    });
+
+    // 5. Boton de busqueda de la barra de scroll
+    if (scrolledSearchBtn && scrolledSearchPopover) {
+        scrolledSearchBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isOpen = scrolledSearchPopover.classList.toggle('is-open');
+            scrolledSearchBtn.classList.toggle('is-active', isOpen);
+            if (isOpen && scrolledSearchInput) {
+                setTimeout(() => scrolledSearchInput.focus(), 100);
+            }
+        });
+
+        scrolledSearchPopover.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+    }
+
+    // 6. Catalogo y ejecucion de busqueda rapida en modo scroll
+    if (scrolledSearchInput && scrolledSearchResults) {
+        const searchCatalog = [
+            { title: 'Portal de Pagos en Línea', type: 'Trámite', link: 'pagos-en-linea.html' },
+            { title: 'Permiso de Circulación 2026', type: 'Trámite', link: 'permiso-circulacion.html' },
+            { title: 'Patentes Comerciales', type: 'Trámite', link: 'pagos-en-linea.html?tramite=patentes' },
+            { title: 'Multas de Tránsito (JPL)', type: 'Trámite', link: 'pagos-en-linea.html?tramite=multas' },
+            { title: 'Permisos de Construcción (DOM)', type: 'Trámite', link: 'pagos-en-linea.html?tramite=obras' },
+            { title: 'Portal de Turismo de Putaendo', type: 'Turismo', link: 'turismo.html' },
+            { title: 'Autoridades Municipales y Alcalde', type: 'Municipio', link: 'autoridades.html' },
+            { title: 'Conoce la Comuna (Historia y Turismo)', type: 'Comuna', link: 'comuna.html' },
+            { title: 'Historia y Patrimonio', type: 'Comuna', link: 'comuna.html#historia' },
+            { title: 'Organigrama Municipal', type: 'Municipio', link: 'autoridades.html#organigrama' },
+            { title: 'Portal de Noticias Comunales', type: 'Noticias', link: 'noticias.html' },
+            { title: 'Biodiversidad del Ecosistema Cordillerano', type: 'Noticias', link: 'noticia-biodiversidad.html' },
+            { title: 'Fondo de Cultura y Turismo 2026', type: 'Noticias', link: 'noticia-fondo-cultura.html' },
+            { title: 'Obras de Pavimentación Participativa', type: 'Noticias', link: 'noticia-obras.html' },
+            { title: 'Bolsa de Empleo OMIL', type: 'Informaciones', link: 'index.html#empleo' },
+            { title: 'Juntos Planificamos (PLADECO)', type: 'Informaciones', link: 'juntos-planificamos.html' },
+            { title: 'Red de Emprendedores', type: 'Otros Sitios', link: 'index.html#emprendedores' }
+        ];
+
+        function runScrolledSearch(query) {
+            const q = query.toLowerCase().trim();
+            if (q.length < 2) {
+                scrolledSearchResults.innerHTML = '';
+                return;
+            }
+            const matches = searchCatalog.filter(item =>
+                item.title.toLowerCase().includes(q) ||
+                item.type.toLowerCase().includes(q)
+            );
+            if (matches.length === 0) {
+                scrolledSearchResults.innerHTML = '<div style="padding: 10px; font-size: 0.85rem; color: #64748b; text-align: center;">No se encontraron resultados</div>';
+                return;
+            }
+            scrolledSearchResults.innerHTML = matches.map(item => `
+                <a href="${item.link}" class="search-result-item" style="padding: 9px 12px; font-size: 0.85rem; display: block; text-decoration: none; border-bottom: 1px solid #f1f5f9;">
+                    <div style="font-size: 0.72rem; font-weight: 700; color: #386f74; text-transform: uppercase;">${item.type}</div>
+                    <div style="font-weight: 600; color: #1e293b;">${item.title}</div>
+                </a>
+            `).join('');
+        }
+
+        scrolledSearchInput.addEventListener('input', (e) => {
+            runScrolledSearch(e.target.value);
+        });
+
+        if (scrolledSearchForm) {
+            scrolledSearchForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const q = scrolledSearchInput.value.toLowerCase().trim();
+                const first = searchCatalog.find(item => item.title.toLowerCase().includes(q) || item.type.toLowerCase().includes(q));
+                if (first) {
+                    window.location.href = first.link;
+                }
+            });
+        }
+    }
+
+    // 7. Cerrar al hacer clic fuera del header
+    document.addEventListener('click', (e) => {
+        if (!header.contains(e.target)) {
+            if (header.classList.contains('scrolled-menu-open')) {
+                header.classList.remove('scrolled-menu-open');
+                dotsBtn.setAttribute('aria-expanded', 'false');
+                dotsBtn.innerHTML = '<i class="fa-solid fa-ellipsis-vertical" aria-hidden="true"></i>';
+                dotsBtn.setAttribute('title', 'Menú de navegación');
+            }
+            if (scrolledSearchPopover && scrolledSearchPopover.classList.contains('is-open')) {
+                scrolledSearchPopover.classList.remove('is-open');
+                scrolledSearchBtn?.classList.remove('is-active');
+            }
+        }
+    });
+
+    // 8. Cerrar con tecla Escape
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            if (scrolledSearchPopover && scrolledSearchPopover.classList.contains('is-open')) {
+                scrolledSearchPopover.classList.remove('is-open');
+                scrolledSearchBtn?.classList.remove('is-active');
+                return;
+            }
+            if (header.classList.contains('scrolled-menu-open')) {
+                header.classList.remove('scrolled-menu-open');
+                dotsBtn.setAttribute('aria-expanded', 'false');
+                dotsBtn.innerHTML = '<i class="fa-solid fa-ellipsis-vertical" aria-hidden="true"></i>';
+                dotsBtn.setAttribute('title', 'Menú de navegación');
+            }
+        }
+    });
+}
+
+
+/* ==========================================================================
+   11. CARRUSEL HERO DE JUNTOS PLANIFICAMOS
+   ========================================================================== */
+function initPlanificamosSlider() {
+    const sliderContainer = document.getElementById('planificamos-slider-container');
+    if (!sliderContainer) return;
+
+    const track = sliderContainer.querySelector('.planificamos-slider-track');
+    const slides = sliderContainer.querySelectorAll('.planificamos-slide');
+    const prevBtn = document.getElementById('planificamos-slider-prev');
+    const nextBtn = document.getElementById('planificamos-slider-next');
+    const dots = document.querySelectorAll('.planificamos-dot');
+
+    if (!slides.length || !track) return;
+
+    let currentIndex = 0;
+    const totalSlides = slides.length;
+    let autoplayTimer = null;
+    const INTERVAL = 5500;
+
+    // Configurar pista y diapositivas
+    track.style.display = 'flex';
+    track.style.width = (totalSlides * 100) + '%';
+    slides.forEach(slide => {
+        slide.style.width = (100 / totalSlides) + '%';
+        slide.style.flex = '0 0 ' + (100 / totalSlides) + '%';
+    });
+
+    function goToSlide(index) {
+        if (index >= totalSlides) {
+            currentIndex = 0;
+        } else if (index < 0) {
+            currentIndex = totalSlides - 1;
+        } else {
+            currentIndex = index;
+        }
+        track.style.transform = 'translateX(-' + (currentIndex * (100 / totalSlides)) + '%)';
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === currentIndex);
+            dot.setAttribute('aria-selected', (i === currentIndex).toString());
+        });
+    }
+
+    function nextSlide() {
+        goToSlide(currentIndex + 1);
+    }
+
+    function prevSlide() {
+        goToSlide(currentIndex - 1);
+    }
+
+    function startAutoplay() {
+        stopAutoplay();
+        autoplayTimer = setInterval(nextSlide, INTERVAL);
+    }
+
+    function stopAutoplay() {
+        if (autoplayTimer) {
+            clearInterval(autoplayTimer);
+            autoplayTimer = null;
+        }
+    }
+
+    if (nextBtn) {
+        nextBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            nextSlide();
+            startAutoplay();
+        });
+    }
+
+    if (prevBtn) {
+        prevBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            prevSlide();
+            startAutoplay();
+        });
+    }
+
+    dots.forEach((dot, i) => {
+        dot.addEventListener('click', (e) => {
+            e.preventDefault();
+            goToSlide(i);
+            startAutoplay();
+        });
+    });
+
+    sliderContainer.addEventListener('mouseenter', stopAutoplay);
+    sliderContainer.addEventListener('mouseleave', startAutoplay);
+
+    // Touch swipe
+    let touchStartX = 0;
+    sliderContainer.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+        stopAutoplay();
+    }, { passive: true });
+
+    sliderContainer.addEventListener('touchend', (e) => {
+        const touchEndX = e.changedTouches[0].screenX;
+        const diff = touchStartX - touchEndX;
+        if (Math.abs(diff) > 40) {
+            if (diff > 0) nextSlide();
+            else prevSlide();
+        }
+        startAutoplay();
+    }, { passive: true });
+
+    startAutoplay();
+}
+
+
+/* ==========================================================================
+   12. ACORDEÃ“N DE LA PÃGINA COMUNA (comuna.html)
+   ========================================================================== */
+function initComunaAccordion() {
+    const accordionItems = document.querySelectorAll('.comuna-accordion-item');
+    if (!accordionItems.length) return;
+
+    function toggleItem(item, forceState) {
+        const header = item.querySelector('.comuna-accordion-header');
+        const collapse = item.querySelector('.comuna-accordion-collapse');
+        if (!header || !collapse) return;
+
+        const isCurrentlyOpen = item.classList.contains('is-open');
+        const shouldOpen = (typeof forceState === 'boolean') ? forceState : !isCurrentlyOpen;
+
+        if (shouldOpen) {
+            item.classList.add('is-open');
+            header.setAttribute('aria-expanded', 'true');
+            collapse.style.maxHeight = collapse.scrollHeight + 'px';
+        } else {
+            item.classList.remove('is-open');
+            header.setAttribute('aria-expanded', 'false');
+            collapse.style.maxHeight = '0px';
+        }
+    }
+
+    accordionItems.forEach(item => {
+        const header = item.querySelector('.comuna-accordion-header');
+        const collapse = item.querySelector('.comuna-accordion-collapse');
+        if (!header || !collapse) return;
+
+        header.addEventListener('click', () => {
+            toggleItem(item);
+        });
+
+        header.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleItem(item);
+            }
+        });
+    });
+
+    // Soporte para abrir directo con hash en URL (ej. #historia o #turismo)
+    if (window.location.hash) {
+        const target = document.querySelector(window.location.hash);
+        if (target && target.classList.contains('comuna-accordion-item')) {
+            setTimeout(() => {
+                toggleItem(target, true);
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 250);
+        }
+    }
+
+    // Parametros de prueba en URL: ?open=all o ?open=historia
+    const urlParams = new URLSearchParams(window.location.search);
+    if (window.location.hash === '#open-all' || urlParams.get('open') === 'all') {
+        accordionItems.forEach(item => toggleItem(item, true));
+    } else if (urlParams.get('open') === 'historia') {
+        const hist = document.getElementById('historia');
+        if (hist) toggleItem(hist, true);
+    } else if (urlParams.get('open') === 'turismo') {
+        const tur = document.getElementById('turismo');
+        if (tur) toggleItem(tur, true);
+    }
+}
