@@ -5801,7 +5801,7 @@ p,
 
 .slider-hero-content {
     position: absolute;
-    top: 58%;
+    top: 68%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 6;
@@ -5888,7 +5888,7 @@ p,
         height: 260px;
     }
     .slider-hero-content {
-        top: 56% !important;
+        top: 66% !important;
         padding: 0 40px !important;
         box-sizing: border-box;
     }
