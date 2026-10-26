@@ -6,9 +6,18 @@
     <title>Permiso de Circulaci&oacute;n 2026 | Pagos en L&iacute;nea | Ilustre Municipalidad de Putaendo</title>
     <meta name="description" content="Paga aqu&iacute; tu Permiso de Circulaci&oacute;n Vehicular 2026 en la Ilustre Municipalidad de Putaendo. Conoce los periodos de pago por categor&iacute;a y los documentos requeridos.">
     
-        <!-- Tipografias Oficiales Embebidas: Satoshi (UI y Lectura Rapida) + Lora (Lectura Prolongada) -->
+        
+    
+    <!-- Optimizacion PageSpeed: Preconnect anticipado para fuentes e iconos -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+    <!-- Optimizacion PageSpeed: Preload de Imagen LCP Prioritaria -->
+    <link rel="preload" as="image" href="assets/permiso-circulacion/Banner_PermisoCir.webp" fetchpriority="high">
+
+    <!-- Tipografias Oficiales: Satoshi (UI y Lectura Rapida) + Lora (Lectura Prolongada) -->
     <link href="https://api.fontshare.com/v2/css?f[]=satoshi@900,800,700,600,500,400&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
     
@@ -17,6 +26,8 @@
     
     <!-- Hoja de estilos principal -->
     <link rel="stylesheet" href="styles.css">
+
+
 </head>
 <body class="tramite-page-bg">
     <!-- Enlace de accesibilidad -->
@@ -188,7 +199,7 @@
              ===================================================================== -->
         <section class="comuna-hero-section" aria-label="Cabecera Permiso de Circulaci&oacute;n">
             <div class="comuna-hero-wrapper">
-                <img src="assets/permiso-circulacion/Banner_PermisoCir.webp" alt="Documento Oficial de Permiso de Circulaci&oacute;n Vehicular" class="comuna-hero-img">
+                <img src="assets/permiso-circulacion/Banner_PermisoCir.webp" alt="Documento Oficial de Permiso de Circulaci&oacute;n Vehicular"    class="comuna-hero-img" width="1920" height="1080" loading="eager" fetchpriority="high" decoding="async">
                 <div class="comuna-hero-overlay"></div>
                 <div class="comuna-hero-content">
                     <h1 class="comuna-hero-title">PERMISO DE CIRCULACI&Oacute;N</h1>
@@ -416,6 +427,6 @@
     </button>
 
     <!-- Scripts interactivos -->
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>

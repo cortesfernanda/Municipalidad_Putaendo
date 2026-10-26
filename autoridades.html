@@ -6,9 +6,18 @@
     <title>Autoridades Comunales | Ilustre Municipalidad de Putaendo</title>
     <meta name="description" content="Conoce a las autoridades de la Ilustre Municipalidad de Putaendo: Alcalde Mauricio Quiroz Chamorro y el Honorable Concejo Municipal.">
     
-        <!-- Tipografias Oficiales Embebidas: Satoshi (UI y Lectura Rapida) + Lora (Lectura Prolongada) -->
+        
+    
+    <!-- Optimizacion PageSpeed: Preconnect anticipado para fuentes e iconos -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+    <!-- Optimizacion PageSpeed: Preload de Imagen LCP Prioritaria -->
+    <link rel="preload" as="image" href="assets/autoridades/Banner_Autoridades.webp" fetchpriority="high">
+
+    <!-- Tipografias Oficiales: Satoshi (UI y Lectura Rapida) + Lora (Lectura Prolongada) -->
     <link href="https://api.fontshare.com/v2/css?f[]=satoshi@900,800,700,600,500,400&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
     
@@ -17,6 +26,8 @@
     
     <!-- Hoja de estilos principal -->
     <link rel="stylesheet" href="styles.css">
+
+
 </head>
 <body>
     <a href="#contenido-principal" class="skip-link">Saltar al contenido principal</a>
@@ -180,7 +191,7 @@
              ===================================================================== -->
         <section class="comuna-hero-section" aria-label="Cabecera Autoridades Comunales">
             <div class="comuna-hero-wrapper">
-                <img src="assets/autoridades/Banner_Autoridades.webp" alt="Autoridades de la Ilustre Municipalidad de Putaendo" class="comuna-hero-img comuna-hero-img--autoridades">
+                <img src="assets/autoridades/Banner_Autoridades.webp" alt="Autoridades de la Ilustre Municipalidad de Putaendo"   class="comuna-hero-img comuna-hero-img--autoridades" width="1920" height="1080" loading="eager" fetchpriority="high" decoding="async">
                 <div class="comuna-hero-overlay"></div>
                 <div class="comuna-hero-content">
                     <h1 class="comuna-hero-title">AUTORIDADES</h1>
@@ -211,7 +222,7 @@
                 <div class="mayor-card">
                     <!-- Casilla / Espacio para la foto del Alcalde -->
                     <div class="mayor-photo-slot">
-                        <img src="assets/autoridades/alcalde-quiroz.jpg" alt="Alcalde Mauricio Quiroz Chamorro" class="mayor-img">
+                        <img src="assets/autoridades/alcalde-quiroz.jpg" alt="Alcalde Mauricio Quiroz Chamorro"   class="mayor-img" width="400" height="400" loading="lazy" decoding="async">
                     </div>
                     <!-- Información y Contacto del Alcalde -->
                     <div class="mayor-info">
@@ -254,7 +265,7 @@
                     <!-- Casilla 1: Francisco Casas Muñoz -->
                     <div class="council-card">
                         <div class="council-photo-slot">
-                            <img src="assets/autoridades/concejal-casas.jpg" alt="Concejal Francisco Casas Muñoz" class="council-img">
+                            <img src="assets/autoridades/concejal-casas.jpg" alt="Concejal Francisco Casas Muñoz"   class="council-img" width="400" height="400" loading="lazy" decoding="async">
                         </div>
                         <div class="council-card-body">
                             <h3 class="council-name">Francisco Casas Muñoz</h3>
@@ -268,7 +279,7 @@
                     <!-- Casilla 2: Marta Silva Olguín -->
                     <div class="council-card">
                         <div class="council-photo-slot council-photo-slot-lilac">
-                            <img src="assets/autoridades/concejala-silva.png" alt="Concejala Marta Silva Olguín" class="council-img">
+                            <img src="assets/autoridades/concejala-silva.png" alt="Concejala Marta Silva Olguín"   class="council-img" width="400" height="400" loading="lazy" decoding="async">
                         </div>
                         <div class="council-card-body">
                             <h3 class="council-name">Marta Silva Olguín</h3>
@@ -282,7 +293,7 @@
                     <!-- Casilla 3: Sebastián Caldera Caldera -->
                     <div class="council-card">
                         <div class="council-photo-slot">
-                            <img src="assets/autoridades/concejal-caldera.jpg" alt="Concejal Sebastián Caldera Caldera" class="council-img">
+                            <img src="assets/autoridades/concejal-caldera.jpg" alt="Concejal Sebastián Caldera Caldera"   class="council-img" width="400" height="400" loading="lazy" decoding="async">
                         </div>
                         <div class="council-card-body">
                             <h3 class="council-name">Sebastián Caldera Caldera</h3>
@@ -296,7 +307,7 @@
                     <!-- Casilla 4: Miguel Ortiz Henríquez -->
                     <div class="council-card">
                         <div class="council-photo-slot">
-                            <img src="assets/autoridades/concejal-ortiz.jpg" alt="Concejal Miguel Ortiz Henríquez" class="council-img">
+                            <img src="assets/autoridades/concejal-ortiz.jpg" alt="Concejal Miguel Ortiz Henríquez"   class="council-img" width="400" height="400" loading="lazy" decoding="async">
                         </div>
                         <div class="council-card-body">
                             <h3 class="council-name">Miguel Ortiz Henríquez</h3>
@@ -310,7 +321,7 @@
                     <!-- Casilla 5: Carlos Gallardo Lobos -->
                     <div class="council-card">
                         <div class="council-photo-slot">
-                            <img src="assets/autoridades/concejal-gallardo.jpg" alt="Concejal Carlos Gallardo Lobos" class="council-img">
+                            <img src="assets/autoridades/concejal-gallardo.jpg" alt="Concejal Carlos Gallardo Lobos"   class="council-img" width="400" height="400" loading="lazy" decoding="async">
                         </div>
                         <div class="council-card-body">
                             <h3 class="council-name">Carlos Gallardo Lobos</h3>
@@ -324,7 +335,7 @@
                     <!-- Casilla 6: Mariana Bravo Ahumada -->
                     <div class="council-card">
                         <div class="council-photo-slot">
-                            <img src="assets/autoridades/concejala-bravo.jpg" alt="Concejala Mariana Bravo Ahumada" class="council-img">
+                            <img src="assets/autoridades/concejala-bravo.jpg" alt="Concejala Mariana Bravo Ahumada"   class="council-img" width="400" height="400" loading="lazy" decoding="async">
                         </div>
                         <div class="council-card-body">
                             <h3 class="council-name">Mariana Bravo Ahumada</h3>
@@ -431,6 +442,6 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>

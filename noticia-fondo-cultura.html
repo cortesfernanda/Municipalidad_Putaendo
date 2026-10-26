@@ -5,13 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>[DESCARGAR BASES] Fondo Concursable Municipal de Cultura 2026 | Ilustre Municipalidad de Putaendo</title>
     <meta name="description" content="Convocatoria abierta para organizaciones y gestores culturales al Fondo Concursable Municipal de Cultura 2026 de Putaendo. Descarga bases y formularios.">
-        <!-- Tipografias Oficiales Embebidas: Satoshi (UI y Lectura Rapida) + Lora (Lectura Prolongada) -->
+        
+    
+    <!-- Optimizacion PageSpeed: Preconnect anticipado para fuentes e iconos -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+    <!-- Optimizacion PageSpeed: Preload de Imagen LCP Prioritaria -->
+    <link rel="preload" as="image" href="assets/noticias/Banner_Noticias.webp" fetchpriority="high">
+
+    <!-- Tipografias Oficiales: Satoshi (UI y Lectura Rapida) + Lora (Lectura Prolongada) -->
     <link href="https://api.fontshare.com/v2/css?f[]=satoshi@900,800,700,600,500,400&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Hoja de estilos principal -->
     <link rel="stylesheet" href="styles.css">
+
+
 </head>
 <body>
     <a href="#contenido-principal" class="skip-link">Saltar al contenido principal</a>
@@ -163,7 +178,7 @@
 
     <!-- Banner Superior Panoramico -->
     <section class="news-hero-banner-section" aria-label="Banner de cabecera">
-        <img src="assets/noticias/Banner_Noticias.webp" alt="Cultura y Patrimonio en Putaendo" class="news-hero-banner-img">
+        <img src="assets/noticias/Banner_Noticias.webp" alt="Cultura y Patrimonio en Putaendo"    class="news-hero-banner-img" width="1920" height="1080" loading="eager" fetchpriority="high" decoding="async">
     </section>
 
     <!-- Migas de Pan -->
@@ -198,7 +213,7 @@
                 </div>
 
                 <div class="article-featured-box article-featured-box--contain">
-                    <img src="assets/fondo-cultura-2026.webp" alt="Fondo Concursable de Cultura Putaendo" class="article-featured-img">
+                    <img src="assets/fondo-cultura-2026.webp" alt="Fondo Concursable de Cultura Putaendo"   class="article-featured-img" width="800" height="500" loading="eager" decoding="async">
                 </div>
 
                 <div class="article-body-editorial">
@@ -256,10 +271,10 @@
                     <button type="button" class="slider-arrow-btn slider-arrow-prev" aria-label="Fotografia anterior"><i class="fa-solid fa-chevron-left"></i></button>
                     <div class="article-slider-track">
                         <div class="article-slider-slide active" data-caption="Fotografia 1 de 2: Encuentros culturales y muestras comunitarias en Putaendo.">
-                            <img src="assets/fondo-cultura-2026.webp" alt="Muestras culturales" class="article-slider-img">
+                            <img src="assets/fondo-cultura-2026.webp" alt="Muestras culturales"   class="article-slider-img" width="800" height="500" loading="lazy" decoding="async">
                         </div>
                         <div class="article-slider-slide" data-caption="Fotografia 2 de 2: Patrimonio arquitectonico y plazas tradicionales de la comuna.">
-                            <img src="assets/noticia-obras.webp" alt="Patrimonio de Putaendo" class="article-slider-img">
+                            <img src="assets/noticia-obras.webp" alt="Patrimonio de Putaendo"   class="article-slider-img" width="800" height="500" loading="lazy" decoding="async">
                         </div>
                     </div>
                     <button type="button" class="slider-arrow-btn slider-arrow-next" aria-label="Siguiente fotografia"><i class="fa-solid fa-chevron-right"></i></button>
@@ -286,7 +301,7 @@
                         <!-- Card 1: Biodiversidad -->
                         <a href="noticia-biodiversidad.html" class="related-card">
                             <div class="related-card-thumb">
-                                <img src="assets/noticia-biodiversidad-1.webp" alt="Biodiversidad Cordillerana Putaendo" class="related-card-img">
+                                <img src="assets/noticia-biodiversidad-1.webp" alt="Biodiversidad Cordillerana Putaendo"   class="related-card-img" width="600" height="400" loading="lazy" decoding="async">
                             </div>
                             <div class="related-card-body">
                                 <time class="related-card-date" datetime="2026-10-12">12 de Octubre, 2026</time>
@@ -297,7 +312,7 @@
                         <!-- Card 2: Ordenanza -->
                         <a href="noticia-ordenanza.html" class="related-card">
                             <div class="related-card-thumb">
-                                <img src="assets/noticia-ordenanza.webp" alt="Modificacion Ordenanza Municipal" class="related-card-img">
+                                <img src="assets/noticia-ordenanza.webp" alt="Modificacion Ordenanza Municipal"   class="related-card-img" width="600" height="400" loading="lazy" decoding="async">
                             </div>
                             <div class="related-card-body">
                                 <time class="related-card-date" datetime="2026-09-17">17 de Septiembre, 2026</time>
@@ -308,7 +323,7 @@
                         <!-- Card 3: Cultura -->
                         <a href="noticia-fondo-cultura.html" class="related-card">
                             <div class="related-card-thumb">
-                                <img src="assets/fondo-cultura-2026.webp" alt="Fondo de Cultura 2026" class="related-card-img">
+                                <img src="assets/fondo-cultura-2026.webp" alt="Fondo de Cultura 2026"   class="related-card-img" width="600" height="400" loading="lazy" decoding="async">
                             </div>
                             <div class="related-card-body">
                                 <time class="related-card-date" datetime="2026-09-16">16 de Septiembre, 2026</time>
@@ -319,7 +334,7 @@
                         <!-- Card 4: Concursos -->
                         <a href="noticia-concursos.html" class="related-card">
                             <div class="related-card-thumb">
-                                <img src="assets/noticia-concursos.webp" alt="Concurso Publico Municipal" class="related-card-img">
+                                <img src="assets/noticia-concursos.webp" alt="Concurso Publico Municipal"   class="related-card-img" width="600" height="400" loading="lazy" decoding="async">
                             </div>
                             <div class="related-card-body">
                                 <time class="related-card-date" datetime="2026-07-27">27 de Julio, 2026</time>
@@ -330,7 +345,7 @@
                         <!-- Card 5: Turismo -->
                         <a href="turismo.html" class="related-card">
                             <div class="related-card-thumb">
-                                <img src="assets/turismo/Banner_turismo.webp" alt="Portal de Turismo" class="related-card-img">
+                                <img src="assets/turismo/Banner_turismo.webp" alt="Portal de Turismo"   class="related-card-img" width="600" height="400" loading="lazy" decoding="async">
                             </div>
                             <div class="related-card-body">
                                 <span class="related-card-date">Portal de Turismo</span>
@@ -426,6 +441,6 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>

@@ -7,12 +7,26 @@
     <meta name="description" content="Conoce la Comuna de Putaendo: Historia, patrimonio colonial, rutas tur&iacute;sticas y el Cruce del Ej&eacute;rcito de los Andes en el Valle de Aconcagua.">
     <link rel="icon" type="image/svg+xml" href="assets/putaendo-logo.svg">
 
-    <!-- Tipografias Locales Embebidas: Satoshi (UI agil) y Lora (Lectura editorial) -->
-    <!-- FontAwesome 6 (Iconos) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    
+    <!-- Optimizacion PageSpeed: Preconnect anticipado para fuentes e iconos -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 
+    <!-- Optimizacion PageSpeed: Preload de Imagen LCP Prioritaria -->
+    <link rel="preload" as="image" href="assets/comuna/Banner_Comuna.webp" fetchpriority="high">
+
+    <!-- Tipografias Oficiales: Satoshi (UI y Lectura Rapida) + Lora (Lectura Prolongada) -->
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@900,800,700,600,500,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <!-- Hoja de estilos principal -->
     <link rel="stylesheet" href="styles.css">
+
 </head>
 <body class="page-comuna">
     <!-- Enlace de salto a contenido para accesibilidad -->
@@ -184,7 +198,7 @@
         <!-- 1. Hero: Conoce la Comuna -->
         <section class="comuna-hero-section" aria-label="Hero Conoce la Comuna">
             <div class="comuna-hero-wrapper">
-                <img src="assets/comuna/Banner_Comuna.webp" alt="&iexcl;Conoce la Comuna de Putaendo!" class="comuna-hero-img">
+                <img src="assets/comuna/Banner_Comuna.webp" alt="&iexcl;Conoce la Comuna de Putaendo!"    class="comuna-hero-img" width="1920" height="1080" loading="eager" fetchpriority="high" decoding="async">
                 <div class="comuna-hero-overlay"></div>
                 <div class="comuna-hero-content">
                     <h1 class="comuna-hero-title">&iexcl;CONOCE LA COMUNA!</h1>
@@ -201,7 +215,7 @@
         <!-- 2. Franja de Presentacion -->
         <section class="comuna-intro-strip" aria-label="Presentaci&oacute;n de la Comuna de Putaendo">
             <div class="comuna-intro-bg-wrapper">
-                <img src="assets/comuna/comuna-presentacion-bg.jpg" alt="Fondo de presentaci&oacute;n de la Comuna de Putaendo" class="comuna-intro-bg-img">
+                <img src="assets/comuna/comuna-presentacion-bg.jpg" alt="Fondo de presentaci&oacute;n de la Comuna de Putaendo"      class="comuna-intro-bg-img" width="1920" height="300" loading="lazy" decoding="async">
                 <div class="comuna-intro-overlay"></div>
             </div>
             <div class="comuna-intro-container">
@@ -217,7 +231,7 @@
             <!-- Acordeon 1: HISTORIA -->
             <article class="comuna-accordion-item" id="historia">
                 <div class="comuna-accordion-header" role="button" tabindex="0" aria-expanded="false" aria-controls="collapse-historia" aria-label="Desplegar informaci&oacute;n de Historia">
-                    <img src="assets/comuna/Banner_Historia.webp" alt="Historia de Putaendo" class="comuna-accordion-img">
+                    <img src="assets/comuna/Banner_Historia.webp" alt="Historia de Putaendo"      class="comuna-accordion-img" width="1200" height="400" loading="lazy" decoding="async">
                     <div class="comuna-accordion-overlay"></div>
                     <div class="comuna-accordion-title-box">
                         <h2 class="comuna-accordion-title">HISTORIA</h2>
@@ -239,7 +253,7 @@
             <!-- Acordeon 2: TURISMO -->
             <article class="comuna-accordion-item" id="turismo">
                 <div class="comuna-accordion-header" role="button" tabindex="0" aria-expanded="false" aria-controls="collapse-turismo" aria-label="Desplegar informaci&oacute;n de Turismo">
-                    <img src="assets/comuna/Banner_turismo.webp" alt="Turismo en Putaendo" class="comuna-accordion-img">
+                    <img src="assets/comuna/Banner_turismo.webp" alt="Turismo en Putaendo"      class="comuna-accordion-img" width="1200" height="400" loading="lazy" decoding="async">
                     <div class="comuna-accordion-overlay"></div>
                     <h2 class="comuna-accordion-title">TURISMO</h2>
                 </div>
@@ -368,6 +382,6 @@
     </footer>
 
     <!-- Script de interactividad -->
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>

@@ -6,9 +6,18 @@
     <title>Ilustre Municipalidad de Putaendo | Sitio Oficial</title>
     <meta name="description" content="Sitio web oficial de la Ilustre Municipalidad de Putaendo. Información comunal, trámites en línea, noticias, portal de transparencia y servicios comunitarios.">
     
-        <!-- Tipografias Oficiales Embebidas: Satoshi (UI y Lectura Rapida) + Lora (Lectura Prolongada) -->
+        
+    
+    <!-- Optimizacion PageSpeed: Preconnect anticipado para fuentes e iconos -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+    <!-- Optimizacion PageSpeed: Preload de Imagen LCP Prioritaria -->
+    <link rel="preload" as="image" href="assets/fondo index/01_Municipalidad_Putaendo_1920x1080.webp" fetchpriority="high">
+
+    <!-- Tipografias Oficiales: Satoshi (UI y Lectura Rapida) + Lora (Lectura Prolongada) -->
     <link href="https://api.fontshare.com/v2/css?f[]=satoshi@900,800,700,600,500,400&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
     
@@ -17,6 +26,8 @@
     
     <!-- Hoja de estilos principal -->
     <link rel="stylesheet" href="styles.css">
+
+
 </head>
 <body>
     <!-- Enlace de accesibilidad para saltar directamente al contenido principal -->
@@ -205,7 +216,7 @@
                 <!-- Diapositiva 1: Municipalidad de Putaendo -->
                 <article class="slide-item active" data-slide="0" aria-current="true">
                     <div class="slide-bg-wrapper">
-                        <img src="assets/fondo index/01_Municipalidad_Putaendo_1920x1080.webp" alt="Edificio Consistorial de la Ilustre Municipalidad de Putaendo" class="slide-bg-img">
+                        <img src="assets/fondo index/01_Municipalidad_Putaendo_1920x1080.webp" alt="Edificio Consistorial de la Ilustre Municipalidad de Putaendo"    class="slide-bg-img" width="1920" height="1080" loading="eager" fetchpriority="high" decoding="async">
                         <div class="slide-overlay-gradient"></div>
                     </div>
                     <div class="container slide-content-container">
@@ -236,7 +247,7 @@
                 <!-- Diapositiva 2: Plaza Prat -->
                 <article class="slide-item" data-slide="1" aria-hidden="true">
                     <div class="slide-bg-wrapper">
-                        <img src="assets/fondo index/02_Plaza_Prat_Putaendo_1920x1080.webp" alt="Plaza Prat de Putaendo" class="slide-bg-img">
+                        <img src="assets/fondo index/02_Plaza_Prat_Putaendo_1920x1080.webp" alt="Plaza Prat de Putaendo"    class="slide-bg-img" width="1920" height="1080" loading="lazy" decoding="async">
                         <div class="slide-overlay-gradient"></div>
                     </div>
                     <div class="container slide-content-container">
@@ -267,7 +278,7 @@
                 <!-- Diapositiva 3: Bofedales de Chilón -->
                 <article class="slide-item" data-slide="2" aria-hidden="true">
                     <div class="slide-bg-wrapper">
-                        <img src="assets/fondo index/03_Bofedales_Chilon_Putaendo_1920x1080.webp" alt="Bofedales de Chil&oacute;n en la alta cordillera de Putaendo" class="slide-bg-img">
+                        <img src="assets/fondo index/03_Bofedales_Chilon_Putaendo_1920x1080.webp" alt="Bofedales de Chil&oacute;n en la alta cordillera de Putaendo"    class="slide-bg-img" width="1920" height="1080" loading="lazy" decoding="async">
                         <div class="slide-overlay-gradient"></div>
                     </div>
                     <div class="container slide-content-container">
@@ -298,7 +309,7 @@
                 <!-- Diapositiva 4: Calle Comercio -->
                 <article class="slide-item" data-slide="3" aria-hidden="true">
                     <div class="slide-bg-wrapper">
-                        <img src="assets/fondo index/04_Calle_Comercio_Putaendo_1920x1080.webp" alt="Calle Comercio de Putaendo, Zona T&iacute;pica y Monumento Nacional" class="slide-bg-img">
+                        <img src="assets/fondo index/04_Calle_Comercio_Putaendo_1920x1080.webp" alt="Calle Comercio de Putaendo, Zona T&iacute;pica y Monumento Nacional"    class="slide-bg-img" width="1920" height="1080" loading="lazy" decoding="async">
                         <div class="slide-overlay-gradient"></div>
                     </div>
                     <div class="container slide-content-container">
@@ -329,7 +340,7 @@
                 <!-- Diapositiva 5: Río Rocín -->
                 <article class="slide-item" data-slide="4" aria-hidden="true">
                     <div class="slide-bg-wrapper">
-                        <img src="assets/fondo index/05_Rio_Rocin_Putaendo_1920x1080.webp" alt="R&iacute;o Roc&iacute;n en la cuenca cordillerana de Putaendo" class="slide-bg-img">
+                        <img src="assets/fondo index/05_Rio_Rocin_Putaendo_1920x1080.webp" alt="R&iacute;o Roc&iacute;n en la cuenca cordillerana de Putaendo"    class="slide-bg-img" width="1920" height="1080" loading="lazy" decoding="async">
                         <div class="slide-overlay-gradient"></div>
                     </div>
                     <div class="container slide-content-container">
@@ -391,7 +402,7 @@
                             <p class="service-card-desc">Permiso de circulaci&oacute;n 2026,<br>patentes y derechos</p>
                         </div>
                         <div class="service-card-icon-container">
-                            <img src="assets/icon-pagos.svg" alt="Pagos en l&iacute;nea" class="service-card-icon-img">
+                            <img src="assets/icon-pagos.svg" alt="Pagos en l&iacute;nea"  width="64" height="64" loading="lazy" decoding="async">
                         </div>
                     </a>
 
@@ -403,7 +414,7 @@
                             <p class="service-card-desc">Atenci&oacute;n ciudadana digital y consultas comunales</p>
                         </div>
                         <div class="service-card-icon-container">
-                            <img src="assets/icon-solicitudes.svg" alt="Solicitudes y reclamos" class="service-card-icon-img">
+                            <img src="assets/icon-solicitudes.svg" alt="Solicitudes y reclamos"  width="64" height="64" loading="lazy" decoding="async">
                         </div>
                     </div>
 
@@ -415,7 +426,7 @@
                             <p class="service-card-desc">Postulaci&oacute;n a fondos y programas sociales</p>
                         </div>
                         <div class="service-card-icon-container">
-                            <img src="assets/icon-becas.svg" alt="Becas y beneficios" class="service-card-icon-img">
+                            <img src="assets/icon-becas.svg" alt="Becas y beneficios"  width="64" height="64" loading="lazy" decoding="async">
                         </div>
                     </div>
                 </div>
@@ -437,7 +448,7 @@
                     <!-- Noticia 1: Modificación Ordenanza -->
                     <article class="news-card" id="noticia-ordenanza">
                         <div class="news-img-box">
-                            <img src="assets/noticia-ordenanza.webp" alt="Modificación Ordenanza Derechos Municipales Putaendo" class="news-thumb">
+                            <img src="assets/noticia-ordenanza.webp" alt="Modificación Ordenanza Derechos Municipales Putaendo"      class="news-thumb" width="600" height="400" loading="lazy" decoding="async">
                             <span class="news-category">Rentas y Decretos</span>
                         </div>
                         <div class="news-content">
@@ -458,7 +469,7 @@
                     <!-- Noticia 2: Fondo Concursable Cultura -->
                     <article class="news-card" id="noticia-cultura">
                         <div class="news-img-box news-img-box--contain">
-                            <img src="assets/fondo-cultura-2026.webp" alt="Fondo Concursable Municipal de Cultura 2026" class="news-thumb">
+                            <img src="assets/fondo-cultura-2026.webp" alt="Fondo Concursable Municipal de Cultura 2026"      class="news-thumb" width="600" height="400" loading="lazy" decoding="async">
                             <span class="news-category">Cultura &amp; Fondos</span>
                         </div>
                         <div class="news-content">
@@ -479,7 +490,7 @@
                     <!-- Noticia 3: Biodiversidad Cordillerana -->
                     <article class="news-card" id="noticia-biodiversidad">
                         <div class="news-img-box">
-                            <img src="assets/noticia-biodiversidad-1.webp" alt="Biodiversidad del ecosistema cordillerano en Putaendo" class="news-thumb">
+                            <img src="assets/noticia-biodiversidad-1.webp" alt="Biodiversidad del ecosistema cordillerano en Putaendo"      class="news-thumb" width="600" height="400" loading="lazy" decoding="async">
                             <span class="news-category">Medio Ambiente</span>
                         </div>
                         <div class="news-content">
@@ -500,7 +511,7 @@
                     <!-- Noticia 4: Concursos Públicos -->
                     <article class="news-card" id="noticia-concursos">
                         <div class="news-img-box">
-                            <img src="assets/noticia-concursos.webp" alt="Concursos Públicos en la Municipalidad de Putaendo" class="news-thumb">
+                            <img src="assets/noticia-concursos.webp" alt="Concursos Públicos en la Municipalidad de Putaendo"      class="news-thumb" width="600" height="400" loading="lazy" decoding="async">
                             <span class="news-category">Concursos Públicos</span>
                         </div>
                         <div class="news-content">
@@ -655,6 +666,6 @@
     </footer>
 
     <!-- Script de interactividad -->
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>

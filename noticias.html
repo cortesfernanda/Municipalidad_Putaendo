@@ -6,9 +6,18 @@
     <title>Noticias Comunales | Ilustre Municipalidad de Putaendo</title>
     <meta name="description" content="Portal de noticias, avisos y actualidad de la Ilustre Municipalidad de Putaendo. Infórmate sobre proyectos comunales, medio ambiente, actividades y cultura.">
     
-        <!-- Tipografias Oficiales Embebidas: Satoshi (UI y Lectura Rapida) + Lora (Lectura Prolongada) -->
+        
+    
+    <!-- Optimizacion PageSpeed: Preconnect anticipado para fuentes e iconos -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+    <!-- Optimizacion PageSpeed: Preload de Imagen LCP Prioritaria -->
+    <link rel="preload" as="image" href="assets/noticias/Banner_Noticias.webp" fetchpriority="high">
+
+    <!-- Tipografias Oficiales: Satoshi (UI y Lectura Rapida) + Lora (Lectura Prolongada) -->
     <link href="https://api.fontshare.com/v2/css?f[]=satoshi@900,800,700,600,500,400&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
     
@@ -17,6 +26,8 @@
     
     <!-- Hoja de estilos principal -->
     <link rel="stylesheet" href="styles.css">
+
+
 </head>
 <body>
     <!-- Enlace de accesibilidad para saltar directamente al contenido principal -->
@@ -189,7 +200,7 @@
              ===================================================================== -->
         <section class="comuna-hero-section" aria-label="Cabecera de la sección Noticias">
             <div class="comuna-hero-wrapper">
-                <img src="assets/noticias/Banner_Noticias.webp" alt="Noticias de la Ilustre Municipalidad de Putaendo" class="comuna-hero-img">
+                <img src="assets/noticias/Banner_Noticias.webp" alt="Noticias de la Ilustre Municipalidad de Putaendo"    class="comuna-hero-img" width="1920" height="1080" loading="eager" fetchpriority="high" decoding="async">
                 <div class="comuna-hero-overlay"></div>
                 <div class="comuna-hero-content">
                     <h1 class="comuna-hero-title">NOTICIAS</h1>
@@ -222,7 +233,7 @@
                     <!-- Noticia 1: Biodiversidad Cordillerana (Pósters Bazar Maggi) -->
                     <article class="news-portal-card" data-month="10-2026">
                         <div class="news-portal-media">
-                            <img src="assets/noticia-biodiversidad-1.webp" alt="Comunidad de Putaendo recibe 400 ejemplares de posters de biodiversidad" class="news-portal-img">
+                            <img src="assets/noticia-biodiversidad-1.webp" alt="Comunidad de Putaendo recibe 400 ejemplares de posters de biodiversidad"   class="news-portal-img" width="600" height="400" loading="lazy" decoding="async">
                         </div>
                         <div class="news-portal-body">
                             <time class="news-portal-date" datetime="2026-10-12">12 de octubre 2026</time>
@@ -244,7 +255,7 @@
                     <!-- Noticia 2 Real: Modificación Ordenanza -->
                     <article class="news-portal-card" data-month="09-2026">
                         <div class="news-portal-media">
-                            <img src="assets/noticia-ordenanza.webp" alt="Modificación de Ordenanza Municipal Putaendo" class="news-portal-img">
+                            <img src="assets/noticia-ordenanza.webp" alt="Modificación de Ordenanza Municipal Putaendo"   class="news-portal-img" width="600" height="400" loading="lazy" decoding="async">
                         </div>
                         <div class="news-portal-body">
                             <time class="news-portal-date" datetime="2026-09-17">17 de septiembre 2026</time>
@@ -266,7 +277,7 @@
                     <!-- Noticia 2 Real: Fondo Cultura -->
                     <article class="news-portal-card" data-month="09-2026">
                         <div class="news-portal-media news-media-contain">
-                            <img src="assets/fondo-cultura-2026.webp" alt="Fondo Concursable Municipal de Cultura" class="news-portal-img">
+                            <img src="assets/fondo-cultura-2026.webp" alt="Fondo Concursable Municipal de Cultura"   class="news-portal-img" width="600" height="400" loading="lazy" decoding="async">
                         </div>
                         <div class="news-portal-body">
                             <time class="news-portal-date" datetime="2026-09-16">16 de septiembre 2026</time>
@@ -288,7 +299,7 @@
                     <!-- Noticia 3 Real: Concursos Públicos -->
                     <article class="news-portal-card" data-month="07-2026">
                         <div class="news-portal-media">
-                            <img src="assets/noticia-concursos.webp" alt="Concursos Públicos Municipalidad de Putaendo" class="news-portal-img">
+                            <img src="assets/noticia-concursos.webp" alt="Concursos Públicos Municipalidad de Putaendo"   class="news-portal-img" width="600" height="400" loading="lazy" decoding="async">
                         </div>
                         <div class="news-portal-body">
                             <time class="news-portal-date" datetime="2026-07-27">27 de julio 2026</time>
@@ -411,6 +422,6 @@
     </footer>
 
     <!-- Script de interactividad -->
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>

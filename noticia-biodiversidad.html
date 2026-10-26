@@ -6,9 +6,18 @@
     <title>Comunidad de Putaendo recibe 400 ejemplares de posters que muestran la biodiversidad del ecosistema cordillerano | Ilustre Municipalidad de Putaendo</title>
     <meta name="description" content="Iniciativa de difusion ambiental y patrimonio natural del Valle del Aconcagua frente a los proyectos mineros en la zona cordillerana de Putaendo.">
     
-        <!-- Tipografias Oficiales Embebidas: Satoshi (UI y Lectura Rapida) + Lora (Lectura Prolongada) -->
+        
+    
+    <!-- Optimizacion PageSpeed: Preconnect anticipado para fuentes e iconos -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+    <!-- Optimizacion PageSpeed: Preload de Imagen LCP Prioritaria -->
+    <link rel="preload" as="image" href="assets/noticias/Banner_Noticias.webp" fetchpriority="high">
+
+    <!-- Tipografias Oficiales: Satoshi (UI y Lectura Rapida) + Lora (Lectura Prolongada) -->
     <link href="https://api.fontshare.com/v2/css?f[]=satoshi@900,800,700,600,500,400&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
     
@@ -17,6 +26,8 @@
     
     <!-- Hoja de estilos principal -->
     <link rel="stylesheet" href="styles.css">
+
+
 </head>
 <body>
     <a href="#contenido-principal" class="skip-link">Saltar al contenido principal</a>
@@ -169,7 +180,7 @@
 
     <!-- 1. Banner Superior Panoramico (Acuarela Cordillerana) -->
     <section class="news-hero-banner-section" aria-label="Banner de cabecera">
-        <img src="assets/noticias/Banner_Noticias.webp" alt="Biodiversidad y Cordillera de Putaendo" class="news-hero-banner-img">
+        <img src="assets/noticias/Banner_Noticias.webp" alt="Biodiversidad y Cordillera de Putaendo"    class="news-hero-banner-img" width="1920" height="1080" loading="eager" fetchpriority="high" decoding="async">
     </section>
 
     <!-- 2. Franja de Migas de Pan (Breadcrumbs) -->
@@ -211,7 +222,7 @@
 
                 <!-- Imagen Destacada Principal -->
                 <div class="article-featured-box">
-                    <img src="assets/noticia-biodiversidad-1.webp" alt="Entrega de afiches de biodiversidad en Bazar Maggi de Putaendo" class="article-featured-img">
+                    <img src="assets/noticia-biodiversidad-1.webp" alt="Entrega de afiches de biodiversidad en Bazar Maggi de Putaendo"   class="article-featured-img" width="800" height="500" loading="eager" decoding="async">
                 </div>
 
                 <!-- Cuerpo de Texto Editorial -->
@@ -253,13 +264,13 @@
                     </button>
                     <div class="article-slider-track">
                         <div class="article-slider-slide active" data-caption="Fotografia 1 de 3: Vecinos y organizaciones comunitarias con los ejemplares en calle Prat de Putaendo.">
-                            <img src="assets/comuna/noticia-biodiversidad-2.webp" alt="Comunidad exhibiendo afiches en Putaendo" class="article-slider-img">
+                            <img src="assets/comuna/noticia-biodiversidad-2.webp" alt="Comunidad exhibiendo afiches en Putaendo"   class="article-slider-img" width="800" height="500" loading="lazy" decoding="async">
                         </div>
                         <div class="article-slider-slide" data-caption="Fotografia 2 de 3: Instalacion del afiche en el panel tradicional de anuncios de Bazar Maggi.">
-                            <img src="assets/noticia-biodiversidad-1.webp" alt="Instalacion en Bazar Maggi" class="article-slider-img">
+                            <img src="assets/noticia-biodiversidad-1.webp" alt="Instalacion en Bazar Maggi"   class="article-slider-img" width="800" height="500" loading="lazy" decoding="async">
                         </div>
                         <div class="article-slider-slide" data-caption="Fotografia 3 de 3: Ilustracion botanica y faunistica del ecosistema cordillerano de Putaendo.">
-                            <img src="assets/juntos-planificamos/Banner_JuntosPlanificamos.webp" alt="Ilustracion acuarela de la fauna y flora de Putaendo" class="article-slider-img">
+                            <img src="assets/juntos-planificamos/Banner_JuntosPlanificamos.webp" alt="Ilustracion acuarela de la fauna y flora de Putaendo"   class="article-slider-img" width="800" height="500" loading="lazy" decoding="async">
                         </div>
                     </div>
                     <button type="button" class="slider-arrow-btn slider-arrow-next" aria-label="Siguiente fotografia">
@@ -302,7 +313,7 @@
                         <!-- Tarjeta 1 -->
                         <a href="noticia-ordenanza.html" class="related-card">
                             <div class="related-card-thumb">
-                                <img src="assets/noticia-ordenanza.webp" alt="Modificacion de Ordenanza Municipal" class="related-card-img">
+                                <img src="assets/noticia-ordenanza.webp" alt="Modificacion de Ordenanza Municipal"   class="related-card-img" width="600" height="400" loading="lazy" decoding="async">
                             </div>
                             <div class="related-card-body">
                                 <time class="related-card-date" datetime="2026-09-17">17 de Septiembre, 2026</time>
@@ -313,7 +324,7 @@
                         <!-- Tarjeta 2 -->
                         <a href="noticia-fondo-cultura.html" class="related-card">
                             <div class="related-card-thumb">
-                                <img src="assets/fondo-cultura-2026.webp" alt="Fondo Concursable Municipal de Cultura 2026" class="related-card-img">
+                                <img src="assets/fondo-cultura-2026.webp" alt="Fondo Concursable Municipal de Cultura 2026"   class="related-card-img" width="600" height="400" loading="lazy" decoding="async">
                             </div>
                             <div class="related-card-body">
                                 <time class="related-card-date" datetime="2026-09-16">16 de Septiembre, 2026</time>
@@ -324,7 +335,7 @@
                         <!-- Tarjeta 3 -->
                         <a href="noticia-obras.html" class="related-card">
                             <div class="related-card-thumb">
-                                <img src="assets/noticia-obras.webp" alt="Obras viales y deportes en Putaendo" class="related-card-img">
+                                <img src="assets/noticia-obras.webp" alt="Obras viales y deportes en Putaendo"   class="related-card-img" width="600" height="400" loading="lazy" decoding="async">
                             </div>
                             <div class="related-card-body">
                                 <time class="related-card-date" datetime="2026-05-19">19 de Mayo, 2026</time>
@@ -335,7 +346,7 @@
                         <!-- Tarjeta 4 -->
                         <a href="noticia-concursos.html" class="related-card">
                             <div class="related-card-thumb">
-                                <img src="assets/noticia-concursos.webp" alt="Concurso Publico Municipal" class="related-card-img">
+                                <img src="assets/noticia-concursos.webp" alt="Concurso Publico Municipal"   class="related-card-img" width="600" height="400" loading="lazy" decoding="async">
                             </div>
                             <div class="related-card-body">
                                 <time class="related-card-date" datetime="2026-08-10">10 de Agosto, 2026</time>
@@ -346,7 +357,7 @@
                         <!-- Tarjeta 5 -->
                         <a href="turismo.html" class="related-card">
                             <div class="related-card-thumb">
-                                <img src="assets/fondo-cultura-2026.webp" alt="Portal de Turismo Putaendo" class="related-card-img">
+                                <img src="assets/fondo-cultura-2026.webp" alt="Portal de Turismo Putaendo"   class="related-card-img" width="600" height="400" loading="lazy" decoding="async">
                             </div>
                             <div class="related-card-body">
                                 <span class="related-card-date">Portal de Turismo</span>
@@ -357,7 +368,7 @@
                         <!-- Tarjeta 6 -->
                         <a href="permiso-circulacion.html" class="related-card">
                             <div class="related-card-thumb">
-                                <img src="assets/noticia-ordenanza.webp" alt="Pagos en Linea y Permiso de Circulacion" class="related-card-img">
+                                <img src="assets/noticia-ordenanza.webp" alt="Pagos en Linea y Permiso de Circulacion"   class="related-card-img" width="600" height="400" loading="lazy" decoding="async">
                             </div>
                             <div class="related-card-body">
                                 <span class="related-card-date">Tr&aacute;mites en L&iacute;nea</span>
@@ -453,6 +464,6 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>
