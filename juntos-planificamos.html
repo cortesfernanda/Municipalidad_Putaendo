@@ -129,8 +129,8 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a href="comuna.html" class="dropdown-item">CONOCE LA COMUNA</a></li>
-                            <li><a href="comuna.html#historia" class="dropdown-item">HISTORIA</a></li>
-                            <li><a href="comuna.html#turismo" class="dropdown-item">TURISMO</a></li>
+                            <li><a href="comuna.html#historia" class="dropdown-item"><span>HISTORIA</span> <span class="nav-badge-soon">Pr&oacute;ximamente</span></a></li>
+                            <li><a href="turismo.html" class="dropdown-item">TURISMO</a></li>
                         </ul>
                     </li>
 
@@ -141,6 +141,7 @@
                             <i class="fa-solid fa-caret-down dropdown-arrow" aria-hidden="true"></i>
                         </button>
                         <ul class="dropdown-menu">
+                            <li><a href="noticias.html" class="dropdown-item">NOTICIAS</a></li>
                             <li><a href="index.html#empleo" class="dropdown-item"><span>EMPLEO</span> <span class="nav-badge-soon">Pr&oacute;ximamente</span></a></li>
                             <li><a href="juntos-planificamos.html" class="dropdown-item">JUNTOS PLANIFICAMOS</a></li>
                         </ul>
@@ -161,7 +162,6 @@
                             <i class="fa-solid fa-caret-down dropdown-arrow" aria-hidden="true"></i>
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a href="turismo.html" class="dropdown-item">TURISMO</a></li>
                             <li><a href="index.html#emprendedores" class="dropdown-item"><span>RED DE EMPRENDEDORES</span> <span class="nav-badge-soon">Pr&oacute;ximamente</span></a></li>
                         </ul>
                     </li>
@@ -191,27 +191,32 @@
          ========================================================================= -->
     <main id="contenido-principal">
 
-        <!-- 1. HERO BANNER PANORAMICO CON CAPSULA "JUNTOS PLANIFICAMOS" -->
-        <section class="pagos-hero-section" aria-label="Portal Juntos Planificamos">
-            <img src="assets/banner-noticias.png" alt="Ecosistema Cordillerano y Biodiversidad de Putaendo" class="pagos-hero-img">
-            <h1 class="visually-hidden">Juntos Planificamos</h1>
+                <!-- 1. HERO BANNER PANORAMICO "JUNTOS PLANIFICAMOS" -->
+        <section class="comuna-hero-section" aria-label="Portal Juntos Planificamos">
+            <div class="comuna-hero-wrapper">
+                <img src="assets/juntos-planificamos/Banner_JuntosPlanificamos.webp" alt="Juntos Planificamos - Ilustre Municipalidad de Putaendo" class="comuna-hero-img">
+                <div class="comuna-hero-overlay"></div>
+                <div class="comuna-hero-content">
+                    <h1 class="comuna-hero-title">JUNTOS PLANIFICAMOS</h1>
+                </div>
+            </div>
         </section>
 
-        <!-- 2. MIGA DE PAN (BREADCRUMB STRIP) -->
-        <nav class="pagos-breadcrumb-bar" aria-label="Miga de pan">
-            <div class="container">
-                <div class="pagos-breadcrumb-list">
-                    <a href="index.html">INICIO</a>
-                    <span class="pagos-breadcrumb-sep">&gt;</span>
-                    <a href="index.html#informaciones">INFORMACIONES</a>
-                    <span class="pagos-breadcrumb-sep">&gt;</span>
-                    <span class="pagos-breadcrumb-current" aria-current="page">JUNTOS PLANIFICAMOS</span>
-                </div>
+                <!-- 2. MIGA DE PAN (BREADCRUMB STRIP) -->
+        <nav class="breadcrumb-strip" aria-label="Ruta de navegaci&oacute;n">
+            <div class="container breadcrumb-container">
+                <ol class="breadcrumb-list">
+                    <li class="breadcrumb-item"><a href="index.html">INICIO</a></li>
+                    <li class="breadcrumb-separator" aria-hidden="true">&gt;</li>
+                    <li class="breadcrumb-item"><a href="index.html#informaciones">INFORMACIONES</a></li>
+                    <li class="breadcrumb-separator" aria-hidden="true">&gt;</li>
+                    <li class="breadcrumb-item active" aria-current="page">JUNTOS PLANIFICAMOS</li>
+                </ol>
             </div>
         </nav>
 
-        <!-- 3. CARRUSEL HERO INFORMATIVO (Identico al Index) -->
-        <section class="hero-slider-section full-width-hero" aria-label="Noticias y avisos destacados">
+                <!-- 3. CARRUSEL HERO INFORMATIVO (Fotos de Turismo) -->
+        <section class="hero-slider-section full-width-hero" aria-label="Fotograf&iacute;as destacadas de Putaendo">
             <!-- Marco del Slider de Ancho Completo -->
             <div class="slider-viewport" id="hero-slider">
                 <!-- Flecha Diapositiva Anterior -->
@@ -219,31 +224,31 @@
                     <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
                 </button>
 
-                <!-- Diapositiva 1: Concejo Municipal y Autoridades de Putaendo -->
+                <!-- Diapositiva 1: Ruta Cruce del Ej&eacute;rcito de Los Andes -->
                 <article class="slide-item active" data-slide="0" aria-current="true">
                     <div class="slide-bg-wrapper">
-                        <img src="assets/banner-autoridades.png" alt="Concejo Municipal y Autoridades de Putaendo" class="slide-bg-img">
+                        <img src="assets/turismo/Ruta-Cruce-del-Ejército-de-Los-Andes.webp" alt="Ruta Cruce del Ejército de Los Andes" class="slide-bg-img">
                     </div>
                 </article>
 
-                <!-- Diapositiva 2: Plan Comunal de Seguridad Publica -->
+                <!-- Diapositiva 2: Ruta Patrimonio Arquitect&oacute;nico de Putaendo -->
                 <article class="slide-item" data-slide="1" aria-hidden="true">
                     <div class="slide-bg-wrapper">
-                        <img src="assets/slide2-solidario.png" alt="Plan Comunal de Seguridad Publica en Putaendo" class="slide-bg-img">
+                        <img src="assets/turismo/Ruta-Patrimonio-Arquitectónico-de-Putaendo.webp" alt="Ruta Patrimonio Arquitectónico de Putaendo" class="slide-bg-img">
                     </div>
                 </article>
 
-                <!-- Diapositiva 3: Patrimonio e Identidad -->
+                <!-- Diapositiva 3: Ruta Cultural -->
                 <article class="slide-item" data-slide="2" aria-hidden="true">
                     <div class="slide-bg-wrapper">
-                        <img src="assets/slide3-patrimonio.png" alt="Calle patrimonial y paisaje cordillerano en Putaendo" class="slide-bg-img">
+                        <img src="assets/turismo/Ruta-Cultural.webp" alt="Ruta Cultural de Putaendo" class="slide-bg-img">
                     </div>
                 </article>
 
-                <!-- Diapositiva 4: Transparencia y Medio Ambiente -->
+                <!-- Diapositiva 4: Ruta Religiosa -->
                 <article class="slide-item" data-slide="3" aria-hidden="true">
                     <div class="slide-bg-wrapper">
-                        <img src="assets/banner-noticias.png" alt="Portal de Transparencia Activa de Putaendo" class="slide-bg-img">
+                        <img src="assets/turismo/Ruta-Religiosa.webp" alt="Ruta Religiosa de Putaendo" class="slide-bg-img">
                     </div>
                 </article>
 
@@ -273,7 +278,7 @@
                         <!-- Tarjeta 1: Red Local de Voluntariado -->
                         <article class="planificamos-card">
                             <div class="planificamos-card-media">
-                                <img src="assets/planificamos-voluntariado.jpg" alt="Grupo de vecinos y j&oacute;venes en la Red Local de Voluntariado de Putaendo" class="planificamos-card-img" loading="lazy">
+                                <img src="assets/planificamos-voluntariado.webp" alt="Grupo de vecinos y j&oacute;venes en la Red Local de Voluntariado de Putaendo" class="planificamos-card-img" loading="lazy">
                             </div>
                             <div class="planificamos-card-body">
                                 <span class="planificamos-card-date">10 de septiembre 2026</span>
@@ -287,7 +292,7 @@
                         <!-- Tarjeta 2: Taller Informativo sobre Regularizacion de Derechos de Agua -->
                         <article class="planificamos-card">
                             <div class="planificamos-card-media">
-                                <img src="assets/planificamos-taller-agua.jpg" alt="Afiche ilustrado del Taller Informativo sobre Regularizaci&oacute;n de Derechos de Aprovechamiento de Agua" class="planificamos-card-img" loading="lazy">
+                                <img src="assets/planificamos-taller-agua.webp" alt="Afiche ilustrado del Taller Informativo sobre Regularizaci&oacute;n de Derechos de Aprovechamiento de Agua" class="planificamos-card-img" loading="lazy">
                             </div>
                             <div class="planificamos-card-body">
                                 <span class="planificamos-card-date">12 de septiembre 2026</span>
@@ -309,7 +314,7 @@
                             <!-- Noticia 1 -->
                             <article class="sidebar-news-card">
                                 <a href="noticia-biodiversidad.html" class="sidebar-news-thumb" aria-label="Leer m&aacute;s sobre entrega de afiches sobre biodiversidad">
-                                    <img src="assets/noticia-biodiversidad-1.jpg" alt="Comunidad de Putaendo recibe ejemplares de posters de biodiversidad" loading="lazy">
+                                    <img src="assets/noticia-biodiversidad-1.webp" alt="Comunidad de Putaendo recibe ejemplares de posters de biodiversidad" loading="lazy">
                                 </a>
                                 <span class="sidebar-news-date">12 de octubre 2026</span>
                                 <h4 class="sidebar-news-title">
@@ -321,7 +326,7 @@
                             <!-- Noticia 2 -->
                             <article class="sidebar-news-card">
                                 <a href="noticia-fondo-cultura.html" class="sidebar-news-thumb" aria-label="Leer m&aacute;s sobre Fondo Concursable Municipal de Cultura">
-                                    <img src="assets/slide1-gastronomia.png" alt="Convocatoria Fondo Concursable Municipal de Cultura 2026" loading="lazy">
+                                    <img src="assets/noticia-biodiversidad-1.webp" alt="Convocatoria Fondo Concursable Municipal de Cultura 2026" loading="lazy">
                                 </a>
                                 <span class="sidebar-news-date">16 de septiembre 2026</span>
                                 <h4 class="sidebar-news-title">
@@ -333,7 +338,7 @@
                             <!-- Noticia 3 -->
                             <article class="sidebar-news-card">
                                 <a href="noticia-obras.html" class="sidebar-news-thumb" aria-label="Leer m&aacute;s sobre obras de infraestructura vial y deportes">
-                                    <img src="assets/slide3-patrimonio.png" alt="Aprobaci&oacute;n de 1.490 millones de pesos para obras de infraestructura" loading="lazy">
+                                    <img src="assets/comuna/Banner_Historia.webp" alt="Aprobaci&oacute;n de 1.490 millones de pesos para obras de infraestructura" loading="lazy">
                                 </a>
                                 <span class="sidebar-news-date">19 de mayo 2026</span>
                                 <h4 class="sidebar-news-title">

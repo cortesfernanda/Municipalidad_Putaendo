@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <title>Mano abierta</title>
+  <!-- Contorno de octágono regular centrado en (256,256), sin relleno -->
+  <polygon points="164.9,36 347.1,36 476,164.9 476,347.1 347.1,476 164.9,476 36,347.1 36,164.9" fill="none" stroke="#ffffff" stroke-width="10" stroke-linejoin="miter"/>
+
+  <!-- Mano -->
+  <g transform="translate(-8,-9)" fill="#ffffff" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Dedos (ligeramente abiertos) -->
+    <g stroke-width="34" fill="none">
+      <line x1="196" y1="290" x2="182" y2="212"/>
+      <line x1="236" y1="280" x2="226" y2="150"/>
+      <line x1="278" y1="278" x2="278" y2="118"/>
+      <line x1="320" y1="282" x2="330" y2="148"/>
+    </g>
+    <!-- Palma y muñeca -->
+    <path stroke="none" d="M180 270 Q256 250 338 270 L342 330 Q340 372 318 392 L312 424 Q256 436 204 424 L198 392 Q176 372 178 330 Z"/>
+    <!-- Pulgar -->
+    <path stroke-width="38" fill="none" d="M326 330 Q356 312 378 262"/>
+  </g>
+</svg>
