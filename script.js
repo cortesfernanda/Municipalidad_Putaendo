@@ -489,7 +489,7 @@ const tourismRoutesData = {
     'cruce-andes': {
         title: "Ruta Cruce del Ejército Los Andes",
         tag: "Circuito Histórico e Hitos de la Independencia",
-        image: "assets/turismo/ruta-cruce-andes.png",
+        image: "assets/turismo/Ruta-Cruce-del-Ejército-de-Los-Andes.webp",
         desc: "Sigue la épica huella del Ejército Libertador del General José de San Martín y el Capitán General Bernardo O'Higgins, que en febrero de 1817 ingresó a territorio nacional por los pasos cordilleranos de Putaendo, proclamando a la comuna como el Primer Pueblo Libre de Chile.",
         hitos: [
             "<strong>Monumento al Combate de Las Coimas:</strong> Escenario del histórico combate donde la vanguardia patriota liderada por Mariano Necochea derrotó a las fuerzas realistas.",
@@ -502,7 +502,7 @@ const tourismRoutesData = {
     'patrimonio-arquitectura': {
         title: "Ruta Patrimonio Arquitectónico",
         tag: "Zona Típica y Casco Colonial",
-        image: "assets/turismo/ruta-arquitectura.png",
+        image: "assets/turismo/Ruta-Patrimonio-Arquitectónico-de-Putaendo.webp",
         desc: "Putaendo conserva uno de los conjuntos coloniales de mayor valor patrimonial de Chile central, con su trazado colonial y edificaciones continuas de adobe declaradas Monumento Nacional en la categoría de Zona Típica.",
         hitos: [
             "<strong>Calle Comercio:</strong> Arteria principal con su pavimento original de piedras de río (cantos rodados), veredas altas y casas coloniales del siglo XVIII y XIX.",
@@ -515,7 +515,7 @@ const tourismRoutesData = {
     'cultural': {
         title: "Ruta Cultural",
         tag: "Tradiciones, Artesanía y Expresiones Vivas",
-        image: "assets/turismo/ruta-cultural.png",
+        image: "assets/turismo/Ruta-Cultural.webp",
         desc: "Descubre las profundas raíces de la identidad campesina y artística de Putaendo, cuna de cantores a lo humano y lo divino, artesanos del barro y la madera, y cultores del patrimonio inmaterial.",
         hitos: [
             "<strong>Centro Cultural Bernardo Parra:</strong> Epicentro del arte y la memoria local con salas de exhibición, pinacoteca y biblioteca comunal.",
@@ -528,7 +528,7 @@ const tourismRoutesData = {
     'religiosa': {
         title: "Ruta Religiosa",
         tag: "Devoción, Santuarios y Fe Popular",
-        image: "assets/turismo/ruta-religiosa.png",
+        image: "assets/turismo/Ruta-Religiosa.webp",
         desc: "Un circuito espiritual que fusiona la devoción popular andina, la tradición de los Bailes Chinos (Patrimonio Cultural Inmaterial de la Humanidad por la UNESCO) y la arquitectura sacra del valle.",
         hitos: [
             "<strong>Santuario del Cristo de Madera (Rinconada de Silva):</strong> Majestuosa escultura de Cristo de más de 4 metros de altura tallada en madera de canelo por el artista Peter Horn, ubicada en un mirador natural del cerro.",

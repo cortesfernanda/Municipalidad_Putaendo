@@ -5427,6 +5427,10 @@ p,
     user-select: none;
 }
 
+.comuna-hero-img--autoridades {
+    object-position: center 18% !important;
+}
+
 .comuna-accordion-img,
 .comuna-accordion-img-closed,
 .comuna-accordion-img-open {
@@ -5435,7 +5439,7 @@ p,
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center;
+    object-position: center 18%;
     transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1), transform 0.5s ease;
 }
 
