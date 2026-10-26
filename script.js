@@ -113,9 +113,19 @@ function initHeroSlider() {
     let autoplayTimer = null;
     const AUTOPLAY_INTERVAL = 6000; // 6 segundos
 
-    // Función para mostrar una diapositiva específica
+    // Carga perezosa (lazy load) de imagenes WebP con data-src
+    function loadSlideImage(slide) {
+        if (!slide) return;
+        const img = slide.querySelector('img[data-src]');
+        if (img) {
+            img.src = img.getAttribute('data-src');
+            img.removeAttribute('data-src');
+        }
+    }
+
+    // Funcion para mostrar una diapositiva especifica
     function showSlide(index) {
-        // Asegurar límites circulares
+        // Asegurar limites circulares
         if (index >= totalSlides) {
             currentIndex = 0;
         } else if (index < 0) {
@@ -123,6 +133,11 @@ function initHeroSlider() {
         } else {
             currentIndex = index;
         }
+
+        // Cargar imagen de la diapositiva actual y precargar la siguiente
+        loadSlideImage(slides[currentIndex]);
+        const nextIdx = (currentIndex + 1) % totalSlides;
+        loadSlideImage(slides[nextIdx]);
 
         // Actualizar diapositivas
         slides.forEach((slide, i) => {
@@ -144,7 +159,16 @@ function initHeroSlider() {
         });
     }
 
-    // Avanzar a la siguiente diapositiva
+    // Precargar la diapositiva 2 en segundo plano (idle) para transiciones fluidas
+    const preloadSecondSlide = () => {
+        if (slides[1]) loadSlideImage(slides[1]);
+    };
+    if ('requestIdleCallback' in window) {
+        requestIdleCallback(preloadSecondSlide, { timeout: 3000 });
+    } else {
+        setTimeout(preloadSecondSlide, 2000);
+    }
+
     function nextSlide() {
         showSlide(currentIndex + 1);
     }
