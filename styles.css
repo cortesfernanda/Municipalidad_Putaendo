@@ -5341,27 +5341,67 @@ p,
     right: clamp(12px, 2.5vw, 36px);
 }
 
-/* 2. Intro Strip */
+/* 2. Intro Strip / Franja de Presentacion */
 .comuna-intro-strip {
-    background: linear-gradient(135deg, #235860 0%, #306c74 40%, #1f4f56 100%);
+    position: relative;
+    overflow: hidden;
+    background-color: #235860;
     color: #ffffff;
-    padding: clamp(28px, 4vw, 44px) 20px;
+    padding: clamp(38px, 5vw, 56px) 20px;
     text-align: center;
-    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.12);
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.comuna-intro-bg-wrapper {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.comuna-intro-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.comuna-intro-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(31, 79, 86, 0.45) 0%, rgba(35, 88, 96, 0.35) 50%, rgba(26, 68, 74, 0.5) 100%);
+    pointer-events: none;
 }
 
 .comuna-intro-container {
+    position: relative;
+    z-index: 2;
     max-width: 960px;
     margin: 0 auto;
 }
 
+.comuna-intro-title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.4rem, 2.4vw, 1.95rem);
+    font-weight: 800;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0 0 16px 0;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+}
+
 .comuna-intro-text {
     font-family: var(--font-editorial);
-    font-size: clamp(0.95rem, 1.4vw, 1.15rem);
+    font-size: clamp(0.95rem, 1.35vw, 1.12rem);
     line-height: 1.8;
     color: #f1f8f9;
-    margin: 0;
+    margin: 0 auto;
+    max-width: 900px;
     letter-spacing: 0.01em;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
 }
 
 /* 3. Accordion Section */
@@ -5387,6 +5427,7 @@ p,
     user-select: none;
 }
 
+.comuna-accordion-img,
 .comuna-accordion-img-closed,
 .comuna-accordion-img-open {
     position: absolute;
@@ -5396,6 +5437,11 @@ p,
     object-fit: cover;
     object-position: center;
     transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1), transform 0.5s ease;
+}
+
+.comuna-accordion-img {
+    opacity: 1;
+    z-index: 1;
 }
 
 .comuna-accordion-img-closed {
@@ -5408,31 +5454,32 @@ p,
     z-index: 2;
 }
 
-.comuna-accordion-header:hover .comuna-accordion-img-closed,
+.comuna-accordion-header:hover .comuna-accordion-img,
+.comuna-accordion-header:hover .comuna-accordion-header:hover .comuna-accordion-img-closed,
 .comuna-accordion-header:hover .comuna-accordion-img-open {
     transform: scale(1.02);
 }
 
 /* When accordion is open: crossfade image to show the #A6BEC1 typography */
 .comuna-accordion-item.is-open .comuna-accordion-img-closed {
-    opacity: 0;
+    opacity: 0 !important;
 }
 
 .comuna-accordion-item.is-open .comuna-accordion-img-open {
-    opacity: 1;
+    opacity: 1 !important;
 }
 
 .comuna-accordion-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.18);
+    background: rgba(0, 0, 0, 0.32);
     z-index: 3;
     pointer-events: none;
     transition: background 0.3s ease;
 }
 
 .comuna-accordion-header:hover .comuna-accordion-overlay {
-    background: rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.18);
 }
 
 .comuna-accordion-title {
@@ -5464,8 +5511,8 @@ p,
 }
 
 .comuna-accordion-item.is-open .comuna-accordion-collapse {
-    max-height: 1000px;
-    opacity: 1;
+    max-height: 1200px !important;
+    opacity: 1 !important;
 }
 
 .comuna-accordion-content {
@@ -5574,4 +5621,113 @@ p,
     transform: translateY(-3px) scale(1.06);
     box-shadow: 0 6px 16px rgba(23, 72, 80, 0.35);
     color: #ffffff;
+}
+
+/* ==========================================================================
+   15. PAGINA MUNICIPIO & CONTACTO INSTITUCIONAL (municipio.html)
+   ========================================================================== */
+
+/* Widget de Contacto Institucional */
+.municipio-contact-widget {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(24px, 4vw, 48px);
+    margin-top: 36px;
+    text-align: left;
+}
+
+.municipio-schedule-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+    border: 1px solid #dbe6e8;
+    min-width: 280px;
+    max-width: 380px;
+    flex: 1 1 300px;
+}
+
+.municipio-schedule-header {
+    background-color: #21545d;
+    color: #ffffff;
+    padding: 11px 16px;
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.municipio-schedule-body {
+    padding: 16px 20px;
+}
+
+.municipio-schedule-row {
+    padding: 8px 0;
+}
+
+.municipio-schedule-row:not(:last-child) {
+    border-bottom: 1px solid #e5ecee;
+}
+
+.municipio-schedule-day {
+    font-family: var(--font-heading);
+    font-size: 0.78rem;
+    font-weight: 800;
+    color: #174850;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+
+.municipio-schedule-hours {
+    font-family: var(--font-heading);
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #2c3e50;
+}
+
+.municipio-direct-info {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-width: 280px;
+    flex: 1 1 300px;
+}
+
+.municipio-direct-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.municipio-direct-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: #21545d;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.15rem;
+    flex-shrink: 0;
+}
+
+.municipio-direct-text {
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: #174850;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.municipio-direct-text:hover {
+    color: #2c6e7a;
 }

@@ -1284,7 +1284,7 @@ function initComunaAccordion() {
 
     // Parametros de prueba en URL: ?open=all o ?open=historia
     const urlParams = new URLSearchParams(window.location.search);
-    if (window.location.hash === '#open-all' || urlParams.get('open') === 'all') {
+    if (window.location.href.indexOf('open-all') !== -1 || (window.location.search && window.location.search.indexOf('open=all') !== -1)) {
         accordionItems.forEach(item => toggleItem(item, true));
     } else if (urlParams.get('open') === 'historia') {
         const hist = document.getElementById('historia');

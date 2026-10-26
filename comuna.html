@@ -89,13 +89,15 @@
                 <ul class="nav-list" id="nav-list">
                     <!-- Dropdown 1: MUNICIPIO -->
                     <li class="nav-item has-dropdown">
-                        <button class="nav-btn-link" aria-expanded="false" aria-haspopup="true">
+                        <a href="municipio.html" class="nav-btn-link" aria-expanded="false" aria-haspopup="true">
                             <span>MUNICIPIO</span>
                             <i class="fa-solid fa-caret-down dropdown-arrow" aria-hidden="true"></i>
-                        </button>
+                        </a>
                         <ul class="dropdown-menu">
-                            <li><a href="autoridades.html" class="dropdown-item">AUTORIDADES</a></li>
-                            <li><a href="autoridades.html#organigrama" class="dropdown-item"><span>ORGANIGRAMA</span> <span class="nav-badge-soon">Pr&oacute;ximamente</span></a></li>
+                            <li><a href="municipio.html" class="dropdown-item">MUNICIPIO</a></li>
+                            <li><a href="municipio.html#autoridades" class="dropdown-item">AUTORIDADES</a></li>
+                            <li><a href="municipio.html#organigrama" class="dropdown-item">ORGANIGRAMA</a></li>
+                            <li><a href="municipio.html#contacto" class="dropdown-item">CONTACTO</a></li>
                         </ul>
                     </li>
 
@@ -182,8 +184,11 @@
         <!-- 1. Hero: Conoce la Comuna -->
         <section class="comuna-hero-section" aria-label="Hero Conoce la Comuna">
             <div class="comuna-hero-wrapper">
-                <img src="assets/comuna/comuna-hero.jpg" alt="&iexcl;Conoce la Comuna de Putaendo!" class="comuna-hero-img">
-                <h1 class="visually-hidden">&iexcl;CONOCE LA COMUNA!</h1>
+                <img src="assets/comuna/Banner_Comuna.webp" alt="&iexcl;Conoce la Comuna de Putaendo!" class="comuna-hero-img">
+                <div class="comuna-hero-overlay"></div>
+                <div class="comuna-hero-content">
+                    <h1 class="comuna-hero-title">&iexcl;CONOCE LA COMUNA!</h1>
+                </div>
                 <button class="comuna-hero-arrow comuna-hero-arrow--prev" aria-label="Anterior" type="button">
                     <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
                 </button>
@@ -193,9 +198,14 @@
             </div>
         </section>
 
-        <!-- 2. Franja de Introduccion -->
-        <section class="comuna-intro-strip" aria-label="Introducci&oacute;n a la Comuna de Putaendo">
+        <!-- 2. Franja de Presentacion -->
+        <section class="comuna-intro-strip" aria-label="Presentaci&oacute;n de la Comuna de Putaendo">
+            <div class="comuna-intro-bg-wrapper">
+                <img src="assets/comuna/comuna-presentacion-bg.jpg" alt="Fondo de presentaci&oacute;n de la Comuna de Putaendo" class="comuna-intro-bg-img">
+                <div class="comuna-intro-overlay"></div>
+            </div>
             <div class="comuna-intro-container">
+                <h2 class="comuna-intro-title">COMUNA DE PUTAENDO</h2>
                 <p class="comuna-intro-text">
                     Ad&eacute;ntrate en el m&iacute;tico Valle de las Carretas, el oasis cordillerano donde el Ej&eacute;rcito de los Andes sell&oacute; la libertad de Chile. D&eacute;jate envolver por la m&iacute;stica de sus gigantescas casonas de adobe del siglo XVIII, el sonido del r&iacute;o que cobija el Resguardo de Los Patos y el sabor eterno de una aut&eacute;ntica picada de charqui bajo el cielo m&aacute;s limpio y luminoso de la Regi&oacute;n de Valpara&iacute;so.
                 </p>
@@ -207,9 +217,9 @@
             <!-- Acordeon 1: HISTORIA -->
             <article class="comuna-accordion-item" id="historia">
                 <div class="comuna-accordion-header" role="button" tabindex="0" aria-expanded="false" aria-controls="collapse-historia" aria-label="Desplegar informaci&oacute;n de Historia">
-                    <img src="assets/comuna/comuna-historia-bg.jpg" alt="Calle Comercio de noche en Putaendo - Historia" class="comuna-accordion-img-closed">
-                    <img src="assets/comuna/comuna-historia-open.jpg" alt="Calle Comercio de noche en Putaendo - Historia activo" class="comuna-accordion-img-open">
-                    <h2 class="visually-hidden">HISTORIA</h2>
+                    <img src="assets/comuna/Banner_Historia.webp" alt="Historia de Putaendo" class="comuna-accordion-img">
+                    <div class="comuna-accordion-overlay"></div>
+                    <h2 class="comuna-accordion-title">HISTORIA</h2>
                 </div>
                 <div class="comuna-accordion-collapse" id="collapse-historia" role="region" aria-label="Contenido de Historia">
                     <div class="comuna-accordion-content">
@@ -225,9 +235,9 @@
             <!-- Acordeon 2: TURISMO -->
             <article class="comuna-accordion-item" id="turismo">
                 <div class="comuna-accordion-header" role="button" tabindex="0" aria-expanded="false" aria-controls="collapse-turismo" aria-label="Desplegar informaci&oacute;n de Turismo">
-                    <img src="assets/comuna/comuna-turismo-bg.jpg" alt="Cristo de Madera en Rinconada de Silva - Turismo" class="comuna-accordion-img-closed">
-                    <img src="assets/comuna/comuna-turismo-open.jpg" alt="Cristo de Madera en Rinconada de Silva - Turismo activo" class="comuna-accordion-img-open">
-                    <h2 class="visually-hidden">TURISMO</h2>
+                    <img src="assets/comuna/Banner_turismo.webp" alt="Turismo en Putaendo" class="comuna-accordion-img">
+                    <div class="comuna-accordion-overlay"></div>
+                    <h2 class="comuna-accordion-title">TURISMO</h2>
                 </div>
                 <div class="comuna-accordion-collapse" id="collapse-turismo" role="region" aria-label="Contenido de Turismo">
                     <div class="comuna-accordion-content">
