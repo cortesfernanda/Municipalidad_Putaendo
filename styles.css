@@ -4,8 +4,7 @@
    ========================================================================== */
 
 /* Tipografías Embebidas: Satoshi (UI & Lectura Rápida) + Lora (Lectura Prolongada) */
-@import url('https://api.fontshare.com/v2/css?f[]=satoshi@900,800,700,600,500,400,300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap');
+/* (Cargadas de forma no bloqueante en el <head> de los HTML con preconnect y font-display: swap) */
 
 /* Satoshi: Webfonts Locales con Fallback HTTPS Directo */
 @font-face {
@@ -448,11 +447,16 @@ blockquote,
 
 .search-btn {
     color: var(--color-white);
-    padding: 6px 8px;
+    padding: 8px 10px;
+    min-width: 44px;
+    min-height: 44px;
     font-size: 0.95rem;
     display: flex;
     align-items: center;
     justify-content: center;
+    border: none;
+    background: transparent;
+    cursor: pointer;
     transition: color var(--transition-fast);
 }
 
@@ -497,43 +501,49 @@ blockquote,
 }
 
 .search-result-type {
-    font-size: 0.72rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
     font-weight: 700;
     color: var(--color-primary);
     margin-bottom: 2px;
 }
 
-/* Botón Hamburguesa Móvil */
+/* Botón Hamburguesa Móvil (Área táctil accesible >= 48x48px) */
 .mobile-toggle {
     display: none;
     flex-direction: column;
-    justify-content: space-between;
-    width: 30px;
-    height: 22px;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    min-height: 48px;
     cursor: pointer;
     background: transparent;
-    padding: 0;
+    border: none;
+    padding: 10px 9px;
+    box-sizing: border-box;
     z-index: 1050;
 }
 
 .hamburger-bar {
     display: block;
     height: 3px;
-    width: 100%;
+    width: 28px;
     background-color: var(--color-white);
     border-radius: 3px;
     transition: all var(--transition-fast);
 }
 
 .mobile-toggle.is-active .hamburger-bar:nth-child(1) {
-    transform: translateY(9px) rotate(45deg);
+    transform: translateY(8px) rotate(45deg);
 }
 .mobile-toggle.is-active .hamburger-bar:nth-child(2) {
     opacity: 0;
 }
 .mobile-toggle.is-active .hamburger-bar:nth-child(3) {
-    transform: translateY(-10px) rotate(-45deg);
+    transform: translateY(-8px) rotate(-45deg);
 }
 
 /* --------------------------------------------------------------------------
@@ -674,8 +684,10 @@ blockquote,
     display: none; /* Oculto en vista superior normal */
     align-items: center;
     justify-content: center;
-    width: 38px;
-    height: 38px;
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    min-height: 48px;
     border-radius: 6px;
     background-color: rgba(255, 255, 255, 0.18);
     color: #ffffff;
@@ -763,11 +775,13 @@ blockquote,
 
 .scrolled-search-submit {
     background: var(--color-accent);
-    color: #ffffff;
+    color: #132d30;
+    font-weight: 700;
     border: none;
     border-radius: 4px;
-    padding: 6px 12px;
-    font-size: 0.85rem;
+    padding: 8px 14px;
+    min-height: 40px;
+    font-size: 0.88rem;
     cursor: pointer;
 }
 
@@ -1046,6 +1060,8 @@ blockquote,
     transform: translateY(-50%);
     width: 48px;
     height: 48px;
+    min-width: 48px;
+    min-height: 48px;
     background-color: rgba(255, 255, 255, 0.88);
     color: var(--color-primary-dark);
     border-radius: var(--radius-full);
@@ -1075,7 +1091,7 @@ blockquote,
     right: 24px;
 }
 
-/* Paginador de Dots */
+/* Paginador de Dots (Área táctil accesible) */
 .slider-dots {
     position: absolute;
     bottom: 22px;
@@ -1084,12 +1100,13 @@ blockquote,
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 14px;
     z-index: 20;
     margin-top: 0;
 }
 
 .dot-btn {
+    position: relative;
     width: 12px;
     height: 12px;
     border-radius: var(--radius-full);
@@ -1099,6 +1116,18 @@ blockquote,
     cursor: pointer;
     transition: all var(--transition-fast);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.dot-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 44px;
+    min-height: 44px;
+    width: 44px;
+    height: 44px;
 }
 
 .dot-btn:hover {
@@ -1301,7 +1330,7 @@ blockquote,
     background-color: rgba(30, 62, 66, 0.92);
     backdrop-filter: blur(4px);
     color: var(--color-white);
-    font-size: 0.72rem;
+    font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
     padding: 4px 10px;
@@ -1498,15 +1527,17 @@ blockquote,
 }
 
 .social-circle-btn {
-    width: 42px;
-    height: 42px;
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    min-height: 48px;
     border-radius: var(--radius-full);
     background-color: rgba(255, 255, 255, 0.14);
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--color-white);
-    font-size: 1.05rem;
+    font-size: 1.1rem;
     transition: all var(--transition-fast);
 }
 
@@ -1652,9 +1683,11 @@ blockquote,
     }
 
     .slider-arrow {
-        width: 38px;
-        height: 38px;
-        font-size: 0.95rem;
+        width: 48px;
+        height: 48px;
+        min-width: 48px;
+        min-height: 48px;
+        font-size: 1.05rem;
     }
 
     .slider-arrow-prev {
@@ -1667,6 +1700,13 @@ blockquote,
 
     .mobile-toggle {
         display: flex;
+        flex-shrink: 0;
+        width: 44px;
+        height: 44px;
+        min-width: 44px;
+        min-height: 44px;
+        padding: 8px 6px;
+        margin-left: auto;
     }
 
     .main-nav {
@@ -1697,8 +1737,16 @@ blockquote,
         width: 100%;
         justify-content: space-between;
         padding: 14px 20px;
+        min-height: 48px;
         border-radius: 0;
         border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .dropdown-item {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        padding: 10px 20px;
     }
 
     .dropdown-menu {
@@ -1719,24 +1767,72 @@ blockquote,
         display: block;
     }
 
-    .search-wrapper,
-    .header-search {
-        max-width: 180px;
+    .top-bar-container {
+        padding-left: 12px;
+        padding-right: 12px;
+        gap: 6px;
+        flex-wrap: nowrap;
+    }
+
+    .brand-logo {
+        flex-shrink: 0;
+    }
+
+    .brand-logo-content {
+        gap: 8px;
     }
 
     .brand-name,
     .brand-title {
-        font-size: 1.3rem;
+        font-size: 1.15rem;
     }
 
     .brand-sub,
     .brand-subtitle {
-        font-size: 0.72rem;
+        font-size: 0.75rem;
     }
 
     .muni-shield {
-        width: 36px;
-        height: 46px;
+        width: 30px;
+        height: 38px;
+        flex-shrink: 0;
+    }
+
+    .search-wrapper,
+    .header-search {
+        flex: 1 1 0%;
+        min-width: 0;
+        max-width: 130px;
+    }
+
+    .search-form {
+        min-width: 0;
+        width: 100%;
+        padding: 2px 4px 2px 8px;
+    }
+
+    .search-input {
+        min-width: 0;
+        width: 100%;
+        font-size: 0.8rem;
+    }
+
+    .search-btn {
+        min-width: 36px;
+        min-height: 36px;
+        padding: 4px;
+        flex-shrink: 0;
+    }
+
+    .mobile-toggle {
+        display: flex !important;
+        flex-shrink: 0;
+        width: 44px;
+        height: 44px;
+        min-width: 44px;
+        min-height: 44px;
+        padding: 8px 6px;
+        margin-left: 2px;
     }
 
     .services-grid {
@@ -1878,7 +1974,9 @@ blockquote,
 .month-nav-btn {
     background: none;
     border: none;
-    padding: 4px 6px;
+    padding: 10px 14px;
+    min-width: 48px;
+    min-height: 48px;
     cursor: pointer;
     color: #1e5759;
     font-size: 1.15rem;
@@ -2100,7 +2198,7 @@ blockquote,
 
 .news-breadcrumbs-inner .breadcrumb-sep {
     color: #658c8e;
-    font-size: 0.74rem;
+    font-size: 0.75rem;
 }
 
 .news-breadcrumbs-inner .breadcrumb-current {
@@ -3271,13 +3369,15 @@ blockquote,
     position: absolute;
     top: 14px;
     right: 14px;
-    width: 38px;
-    height: 38px;
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    min-height: 48px;
     border-radius: 50%;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.65);
     color: #ffffff;
     border: none;
-    font-size: 1.15rem;
+    font-size: 1.25rem;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -3939,7 +4039,12 @@ p,
     font-size: 1.4rem;
     cursor: pointer;
     line-height: 1;
-    padding: 4px;
+    padding: 10px;
+    min-width: 48px;
+    min-height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 4px;
     transition: transform 0.15s ease, opacity 0.15s ease;
 }
@@ -4417,7 +4522,7 @@ p,
 }
 
 .pagos-footer-subtitle {
-    font-size: 0.72rem;
+    font-size: 0.75rem;
     letter-spacing: 0.4px;
     opacity: 0.9;
     color: #ffffff;
@@ -5140,7 +5245,7 @@ p,
 .nav-badge-soon {
     display: inline-flex;
     align-items: center;
-    font-size: 0.62rem;
+    font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.4px;
@@ -5164,7 +5269,7 @@ p,
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    font-size: 0.72rem;
+    font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -5879,14 +5984,14 @@ p,
         padding: 10px 0;
     }
     .breadcrumb-list {
-        font-size: 0.74rem !important;
+        font-size: 0.75rem !important;
         gap: 6px;
         flex-wrap: wrap;
     }
     .breadcrumb-item,
     .breadcrumb-item a,
     .breadcrumb-separator {
-        font-size: 0.74rem !important;
+        font-size: 0.75rem !important;
     }
     .slider-hero-banner .slider-viewport {
         min-height: 260px;
@@ -5911,6 +6016,81 @@ p,
         background: #ffffff !important;
         opacity: 1 !important;
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.22) !important;
+    }
+
+    /* Cabecera y botón hamburguesa en móviles */
+    .mobile-toggle {
+        display: flex !important;
+        flex-shrink: 0 !important;
+        width: 44px !important;
+        height: 44px !important;
+        min-width: 44px !important;
+        min-height: 44px !important;
+        padding: 8px 6px !important;
+        margin-left: auto !important;
+    }
+
+    .top-bar-container {
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+        gap: 6px !important;
+        flex-wrap: nowrap !important;
+    }
+
+    .brand-logo {
+        flex-shrink: 0 !important;
+    }
+
+    .brand-logo-content {
+        gap: 8px !important;
+    }
+
+    .brand-name,
+    .brand-title {
+        font-size: 1.15rem !important;
+    }
+
+    .brand-sub,
+    .brand-subtitle {
+        font-size: 0.75rem !important;
+    }
+
+    .muni-shield {
+        width: 30px !important;
+        height: 38px !important;
+        flex-shrink: 0 !important;
+    }
+
+    .search-wrapper,
+    .header-search {
+        flex: 1 1 0% !important;
+        min-width: 0 !important;
+        max-width: 130px !important;
+    }
+
+    .search-form {
+        min-width: 0 !important;
+        width: 100% !important;
+        padding: 2px 4px 2px 8px !important;
+    }
+
+    .search-input {
+        min-width: 0 !important;
+        width: 100% !important;
+        font-size: 0.8rem !important;
+    }
+
+    .search-btn {
+        min-width: 36px !important;
+        min-height: 36px !important;
+        padding: 4px !important;
+        flex-shrink: 0 !important;
+    }
+
+    /* Grilla de noticias en 1 sola columna fluida en móvil */
+    .news-two-col-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
     }
 }
 
