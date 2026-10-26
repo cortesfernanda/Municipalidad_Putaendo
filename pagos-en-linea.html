@@ -18,7 +18,7 @@
     <link rel="preload" as="image" href="assets/permiso-circulacion/Banner_PermisoCir.webp" fetchpriority="high">
 
     <!-- Tipografias Oficiales: Satoshi (UI y Lectura Rapida) + Lora (Lectura Prolongada) -->
-    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@900,800,700,600,500,400&display=swap" rel="stylesheet">
+    <link href="https://api.fontshare.com/v2/css?f%5B%5D=satoshi@900,800,700,600,500,400&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
     
     <!-- Font Awesome Icons -->
@@ -227,6 +227,8 @@
         <div class="pagos-main-content">
             <div class="container">
 
+                <h2 class="visually-hidden">Tr&aacute;mites y Pagos Municipales Disponibles</h2>
+
                 <!-- Texto de introducci&oacute;n fiel a la maqueta -->
                 <p class="pagos-intro-text">
                     Realiza tus pagos municipales f&aacute;cil y r&aacute;pido.
@@ -237,8 +239,8 @@
 
                     <!-- Tarjeta 1: PERMISO DE CIRCULACION (Enlace directo al tramite) -->
                     <a href="permiso-circulacion.html" class="pagos-card" id="card-permiso-circulacion" aria-label="Ir a tramite de Permiso de Circulacion">
-                        <h2 class="pagos-card-title">PERMISO DE<br>CIRCULACI&Oacute;N</h2>
-                        <div class="pagos-card-icon-wrap">
+                        <span class="pagos-card-title">PERMISO DE<br>CIRCULACI&Oacute;N</span>
+                        <span class="pagos-card-icon-wrap">
                             <svg viewBox="0 0 120 100" class="pagos-card-icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                                 <mask id="car-mask">
                                     <rect width="120" height="100" fill="white" />
@@ -263,13 +265,13 @@
                                     <rect x="84" y="65" width="16" height="16" rx="5" />
                                 </g>
                             </svg>
-                        </div>
+                        </span>
                     </a>
 
                     <!-- Tarjeta 2: PATENTES COMERCIALES -->
                     <button type="button" class="pagos-card" data-payment-modal="patentes" aria-label="Informacion de pago de Patentes Comerciales">
-                        <h2 class="pagos-card-title">PATENTES<br>COMERCIALES</h2>
-                        <div class="pagos-card-icon-wrap">
+                        <span class="pagos-card-title">PATENTES<br>COMERCIALES</span>
+                        <span class="pagos-card-icon-wrap">
                             <svg viewBox="0 0 120 100" class="pagos-card-icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                                 <!-- Techo de toldo ondeado con 4 ondas simetricas -->
                                 <path d="M18 38 C18 18, 28 12, 60 12 C92 12, 102 18, 102 38 
@@ -282,26 +284,26 @@
                                 <!-- Escalon inferior de la base -->
                                 <rect x="14" y="78" width="92" height="7" rx="3.5" fill="#ffffff" />
                             </svg>
-                        </div>
+                        </span>
                     </button>
 
                     <!-- Tarjeta 3: MULTAS DE TR&Aacute;NSITO -->
                     <button type="button" class="pagos-card" data-payment-modal="multas" aria-label="Informacion de pago de Multas de Transito">
-                        <h2 class="pagos-card-title">MULTAS DE<br>TR&Aacute;NSITO</h2>
-                        <div class="pagos-card-icon-wrap">
+                        <span class="pagos-card-title">MULTAS DE<br>TR&Aacute;NSITO</span>
+                        <span class="pagos-card-icon-wrap">
                             <svg viewBox="0 0 120 100" class="pagos-card-icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                                 <!-- Senal de Pare octagonal -->
                                 <polygon points="42,5 78,5 106,33 106,67 78,95 42,95 14,67 14,33" fill="none" stroke="#ffffff" stroke-width="7" stroke-linejoin="round"/>
                                 <!-- Mano de detencion en el centro -->
                                 <path d="M50 72 C46 72, 43 68, 43 64 L43 45 C43 42.5, 45 40.5, 47.5 40.5 C50 40.5, 52 42.5, 52 45 L52 58 L52 35 C52 32.5, 54 30.5, 56.5 30.5 C59 30.5, 61 32.5, 61 35 L61 58 L61 37 C61 34.5, 63 32.5, 65.5 32.5 C68 32.5, 70 34.5, 70 37 L70 58 L70 43 C70 40.5, 72 38.5, 74.5 38.5 C77 38.5, 79 40.5, 79 43 L79 64 C79 74, 71 82, 62 82 C54 82, 47 77, 44 71 L38 67 C36 65.5, 35.5 62.5, 37 60.5 C38.5 58.5, 41.5 58, 43.5 59.5 L50 64 Z" fill="#ffffff"/>
                             </svg>
-                        </div>
+                        </span>
                     </button>
 
                     <!-- Tarjeta 4: PERMISOS DE CONSTRUCCI&Oacute;N -->
                     <button type="button" class="pagos-card" data-payment-modal="obras" aria-label="Informacion de pago de Permisos de Construccion">
-                        <h2 class="pagos-card-title">PERMISOS DE<br>CONSTRUCCI&Oacute;N</h2>
-                        <div class="pagos-card-icon-wrap">
+                        <span class="pagos-card-title">PERMISOS DE<br>CONSTRUCCI&Oacute;N</span>
+                        <span class="pagos-card-icon-wrap">
                             <svg viewBox="0 0 120 100" class="pagos-card-icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                                 <!-- Base inferior -->
                                 <rect x="36" y="90" width="48" height="6" rx="2" fill="#ffffff"/>
@@ -329,7 +331,7 @@
                                 <!-- Carga suspendida -->
                                 <rect x="74" y="58" width="20" height="16" rx="2" fill="#ffffff"/>
                             </svg>
-                        </div>
+                        </span>
                     </button>
 
                 </div>

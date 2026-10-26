@@ -18,7 +18,7 @@
     <link rel="preload" as="image" href="assets/turismo/Ruta-Cruce-del-Ejército-de-Los-Andes.webp" fetchpriority="high">
 
     <!-- Tipografias Oficiales: Satoshi (UI y Lectura Rapida) + Lora (Lectura Prolongada) -->
-    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@900,800,700,600,500,400&display=swap" rel="stylesheet">
+    <link href="https://api.fontshare.com/v2/css?f%5B%5D=satoshi@900,800,700,600,500,400&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
     
     <!-- Font Awesome Icons -->
@@ -249,12 +249,12 @@
                 </button>
 
                 <!-- Indicadores de Paginaci&oacute;n (4 Dots) -->
-                <div class="slider-dots" id="slider-dots" role="tablist" aria-label="Seleccionar diapositiva">
-                    <button class="dot-btn active" role="tab" aria-selected="true" aria-label="Ir a diapositiva 1" data-slide-target="0"></button>
-                    <button class="dot-btn" role="tab" aria-selected="false" aria-label="Ir a diapositiva 2" data-slide-target="1"></button>
-                    <button class="dot-btn" role="tab" aria-selected="false" aria-label="Ir a diapositiva 3" data-slide-target="2"></button>
-                    <button class="dot-btn" role="tab" aria-selected="false" aria-label="Ir a diapositiva 4" data-slide-target="3"></button>
-                </div>
+                <nav class="slider-dots" id="slider-dots" aria-label="Seleccionar diapositiva">
+                    <button type="button" class="dot-btn active" aria-label="Ir a diapositiva 1" data-slide-target="0"></button>
+                    <button type="button" class="dot-btn" aria-label="Ir a diapositiva 2" data-slide-target="1"></button>
+                    <button type="button" class="dot-btn" aria-label="Ir a diapositiva 3" data-slide-target="2"></button>
+                    <button type="button" class="dot-btn" aria-label="Ir a diapositiva 4" data-slide-target="3"></button>
+                </nav>
             </div>
         </section>
 
