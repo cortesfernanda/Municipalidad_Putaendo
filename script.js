@@ -439,14 +439,14 @@ function initNewsMonthFilter() {
     if (!prevBtn || !nextBtn || !label) return;
 
     // Listado de meses disponibles según maqueta
-    const months = [
+        const months = [
+        { label: 'TODAS LAS NOTICIAS', code: 'todos' },
+        { label: 'OCTUBRE 2026', code: '10-2026' },
         { label: 'SEPTIEMBRE 2026', code: '09-2026' },
-        { label: 'JULIO 2026', code: '07-2026' },
-        { label: 'MAYO 2026', code: '05-2026' },
-        { label: 'TODAS LAS NOTICIAS', code: 'todos' }
+        { label: 'JULIO 2026', code: '07-2026' }
     ];
 
-    let currentIndex = 0; // Inicia en SEPTIEMBRE 2026 como en la foto
+    let currentIndex = 0; // Inicia mostrando todas las noticias // Inicia en SEPTIEMBRE 2026 como en la foto
 
     function updateMonthDisplay() {
         const current = months[currentIndex];

@@ -103,7 +103,7 @@
                         <ul class="dropdown-menu">
                             <li><a href="municipio.html" class="dropdown-item">MUNICIPIO</a></li>
                             <li><a href="municipio.html#autoridades" class="dropdown-item">AUTORIDADES</a></li>
-                            <li><a href="municipio.html#organigrama" class="dropdown-item">ORGANIGRAMA</a></li>
+                            <li><a href="municipio.html#organigrama" class="dropdown-item"><span>ORGANIGRAMA</span> <span class="nav-badge-soon">Pr&oacute;ximamente</span></a></li>
                             <li><a href="municipio.html#contacto" class="dropdown-item">CONTACTO</a></li>
                         </ul>
                     </li>
@@ -191,34 +191,15 @@
          ========================================================================= -->
     <main id="contenido-principal">
 
-                <!-- 1. HERO BANNER PANORAMICO "JUNTOS PLANIFICAMOS" -->
-        <section class="comuna-hero-section" aria-label="Portal Juntos Planificamos">
-            <div class="comuna-hero-wrapper">
-                <img src="assets/juntos-planificamos/Banner_JuntosPlanificamos.webp" alt="Juntos Planificamos - Ilustre Municipalidad de Putaendo" class="comuna-hero-img">
-                <div class="comuna-hero-overlay"></div>
-                <div class="comuna-hero-content">
+                <!-- 1. CARRUSEL HERO BANNER DE PANTALLA COMPLETA CON TITULO CENTRADO -->
+        <section class="hero-slider-section full-width-hero slider-hero-banner" aria-label="Portal Juntos Planificamos">
+            <div class="slider-viewport" id="hero-slider">
+                <!-- Velo y Título Centrado sobre las Diapositivas -->
+                <div class="slider-hero-overlay"></div>
+                <div class="slider-hero-content">
                     <h1 class="comuna-hero-title">JUNTOS PLANIFICAMOS</h1>
                 </div>
-            </div>
-        </section>
 
-                <!-- 2. MIGA DE PAN (BREADCRUMB STRIP) -->
-        <nav class="breadcrumb-strip" aria-label="Ruta de navegaci&oacute;n">
-            <div class="container breadcrumb-container">
-                <ol class="breadcrumb-list">
-                    <li class="breadcrumb-item"><a href="index.html">INICIO</a></li>
-                    <li class="breadcrumb-separator" aria-hidden="true">&gt;</li>
-                    <li class="breadcrumb-item"><a href="index.html#informaciones">INFORMACIONES</a></li>
-                    <li class="breadcrumb-separator" aria-hidden="true">&gt;</li>
-                    <li class="breadcrumb-item active" aria-current="page">JUNTOS PLANIFICAMOS</li>
-                </ol>
-            </div>
-        </nav>
-
-                <!-- 3. CARRUSEL HERO INFORMATIVO (Fotos de Turismo) -->
-        <section class="hero-slider-section full-width-hero" aria-label="Fotograf&iacute;as destacadas de Putaendo">
-            <!-- Marco del Slider de Ancho Completo -->
-            <div class="slider-viewport" id="hero-slider">
                 <!-- Flecha Diapositiva Anterior -->
                 <button class="slider-arrow slider-arrow-prev" id="slider-prev" aria-label="Ver diapositiva anterior">
                     <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
@@ -267,7 +248,20 @@
             </div>
         </section>
 
-        <!-- 4. SECCION PRINCIPAL DE CONTENIDO (FEED + SIDEBAR DE NOTICIAS) -->
+        <!-- 2. MIGA DE PAN (BREADCRUMB STRIP) -->
+        <nav class="breadcrumb-strip" aria-label="Ruta de navegaci&oacute;n">
+            <div class="container breadcrumb-container">
+                <ol class="breadcrumb-list">
+                    <li class="breadcrumb-item"><a href="index.html">INICIO</a></li>
+                    <li class="breadcrumb-separator" aria-hidden="true">&gt;</li>
+                    <li class="breadcrumb-item"><a href="index.html#informaciones">INFORMACIONES</a></li>
+                    <li class="breadcrumb-separator" aria-hidden="true">&gt;</li>
+                    <li class="breadcrumb-item active" aria-current="page">JUNTOS PLANIFICAMOS</li>
+                </ol>
+            </div>
+        </nav>
+
+        <!-- 3. SECCION PRINCIPAL DE CONTENIDO (FEED + SIDEBAR DE NOTICIAS) -->
         <section class="planificamos-content-area">
             <div class="container">
                 <div class="planificamos-grid">
@@ -325,8 +319,8 @@
 
                             <!-- Noticia 2 -->
                             <article class="sidebar-news-card">
-                                <a href="noticia-fondo-cultura.html" class="sidebar-news-thumb" aria-label="Leer m&aacute;s sobre Fondo Concursable Municipal de Cultura">
-                                    <img src="assets/noticia-biodiversidad-1.webp" alt="Convocatoria Fondo Concursable Municipal de Cultura 2026" loading="lazy">
+                                <a href="noticia-fondo-cultura.html" class="sidebar-news-thumb news-img-box--contain" aria-label="Leer m&aacute;s sobre Fondo Concursable Municipal de Cultura">
+                                    <img src="assets/fondo-cultura-2026.webp" alt="Convocatoria Fondo Concursable Municipal de Cultura 2026" loading="lazy">
                                 </a>
                                 <span class="sidebar-news-date">16 de septiembre 2026</span>
                                 <h4 class="sidebar-news-title">
@@ -337,14 +331,14 @@
 
                             <!-- Noticia 3 -->
                             <article class="sidebar-news-card">
-                                <a href="noticia-obras.html" class="sidebar-news-thumb" aria-label="Leer m&aacute;s sobre obras de infraestructura vial y deportes">
-                                    <img src="assets/comuna/Banner_Historia.webp" alt="Aprobaci&oacute;n de 1.490 millones de pesos para obras de infraestructura" loading="lazy">
+                                <a href="noticia-biodiversidad.html" class="sidebar-news-thumb" aria-label="Leer m&aacute;s sobre biodiversidad del ecosistema cordillerano">
+                                    <img src="assets/noticia-biodiversidad-1.webp" alt="Comunidad de Putaendo recibe posters de biodiversidad" loading="lazy">
                                 </a>
-                                <span class="sidebar-news-date">19 de mayo 2026</span>
+                                <span class="sidebar-news-date">12 de octubre 2026</span>
                                 <h4 class="sidebar-news-title">
-                                    <a href="noticia-obras.html">Aprobaci&oacute;n de $1.490 millones para obras viales y deportivas en Putaendo</a>
+                                    <a href="noticia-biodiversidad.html">Comunidad de Putaendo recibe 400 ejemplares de posters de biodiversidad</a>
                                 </h4>
-                                <a href="noticia-obras.html" class="sidebar-news-link">Seguir leyendo &gt;</a>
+                                <a href="noticia-biodiversidad.html" class="sidebar-news-link">Seguir leyendo &gt;</a>
                             </article>
 
                         </div>

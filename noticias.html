@@ -96,7 +96,7 @@
                         <ul class="dropdown-menu">
                             <li><a href="municipio.html" class="dropdown-item">MUNICIPIO</a></li>
                             <li><a href="municipio.html#autoridades" class="dropdown-item">AUTORIDADES</a></li>
-                            <li><a href="municipio.html#organigrama" class="dropdown-item">ORGANIGRAMA</a></li>
+                            <li><a href="municipio.html#organigrama" class="dropdown-item"><span>ORGANIGRAMA</span> <span class="nav-badge-soon">Pr&oacute;ximamente</span></a></li>
                             <li><a href="municipio.html#contacto" class="dropdown-item">CONTACTO</a></li>
                         </ul>
                     </li>
@@ -187,13 +187,12 @@
         <!-- =====================================================================
              1. BANNER HERO DE NOTICIAS (CUBRE TODA LA PANTALLA)
              ===================================================================== -->
-        <section class="news-page-banner-section" aria-label="Cabecera de la sección Noticias">
-            <div class="news-page-banner-full">
-                <img src="assets/banner-noticias.png" alt="Noticias de la Ilustre Municipalidad de Putaendo" class="news-page-banner-img">
-                <div class="news-banner-overlay">
-                    <div class="news-banner-badge">
-                        <h1 class="news-banner-title">NOTICIAS</h1>
-                    </div>
+        <section class="comuna-hero-section" aria-label="Cabecera de la sección Noticias">
+            <div class="comuna-hero-wrapper">
+                <img src="assets/noticias/Banner_Noticias.webp" alt="Noticias de la Ilustre Municipalidad de Putaendo" class="comuna-hero-img">
+                <div class="comuna-hero-overlay"></div>
+                <div class="comuna-hero-content">
+                    <h1 class="comuna-hero-title">NOTICIAS</h1>
                 </div>
             </div>
         </section>
@@ -210,7 +209,7 @@
                         <button type="button" class="month-nav-btn" id="month-prev-btn" aria-label="Mes anterior">
                             <i class="fa-solid fa-caret-left" aria-hidden="true"></i>
                         </button>
-                        <span class="month-nav-label" id="current-month-label">SEPTIEMBRE 2026</span>
+                        <span class="month-nav-label" id="current-month-label">TODAS LAS NOTICIAS</span>
                         <button type="button" class="month-nav-btn" id="month-next-btn" aria-label="Mes siguiente">
                             <i class="fa-solid fa-caret-right" aria-hidden="true"></i>
                         </button>
@@ -223,7 +222,7 @@
                     <!-- Noticia 1: Biodiversidad Cordillerana (Pósters Bazar Maggi) -->
                     <article class="news-portal-card" data-month="10-2026">
                         <div class="news-portal-media">
-                            <img src="assets/noticia-biodiversidad-1.jpg" alt="Comunidad de Putaendo recibe 400 ejemplares de posters de biodiversidad" class="news-portal-img">
+                            <img src="assets/noticia-biodiversidad-1.webp" alt="Comunidad de Putaendo recibe 400 ejemplares de posters de biodiversidad" class="news-portal-img">
                         </div>
                         <div class="news-portal-body">
                             <time class="news-portal-date" datetime="2026-10-12">12 de octubre 2026</time>
@@ -245,7 +244,7 @@
                     <!-- Noticia 2 Real: Modificación Ordenanza -->
                     <article class="news-portal-card" data-month="09-2026">
                         <div class="news-portal-media">
-                            <img src="assets/slide2-solidario.png" alt="Modificación de Ordenanza Municipal Putaendo" class="news-portal-img">
+                            <img src="assets/noticia-ordenanza.webp" alt="Modificación de Ordenanza Municipal Putaendo" class="news-portal-img">
                         </div>
                         <div class="news-portal-body">
                             <time class="news-portal-date" datetime="2026-09-17">17 de septiembre 2026</time>
@@ -266,8 +265,8 @@
 
                     <!-- Noticia 2 Real: Fondo Cultura -->
                     <article class="news-portal-card" data-month="09-2026">
-                        <div class="news-portal-media">
-                            <img src="assets/slide1-gastronomia.png" alt="Fondo Concursable Municipal de Cultura" class="news-portal-img">
+                        <div class="news-portal-media news-media-contain">
+                            <img src="assets/fondo-cultura-2026.webp" alt="Fondo Concursable Municipal de Cultura" class="news-portal-img">
                         </div>
                         <div class="news-portal-body">
                             <time class="news-portal-date" datetime="2026-09-16">16 de septiembre 2026</time>
@@ -289,7 +288,7 @@
                     <!-- Noticia 3 Real: Concursos Públicos -->
                     <article class="news-portal-card" data-month="07-2026">
                         <div class="news-portal-media">
-                            <img src="assets/slide3-patrimonio.png" alt="Concursos Públicos Municipalidad de Putaendo" class="news-portal-img">
+                            <img src="assets/noticia-concursos.webp" alt="Concursos Públicos Municipalidad de Putaendo" class="news-portal-img">
                         </div>
                         <div class="news-portal-body">
                             <time class="news-portal-date" datetime="2026-07-27">27 de julio 2026</time>
@@ -301,28 +300,6 @@
                             </p>
                             <div class="news-portal-action">
                                 <a href="noticia-concursos.html" class="news-portal-link">
-                                    <span>Sigue leyendo</span>
-                                    <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Noticia 4 Real: Infraestructura y Deportes -->
-                    <article class="news-portal-card" data-month="05-2026">
-                        <div class="news-portal-media">
-                            <img src="assets/slide2-solidario.png" alt="Obras de infraestructura vial y deportes en Putaendo" class="news-portal-img">
-                        </div>
-                        <div class="news-portal-body">
-                            <time class="news-portal-date" datetime="2026-05-19">19 de mayo 2026</time>
-                            <h2 class="news-portal-title">
-                                Putaendo logra aprobación de 1.490 millones de pesos para la ejecución de importantes obras de infraestructura vial y deportes
-                            </h2>
-                            <p class="news-portal-excerpt">
-                                La inversión permitirá ejecutar la repavimentación del circuito La Ermita - Aníbal Carvajal en Rinconada de Silva ($960 millones) y el mejoramiento del complejo deportivo Club Intersporting ($530 millones).
-                            </p>
-                            <div class="news-portal-action">
-                                <a href="noticia-obras.html" class="news-portal-link">
                                     <span>Sigue leyendo</span>
                                     <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
                                 </a>

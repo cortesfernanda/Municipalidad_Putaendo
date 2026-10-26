@@ -943,8 +943,7 @@ blockquote,
     border-radius: var(--radius-md);
     max-width: 640px;
     box-shadow: 0 16px 38px rgba(0, 0, 0, 0.28);
-    border-left: 6px solid var(--color-primary);
-    border-top: 1px solid rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.85);
     animation: slideCardIn 0.55s ease-out;
 }
 
@@ -2250,8 +2249,8 @@ blockquote,
     margin: 32px 0;
     padding: 22px 28px;
     background-color: #f3f8f8;
-    border-left: 4px solid #2e585b;
-    border-radius: 0 10px 10px 0;
+    border: 1px solid #dbe6e8;
+    border-radius: 10px;
     font-size: 1.15rem;
     font-style: italic;
     line-height: 1.7;
@@ -2338,7 +2337,6 @@ blockquote,
     justify-content: space-between;
     background-color: #f8fafc;
     border: 1px solid #cbd5e1;
-    border-left: 5px solid var(--color-primary);
     border-radius: var(--radius-sm);
     padding: 18px 22px;
     margin: 22px 0;
@@ -5778,4 +5776,135 @@ p,
     background-color: #64748b !important;
     transform: none !important;
     box-shadow: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   Carrusel como Banner Hero Completo (Juntos Planificamos)
+   -------------------------------------------------------------------------- */
+.slider-hero-banner {
+    position: relative;
+    width: 100%;
+}
+
+.slider-hero-banner .slider-viewport {
+    height: clamp(380px, 45vw, 540px);
+    min-height: 380px;
+}
+
+.slider-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(11, 31, 33, 0.40) 0%, rgba(11, 31, 33, 0.58) 100%);
+    z-index: 5;
+    pointer-events: none;
+}
+
+.slider-hero-content {
+    position: absolute;
+    top: 58%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 6;
+    text-align: center;
+    width: 90%;
+    max-width: 960px;
+    pointer-events: none;
+}
+
+.slider-hero-content .comuna-hero-title {
+    margin: 0;
+    color: #ffffff;
+    font-family: var(--font-heading);
+    font-size: clamp(1.8rem, 4.4vw, 3.4rem);
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-shadow: 0 3px 14px rgba(0, 0, 0, 0.65);
+}
+
+.slider-hero-banner .slider-arrow {
+    z-index: 10;
+}
+
+.slider-hero-banner .slider-dots {
+    z-index: 10;
+    bottom: 20px;
+}
+
+/* Soporte para afiches/posters completos sin recorte (Fondo Cultura) */
+.news-media-contain,
+.news-img-box--contain {
+    background: linear-gradient(135deg, #2b6d65 0%, #3e8d85 45%, #9d8349 100%) !important;
+}
+
+.news-media-contain img,
+.news-img-box--contain img {
+    object-fit: contain !important;
+    background-color: transparent !important;
+}
+
+.article-featured-box--contain {
+    background: linear-gradient(135deg, #2b6d65 0%, #3e8d85 45%, #9d8349 100%) !important;
+    padding: 18px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.article-featured-box--contain img {
+    max-height: 520px;
+    width: auto;
+    max-width: 100%;
+    margin: 0 auto;
+    border-radius: 8px;
+    object-fit: contain !important;
+    box-shadow: 0 8px 26px rgba(0, 0, 0, 0.25);
+}
+
+/* --------------------------------------------------------------------------
+   Ajustes Responsivos Generales
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+    /* En el carrusel con tarjeta (Index), posicionar las flechas en la zona visible de la foto para no tapar el texto */
+    .hero-slider-section:not(.slider-hero-banner) .slider-arrow {
+        top: 24%;
+    }
+
+    .breadcrumb-strip {
+        padding: 10px 0;
+    }
+    .breadcrumb-list {
+        font-size: 0.74rem !important;
+        gap: 6px;
+        flex-wrap: wrap;
+    }
+    .breadcrumb-item,
+    .breadcrumb-item a,
+    .breadcrumb-separator {
+        font-size: 0.74rem !important;
+    }
+    .slider-hero-banner .slider-viewport {
+        min-height: 260px;
+        height: 260px;
+    }
+    .slider-hero-content {
+        top: 56% !important;
+        padding: 0 40px !important;
+        box-sizing: border-box;
+    }
+    .slider-hero-content .comuna-hero-title {
+        font-size: clamp(1.05rem, 4.5vw, 1.45rem) !important;
+        letter-spacing: 0.03em !important;
+        line-height: 1.25;
+        margin: 0;
+        white-space: normal;
+        word-break: normal;
+    }
+    .slide-floating-card {
+        padding: 20px 18px !important;
+        border-radius: 10px !important;
+        background: #ffffff !important;
+        opacity: 1 !important;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.22) !important;
+    }
 }
